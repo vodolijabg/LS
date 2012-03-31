@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "LavAuto_SQL", "LavAuto_SQL\LavAuto_SQL.ssmssqlproj", "{BA8D3698-79FC-44F9-85FD-C3CC9CD84751}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "TD_Update", "TD_Update\TD_Update.ssmssqlproj", "{B98136F1-631D-4AF4-B273-E426B8B2E0C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA8D3698-79FC-44F9-85FD-C3CC9CD84751}.Default|Default.ActiveCfg = Default
+		{00000000-0000-0000-0000-000000000000}.Default|Default.ActiveCfg = Default
+		{B98136F1-631D-4AF4-B273-E426B8B2E0C3}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

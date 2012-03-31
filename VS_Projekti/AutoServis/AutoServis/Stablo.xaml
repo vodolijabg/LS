@@ -1,0 +1,53 @@
+﻿<PageFunction
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+    x:Class="AutoServis.Stablo"
+    xmlns:local="clr-namespace:AutoServis"
+    x:TypeArguments="sys:String"
+    Title="Stablo" KeepAlive="True">
+    
+   
+    <Grid>
+        <!--<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" Style="{StaticResource Pozadina}">
+                    <TreeView Name="treeViewStablo" TreeViewItem.Expanded="treeViewStablo_Expanded" MouseDoubleClick="treeViewStablo_MouseDoubleClick">
+                    </TreeView>
+                </Border>
+                
+                <GridSplitter Grid.Column="1" Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Center" ></GridSplitter>
+                
+                <Border Grid.Column="2" Style="{StaticResource Pozadina}">
+                <ListBox MouseDoubleClick="listBoxListaProizvoda_MouseDoubleClick" Margin="3,3,3,3" Name="listBoxListaProizvoda" DisplayMemberPath="OpisTabela.Opis">
+                    <ListBox.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Background="Bisque">
+                                        <Hyperlink Click="Hyperlink_Click" Tag="{Binding Path=Name}">
+                                            <TextBlock Text="{Binding Path=Name}" 
+                                               FontWeight="Bold" TextDecorations="Underline"
+                                        Foreground="Black" Background="Bisque"
+                                        Margin="0,0,0,0" Padding="2" />
+                                        </Hyperlink>
+                                    </TextBlock> 
+                                </DataTemplate>
+                            </GroupStyle.HeaderTemplate>
+                        </GroupStyle>
+                    </ListBox.GroupStyle>
+                </ListBox>
+            </Border>
+                    
+            </Grid>
+            
+                
+        <!--</ScrollViewer>-->
+    </Grid>
+</PageFunction>

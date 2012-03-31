@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dil:root xmlns:dil="http://schemas.orm.net/DIL/DIL" xmlns:dcl="http://schemas.orm.net/DIL/DCIL" xmlns:ddt="http://schemas.orm.net/DIL/DILDT" xmlns:dep="http://schemas.orm.net/DIL/DILEP" xmlns:dms="http://schemas.orm.net/DIL/DILMS" xmlns:dml="http://schemas.orm.net/DIL/DMIL" xmlns:ddl="http://schemas.orm.net/DIL/DDIL">
+	<dms:startTransactionStatement isolationLevel="SERIALIZABLE" accessMode="READ WRITE" />
+	<ddl:schemaDefinition schemaName="Test" defaultCharacterSet="UTF8" />
+	<dms:setSchemaStatement>
+		<ddt:characterStringLiteral value="TEST" />
+	</dms:setSchemaStatement>
+	<ddl:tableDefinition name="Ponuda" schema="Test">
+		<ddl:columnDefinition name="ponudaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="poslovniPartnerID">
+			<ddt:exactNumeric type="INTEGER" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="fizickoLiceID">
+			<ddt:exactNumeric type="INTEGER" />
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="Ponuda_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="ponudaID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="PoslovniPartner" schema="Test">
+		<ddl:columnDefinition name="poslovniPartnerID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="naziv">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="PoslovniPartner_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="poslovniPartnerID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="FizickoLice" schema="Test">
+		<ddl:columnDefinition name="fizickoLiceID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="naziv">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="FizickoLice_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="fizickoLiceID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:alterTableStatement name="Ponuda" schema="Test">
+		<ddl:addTableConstraintDefinition name="Ponuda_FK1">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="poslovniPartnerID" />
+				<ddl:referencesSpecification name="PoslovniPartner" onDelete="RESTRICT" onUpdate="RESTRICT" schema="Test">
+					<dep:simpleColumnReference name="poslovniPartnerID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="Ponuda" schema="Test">
+		<ddl:addTableConstraintDefinition name="Ponuda_FK2">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="fizickoLiceID" />
+				<ddl:referencesSpecification name="FizickoLice" onDelete="RESTRICT" onUpdate="RESTRICT" schema="Test">
+					<dep:simpleColumnReference name="fizickoLiceID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<dms:commitStatement />
+</dil:root>

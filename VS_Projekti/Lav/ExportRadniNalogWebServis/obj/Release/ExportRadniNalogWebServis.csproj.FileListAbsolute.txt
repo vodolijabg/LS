@@ -1,0 +1,6 @@
+D:\LavAuto\VS_Projekti\Lav\ExportRadniNalogWebServis\bin\ExportRadniNalogWebServis.dll
+D:\LavAuto\VS_Projekti\Lav\ExportRadniNalogWebServis\bin\ExportRadniNalogWebServis.pdb
+D:\LavAuto\VS_Projekti\Lav\ExportRadniNalogWebServis\obj\Release\ResolveAssemblyReference.cache
+D:\LavAuto\VS_Projekti\Lav\ExportRadniNalogWebServis\obj\Release\ExportRadniNalogWebServis.dll
+D:\LavAuto\VS_Projekti\Lav\ExportRadniNalogWebServis\obj\Release\ExportRadniNalogWebServis.pdb
+D:\LavAuto\VS_Projekti\Lav\ExportRadniNalogWebServis\bin\log4net.dll

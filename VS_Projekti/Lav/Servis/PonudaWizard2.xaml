@@ -1,0 +1,78 @@
+﻿<PageFunction
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+    x:Class="Servis.PonudaWizard2"
+    x:TypeArguments="sys:String"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d"
+    xmlns:local="clr-namespace:Servis"
+    Title="PonudaWizard2" KeepAlive="True" Loaded="PageFunction_Loaded">
+<Grid Name="gridRadniNalog" Background="#FF9CAAC1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*" ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock  Grid.Column="0" Grid.Row="0" Margin="10,30,10,3" VerticalAlignment="Center" >Tip:</TextBlock>
+        <TextBlock  Grid.Column="0" Grid.Row="1" Margin="10,3,10,3" VerticalAlignment="Center" >Napomena:</TextBlock>
+
+
+        <Grid Name="gridTip" Grid.Column="1" Grid.Row="0" Margin="10,30,10,3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBox Margin="0,0,3,0" Grid.Column="0" Grid.Row="0" Name="textBoxTip" IsReadOnly="True" >
+                <!--<TextBox.Tag>
+                    <Binding  Path="TipAutomobilaID" Mode="OneWay" UpdateSourceTrigger="Explicit"></Binding>
+                </TextBox.Tag>-->
+                <!--<TextBox.Text>
+                    <MultiBinding Mode="TwoWay" UpdateSourceTrigger="Explicit">
+                        <MultiBinding.Converter>
+                            <local:ConcatenateThreeStringConverter></local:ConcatenateThreeStringConverter>
+                        </MultiBinding.Converter>
+                        <Binding  Path="TipAutomobila.ModelAutomobila.Proizvodjac.Naziv"></Binding>
+                        <Binding  Path="TipAutomobila.ModelAutomobila.OpisTabela.Opis"></Binding>
+                        <Binding  Path="TipAutomobila.OpisTabela.Opis"></Binding>
+                    </MultiBinding>
+                </TextBox.Text>-->
+            </TextBox>
+
+            <Button Grid.Column="1" Grid.Row="0" Margin="0,0,3,0" Width="23" Name="buttonTip" Click="buttonTip_Click">...</Button>
+
+        </Grid>
+
+        <!--<TextBox Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" Margin="3,3,3,3" MaxLines="2" Name="textBoxNapomena" HorizontalAlignment="Left"  MaxLength="500" TextWrapping="Wrap" AcceptsReturn="False" VerticalScrollBarVisibility="Visible" Width="650" MaxWidth="650">
+            <TextBox.Text>
+                <Binding Path="Napomena" Mode="TwoWay" UpdateSourceTrigger="Explicit">
+                    <Binding.Converter>
+                        <local:PrazanStringToNullConverter></local:PrazanStringToNullConverter>
+                    </Binding.Converter>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>-->
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="10,3,10,3" Name="textBoxNapomena" MaxLines="2" MaxLength="500" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" MaxWidth="300">
+            <Binding Path="Napomena" Mode="TwoWay" UpdateSourceTrigger="Explicit">
+                <Binding.Converter>
+                    <local:PrazanStringToNullConverter></local:PrazanStringToNullConverter>
+                </Binding.Converter>
+            </Binding>
+        </TextBox>
+        <StackPanel HorizontalAlignment="Right" Grid.Column="1" Grid.Row="2" Orientation="Horizontal" Margin="0,30,0,5" VerticalAlignment="Bottom">
+            <Button  Margin="4" MinWidth="60" Name="buttonNazad" Click="buttonNazad_Click">&lt;&lt;Nazad</Button>
+            <Button  Margin="4" MinWidth="60" Name="buttonZavrsi" Click="buttonZavrsi_Click" IsDefault="True" >Završi</Button>
+            <Button  Margin="4" MinWidth="60" Name="buttonOtkazi" Click="buttonOtkazi_Click">Otkaži</Button>
+        </StackPanel>
+
+
+    </Grid>
+</PageFunction>

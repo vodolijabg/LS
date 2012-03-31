@@ -1,0 +1,12 @@
+D:\LavAuto\VS_Projekti\Lav\ImportZaliheServis\bin\Release\ImportZaliheServis.exe.config
+D:\LavAuto\VS_Projekti\Lav\ImportZaliheServis\bin\Release\ImportZaliheServis.exe
+D:\LavAuto\VS_Projekti\Lav\ImportZaliheServis\bin\Release\ImportZaliheServis.pdb
+D:\LavAuto\VS_Projekti\Lav\ImportZaliheServis\bin\Release\DB.dll
+D:\LavAuto\VS_Projekti\Lav\ImportZaliheServis\bin\Release\log4net.dll
+D:\LavAuto\VS_Projekti\Lav\ImportZaliheServis\bin\Release\DB.pdb
+D:\LavAuto\VS_Projekti\Lav\ImportZaliheServis\obj\x86\Release\ResolveAssemblyReference.cache
+D:\LavAuto\VS_Projekti\Lav\ImportZaliheServis\obj\x86\Release\ImportZaliheServis.ProjectInstaller.resources
+D:\LavAuto\VS_Projekti\Lav\ImportZaliheServis\obj\x86\Release\GenerateResource.read.1.tlog
+D:\LavAuto\VS_Projekti\Lav\ImportZaliheServis\obj\x86\Release\GenerateResource.write.1.tlog
+D:\LavAuto\VS_Projekti\Lav\ImportZaliheServis\obj\x86\Release\ImportZaliheServis.exe
+D:\LavAuto\VS_Projekti\Lav\ImportZaliheServis\obj\x86\Release\ImportZaliheServis.pdb

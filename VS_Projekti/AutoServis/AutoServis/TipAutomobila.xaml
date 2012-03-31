@@ -1,0 +1,197 @@
+﻿<PageFunction
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+    x:Class="AutoServis.TipAutomobila"
+    xmlns:local="clr-namespace:AutoServis"
+    x:TypeArguments="sys:Object"
+    Title="TipAutomobila" WindowTitle="Automobili" Loaded="PageFunction_Loaded" KeepAlive="True" RemoveFromJournal="True">
+    
+    <!--<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">-->
+        <Border Style="{StaticResource Pozadina}">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition ></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Grid.Column="0" Grid.Row="0" Margin="10,20,10,5">Proizvođač Automobila</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="1" Margin="10,5,10,10" >Model Automobila</TextBlock>
+                
+                <ComboBox Grid.Column="1" Grid.Row="0" Name="comboBoxProizvodjacAutomobilaLista" DisplayMemberPath="Naziv" Margin="10,20,10,5" SelectionChanged="comboBoxProizvodjacAutomobilaLista_SelectionChanged" >
+                    <ComboBox.ItemContainerStyleSelector>
+                        <local:AlternatingRowStyleSelector AlternateStyle="{StaticResource ObojiSvakiDrugiRed}" />
+                    </ComboBox.ItemContainerStyleSelector>
+                </ComboBox>
+                <ComboBox Grid.Column="1" Grid.Row="1" Name="comboBoxModelAutomobilaLista" Margin="10,5,10,10" TextSearch.TextPath="OpisTabela.Opis" SelectionChanged="comboBoxModelAutomobilaLista_SelectionChanged">
+                    <ComboBox.ItemContainerStyleSelector>
+                        <local:AlternatingRowStyleSelector AlternateStyle="{StaticResource ObojiSvakiDrugiRed}" />
+                    </ComboBox.ItemContainerStyleSelector>
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="500"></ColumnDefinition>
+                                    <ColumnDefinition Width="10"></ColumnDefinition>
+                                    <ColumnDefinition ></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                
+                                <TextBlock  Grid.Column="0" Text="{Binding Path=OpisTabela.Opis}"></TextBlock>
+                                <TextBlock  Grid.Column="2">
+                                <TextBlock.Text>
+                                   <MultiBinding >
+                                        <MultiBinding.Converter>
+                                            <local:ConcatenateDateToStringConverter></local:ConcatenateDateToStringConverter>
+                                        </MultiBinding.Converter>
+                                       <MultiBinding.ConverterParameter>-</MultiBinding.ConverterParameter>
+                                        <Binding Path="ProizvodnjaOd">
+                                            <Binding.Converter>
+                                             <local:IntToDateConverter></local:IntToDateConverter>
+                                            </Binding.Converter>
+                                        </Binding>
+                                        <Binding Path="ProizvodnjaDo">
+                                            <Binding.Converter>
+                                             <local:IntToDateConverter></local:IntToDateConverter>
+                                            </Binding.Converter>
+                                        </Binding>
+                                     </MultiBinding>
+                                </TextBlock.Text>
+                                </TextBlock>
+                            </Grid>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <ListView Name="listViewTipAutomobila"
+                  Grid.Row="2"
+                  Grid.Column="0"  
+                  Grid.ColumnSpan="2" 
+                  Margin="10" 
+                  MouseDoubleClick="listViewTipAutomobila_MouseDoubleClick">
+                    <ListView.ItemContainerStyleSelector>
+                        <local:AlternatingRowStyleSelector AlternateStyle="{StaticResource ObojiSvakiDrugiRed}" />
+                    </ListView.ItemContainerStyleSelector>
+                    <ListView.View>    
+                        <GridView >
+                           <GridView.Columns>
+                                <GridViewColumn >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Name="buttonVoziloDetaljno" Tag="{Binding}" Click="buttonVoziloDetaljno_Click" Margin="0">
+                                                ...
+                                            </Button>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="TD Broj" Width="50">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock >
+                                                <TextBlock.Text>
+                                                    <Binding Path="TipAutomobila_ID" ></Binding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Naziv" Width="250">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock >
+                                                <TextBlock.Text>
+                                                    <Binding Path="OpisTabela.Opis" ></Binding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Proizvodnja Od" Width="100">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock >
+                                                <TextBlock.Text>
+                                                    <Binding Path="ProizvodnjaOd" >
+                                                        <Binding.Converter>
+                                                            <local:IntToDateConverter></local:IntToDateConverter>
+                                                        </Binding.Converter>
+                                                    </Binding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Proizvodnja Do" Width="100">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock >
+                                                <TextBlock.Text>
+                                                    <Binding Path="ProizvodnjaDo" >
+                                                        <Binding.Converter>
+                                                            <local:IntToDateConverter></local:IntToDateConverter>
+                                                        </Binding.Converter>
+                                                    </Binding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="KW" Width="50">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock >
+                                                <TextBlock.Text>
+                                                    <Binding Path="SnagaKWOd" ></Binding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="KS" Width="50">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock >
+                                                <TextBlock.Text>
+                                                    <Binding Path="SnagaKSOd" ></Binding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Ccm" Width="50">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock >
+                                                <TextBlock.Text>
+                                                    <Binding Path="ZapreminaCcm" ></Binding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Konstrukcija" Width="150">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock >
+                                                <TextBlock.Text>
+                                                    <Binding Path="OpisTabelaVrstaKaroserije_Opis.Opis" ></Binding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                
+                <!--<Button Grid.Column="1" Grid.Row="3" Margin="3,3,10,3" Name="buttonOdaberiTipAutomobila" HorizontalAlignment="Right" Click="buttonOdaberiTipAutomobila_Click" Visibility="Collapsed">Odaberi</Button>-->
+            </Grid>
+        </Border>
+    <!--</ScrollViewer>-->
+</PageFunction>

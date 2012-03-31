@@ -1,0 +1,12 @@
+D:\LavAuto\VS_Projekti\Lav\ImportPoslovniPartnerServis\bin\Release\ImportPoslovniPartnerServis.exe.config
+D:\LavAuto\VS_Projekti\Lav\ImportPoslovniPartnerServis\bin\Release\ImportPoslovniPartnerServis.exe
+D:\LavAuto\VS_Projekti\Lav\ImportPoslovniPartnerServis\bin\Release\ImportPoslovniPartnerServis.pdb
+D:\LavAuto\VS_Projekti\Lav\ImportPoslovniPartnerServis\bin\Release\DB.dll
+D:\LavAuto\VS_Projekti\Lav\ImportPoslovniPartnerServis\bin\Release\log4net.dll
+D:\LavAuto\VS_Projekti\Lav\ImportPoslovniPartnerServis\bin\Release\DB.pdb
+D:\LavAuto\VS_Projekti\Lav\ImportPoslovniPartnerServis\obj\x86\Release\ResolveAssemblyReference.cache
+D:\LavAuto\VS_Projekti\Lav\ImportPoslovniPartnerServis\obj\x86\Release\ImportPoslovniPartnerServis.ProjectInstaller.resources
+D:\LavAuto\VS_Projekti\Lav\ImportPoslovniPartnerServis\obj\x86\Release\GenerateResource.read.1.tlog
+D:\LavAuto\VS_Projekti\Lav\ImportPoslovniPartnerServis\obj\x86\Release\GenerateResource.write.1.tlog
+D:\LavAuto\VS_Projekti\Lav\ImportPoslovniPartnerServis\obj\x86\Release\ImportPoslovniPartnerServis.exe
+D:\LavAuto\VS_Projekti\Lav\ImportPoslovniPartnerServis\obj\x86\Release\ImportPoslovniPartnerServis.pdb

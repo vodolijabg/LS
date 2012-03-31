@@ -1,0 +1,162 @@
+﻿<Page x:Class="AutoServis.Pocetna"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:AutoServis"
+    Title="Pocetna" WindowTitle="Pocetna" Loaded="Page_Loaded" KeepAlive="True">
+    <!--<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >-->
+
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" Style="{StaticResource Pozadina}" Border.Background="CadetBlue">
+                <StackPanel Name="stackPanelPodsistem" >
+                <TextBlock Margin="3" Name="textBlockSistem">
+                        <Hyperlink Name="hyperlinkSistem" TextDecorations="None"
+                               MouseEnter="OnMouseEnter"
+                               MouseLeave="OnMouseLeave"
+                               Foreground="WhiteSmoke"
+                               Click="Hyperlink_Click"
+                            >Sistem</Hyperlink>
+                </TextBlock>
+                <TextBlock Margin="3" Name="textBlockSistemskiKatalog">
+                        <Hyperlink Name="hyperlinkSistemskiKatalog" TextDecorations="None"
+                               MouseEnter="OnMouseEnter"
+                               MouseLeave="OnMouseLeave"
+                               Foreground="WhiteSmoke"
+                               Click="Hyperlink_Click"
+                            >Sistemski Katalog</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Margin="3" Name="textBlockKorisnickiKatalog">
+                        <Hyperlink Name="hyperlinkKorisnickiKatalog" TextDecorations="None"
+                               MouseEnter="OnMouseEnter"
+                               MouseLeave="OnMouseLeave"
+                               Foreground="WhiteSmoke"
+                               Click="Hyperlink_Click"
+                            >Korisnički Katalog</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Margin="3" >
+                        <Hyperlink Name="hyperlinkServis" TextDecorations="None"
+                               MouseEnter="OnMouseEnter"
+                               MouseLeave="OnMouseLeave"
+                               Foreground="WhiteSmoke"
+                               Click="Hyperlink_Click"
+                            >Servis</Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+
+            <GridSplitter Grid.Column="1" Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Center" ></GridSplitter>
+
+            <Border Grid.Column="2" Style="{StaticResource Pozadina}" Border.Background="WhiteSmoke">
+                <StackPanel Orientation="Vertical" Name="stackPanelSistemskiKatalog" >
+                <Button Height="50" Background="Transparent" Margin="1" Name="buttonKonfiguracija" Click="buttonKonfiguracija_Click">
+                    <TextBlock FontSize="18" Foreground="Green">
+                            Konfiguracija
+                    </TextBlock>
+                </Button>
+                <Button Height="50" Background="Transparent" Margin="1" Name="buttonMesto" Click="buttonMesto_Click">
+                        <TextBlock FontSize="18" Foreground="Green">
+                            Mesto
+                        </TextBlock>
+                    </Button>
+                    <Button Height="50" Background="Transparent" Margin="1" Name="buttonRadnik" Click="buttonRadnik_Click">
+                        <TextBlock FontSize="18" Foreground="Green">
+                            Radnik
+                        </TextBlock>
+                    </Button>
+                    <Button Height="50" Background="Transparent" Margin="1" Name="buttonRadnoMesto" Click="buttonRadnoMesto_Click">
+                        <TextBlock FontSize="18" Foreground="Green">
+                            Radno Mesto
+                        </TextBlock>
+                    </Button>
+                    <Button Height="50" Background="Transparent" Margin="1" Name="buttonNacinZahtevaZaPonudu" Click="buttonNacinZahtevaZaPonudu_Click">
+                        <TextBlock FontSize="18" Foreground="Green">
+                            Način Zahteva Za Ponudu
+                        </TextBlock>
+                    </Button>
+                    <Button Height="50" Background="Transparent" Margin="1" Name="buttonRadniNalogStatus" Click="buttonRadniNalogStatus_Click">
+                        <TextBlock FontSize="18" Foreground="Green">
+                            Radni Nalog Status
+                        </TextBlock>
+                    </Button>
+                    <Button Height="50" Background="Transparent" Margin="1" Name="buttonNosilacGrupe" Click="buttonNosilacGrupe_Click">
+                        <TextBlock FontSize="18" Foreground="Green">
+                            Nosilac Grupe
+                        </TextBlock>
+                    </Button>
+                    <Button Height="50" Background="Transparent" Margin="1" Name="buttonBod" Click="buttonBod_Click">
+                        <TextBlock FontSize="18" Foreground="Green">
+                            Bod
+                        </TextBlock>
+                    </Button>
+                    
+                    <Button Height="50" Background="Transparent" Margin="1" Name="buttonNivo" Click="buttonNivo_Click">
+                        <TextBlock FontSize="18" Foreground="Green">
+                                Nivo
+                        </TextBlock>
+                    </Button>
+                    <Button Height="50" Background="Transparent" Margin="1" Name="buttonVrstaUsluge" Click="buttonVrstaUsluge_Click">
+                        <TextBlock FontSize="18" Foreground="Green">
+                                Vrsta Usluge
+                        </TextBlock>
+                    </Button>
+                    
+                    <Button Height="50" Background="Transparent" Margin="1" Name="buttonUsluga" Click="buttonUsluga_Click">
+                        <TextBlock FontSize="18" Foreground="Green">
+                            Usluga
+                        </TextBlock>
+                    </Button>
+
+                    <Button Height="50" Background="Transparent" Margin="1" Name="buttonFizickoLice" Click="buttonFizickoLice_Click">
+                        <TextBlock FontSize="18" Foreground="Green">
+                            Fizičko Lice
+                        </TextBlock>
+                    </Button>
+                    <Button Height="50" Background="Transparent" Margin="1" Name="buttonPoslovniPartner" Click="buttonPoslovniPartner_Click">
+                        <TextBlock FontSize="18" Foreground="Green">
+                            Poslovni Partner
+                        </TextBlock>
+                    </Button>
+                    
+                    <Button Height="50" Background="Transparent" Margin="1" Name="buttonTipAutomobila" Click="buttonTipAutomobila_Click">
+                        <TextBlock FontSize="18" Foreground="Green">
+                            Automobil
+                        </TextBlock>
+                    </Button>
+                    <Button Height="50" Background="Transparent" Margin="1" Name="buttonArtikal" Click="buttonArtikal_Click">
+                        <TextBlock FontSize="18" Foreground="Green">
+                                Artikal
+                        </TextBlock>
+                    </Button>
+                    <Button Height="50" Background="Transparent" Margin="1" Name="buttonServisnaKnjizica" Click="buttonServisnaKnjizica_Click">
+                        <TextBlock FontSize="18" Foreground="Green">
+                                Servisna Knjižica
+                        </TextBlock>
+                    </Button>
+                <Button Height="50" Background="Transparent" Margin="1" Name="buttonPonuda" Click="buttonPonuda_Click">
+                    <TextBlock FontSize="18" Foreground="Green">
+                                Ponuda
+                    </TextBlock>
+                </Button>
+                   
+                <Button Height="50" Background="Transparent" Margin="1" Name="buttonRadniNalog" Click="buttonRadniNalog_Click">
+                    <TextBlock FontSize="18" Foreground="Green">
+                                Radni Nalog
+                    </TextBlock>
+                </Button>
+                    
+                <Button Height="50" Background="Transparent" Margin="1" Name="buttonRadniRaspored" Click="buttonRadniRaspored_Click" Visibility="Collapsed">
+                    <TextBlock FontSize="18" Foreground="Green">
+                                Radni Raspored
+                    </TextBlock>
+                </Button>
+            </StackPanel>
+            </Border>
+        </Grid>
+
+    <!--</ScrollViewer>-->
+</Page>

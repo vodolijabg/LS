@@ -1,0 +1,43 @@
+﻿CREATE SCHEMA Test
+GO
+
+GO
+
+
+CREATE TABLE Test.Ponuda
+(
+	ponudaID INTEGER IDENTITY (1, 1) NOT NULL,
+	poslovniPartnerID INTEGER,
+	fizickoLiceID INTEGER,
+	CONSTRAINT Ponuda_PK PRIMARY KEY(ponudaID)
+)
+GO
+
+
+CREATE TABLE Test.PoslovniPartner
+(
+	poslovniPartnerID INTEGER IDENTITY (1, 1) NOT NULL,
+	naziv NATIONAL CHARACTER VARYING(50) NOT NULL,
+	CONSTRAINT PoslovniPartner_PK PRIMARY KEY(poslovniPartnerID)
+)
+GO
+
+
+CREATE TABLE Test.FizickoLice
+(
+	fizickoLiceID INTEGER IDENTITY (1, 1) NOT NULL,
+	naziv NATIONAL CHARACTER VARYING(50) NOT NULL,
+	CONSTRAINT FizickoLice_PK PRIMARY KEY(fizickoLiceID)
+)
+GO
+
+
+ALTER TABLE Test.Ponuda ADD CONSTRAINT Ponuda_FK1 FOREIGN KEY (poslovniPartnerID) REFERENCES Test.PoslovniPartner (poslovniPartnerID) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+
+
+ALTER TABLE Test.Ponuda ADD CONSTRAINT Ponuda_FK2 FOREIGN KEY (fizickoLiceID) REFERENCES Test.FizickoLice (fizickoLiceID) ON DELETE NO ACTION ON UPDATE NO ACTION
+GO
+
+
+GO

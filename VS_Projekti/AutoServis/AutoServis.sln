@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoServis", "AutoServis\AutoServis.csproj", "{3C732ABC-85EB-48D3-A90D-B5AA9A628646}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Baza", "Baza\Baza.csproj", "{BEDFC0F3-13B7-4B8F-AE24-8E112A09B992}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C732ABC-85EB-48D3-A90D-B5AA9A628646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C732ABC-85EB-48D3-A90D-B5AA9A628646}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C732ABC-85EB-48D3-A90D-B5AA9A628646}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C732ABC-85EB-48D3-A90D-B5AA9A628646}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEDFC0F3-13B7-4B8F-AE24-8E112A09B992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEDFC0F3-13B7-4B8F-AE24-8E112A09B992}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEDFC0F3-13B7-4B8F-AE24-8E112A09B992}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEDFC0F3-13B7-4B8F-AE24-8E112A09B992}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

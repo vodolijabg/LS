@@ -1,0 +1,847 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 27, 36.5" name="LavAuto">
+  <DataContextMoniker Name="/LavAutoDataContext" />
+  <nestedChildShapes>
+    <classShape Id="623e7183-cc43-4893-856a-211c9849bcb1" absoluteBounds="0.625, 10.625, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/LavAutoDataContext/Radnik" />
+      <nestedChildShapes>
+        <elementListCompartment Id="138b49b4-2bc9-4021-9031-b41b8674a604" absoluteBounds="0.64000000000000057, 11.085, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="073b7a0a-0b6d-43d6-9a31-9d870eed46e6" absoluteBounds="0.625, 9.125, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/LavAutoDataContext/VezaRadnikKorisnickiNalog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6cc68ae9-a54e-4b15-b41c-860277811d6d" absoluteBounds="0.64000000000000012, 9.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.625 : 10.625); (1.625 : 10.3189925130208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Radnik/Radnik_VezaRadnikKorisnickiNalog" />
+      <nodes>
+        <classShapeMoniker Id="623e7183-cc43-4893-856a-211c9849bcb1" />
+        <classShapeMoniker Id="073b7a0a-0b6d-43d6-9a31-9d870eed46e6" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="d5323b93-3fed-4b3f-ae4a-4cd15fccfade" absoluteBounds="0.625, 14.375, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/LavAutoDataContext/Mesto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0a44cc98-806a-48b0-82a0-0d9fa210e499" absoluteBounds="0.63999999999999968, 14.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.625 : 14.375); (1.625 : 13.9343082682292)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Mesto/Mesto_Radnik" />
+      <nodes>
+        <classShapeMoniker Id="d5323b93-3fed-4b3f-ae4a-4cd15fccfade" />
+        <classShapeMoniker Id="623e7183-cc43-4893-856a-211c9849bcb1" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="eb5a5233-f504-4c8b-98ee-d0e157818b5e" absoluteBounds="0.625, 16.625, 2, 2.5401025390625">
+      <DataClassMoniker Name="/LavAutoDataContext/FizickoLice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5629bcff-c113-4de0-9a4e-d5fd6fbbe4d9" absoluteBounds="0.63999999999999968, 17.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.625 : 16.1458968098958); (1.625 : 16.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Mesto/Mesto_FizickoLice" />
+      <nodes>
+        <classShapeMoniker Id="d5323b93-3fed-4b3f-ae4a-4cd15fccfade" />
+        <classShapeMoniker Id="eb5a5233-f504-4c8b-98ee-d0e157818b5e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="a3c9f8ee-c8dd-4499-bfe6-e034660a009a" absoluteBounds="3.375, 15.25, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/LavAutoDataContext/PoslovniPartner" />
+      <nestedChildShapes>
+        <elementListCompartment Id="defb53f1-f6c9-47cb-b47d-893cb2eb43c3" absoluteBounds="3.3899999999999997, 15.71, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.625 : 15.6979484049479); (3.04166666666667 : 15.6979484049479 : JumpStart); (3.20833333333333 : 15.6979484049479 : JumpEnd); (3.375 : 15.6979484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Mesto/Mesto_PoslovniPartner" />
+      <nodes>
+        <classShapeMoniker Id="d5323b93-3fed-4b3f-ae4a-4cd15fccfade" />
+        <classShapeMoniker Id="a3c9f8ee-c8dd-4499-bfe6-e034660a009a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="01e76ca0-90e5-4c13-8147-177c2c1ed473" absoluteBounds="3.375, 11.75, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/LavAutoDataContext/KorisnikPrograma" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3169bfde-5cef-4b76-a938-edbd1e2bc4ce" absoluteBounds="3.39, 12.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.625 : 14.3763612283153); (3 : 14.0013612283153); (3 : 15.0512428651843); (3.06607443490112 : 14.9851684302832 : JumpStart); (3.18392556509888 : 14.8673173000854 : JumpEnd); (3.37653746153846 : 14.6747054036458)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Mesto/Mesto_KorisnikPrograma" />
+      <nodes>
+        <classShapeMoniker Id="d5323b93-3fed-4b3f-ae4a-4cd15fccfade" />
+        <classShapeMoniker Id="01e76ca0-90e5-4c13-8147-177c2c1ed473" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b9c0a74f-d627-43ea-aafb-017d88f4bab2" absoluteBounds="6.375, 18.625, 2, 3.6939111328124996">
+      <DataClassMoniker Name="/LavAutoDataContext/ServisnaKnjizica" />
+      <nestedChildShapes>
+        <elementListCompartment Id="110be549-c5bc-4259-9fc7-6d20a3674c5c" absoluteBounds="6.39, 19.085, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.625 : 19.1651025390625); (1.625 : 20.7420073359375); (3.04166666666667 : 20.7420073359375 : JumpStart); (3.20833333333333 : 20.7420073359375 : JumpEnd); (5.66666666666667 : 20.7420073359375 : JumpStart); (5.83333333333333 : 20.7420073359375 : JumpEnd); (5.94791666666667 : 20.7420073359375 : JumpStart); (6.11458333333333 : 20.7420073359375 : JumpEnd); (6.375 : 20.7420073359375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/FizickoLice/FizickoLice_ServisnaKnjizica" />
+      <nodes>
+        <classShapeMoniker Id="eb5a5233-f504-4c8b-98ee-d0e157818b5e" />
+        <classShapeMoniker Id="b9c0a74f-d627-43ea-aafb-017d88f4bab2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.375 : 18.8806062825521); (5.66666666666667 : 18.8806062825521 : JumpStart); (5.83333333333333 : 18.8806062825521 : JumpEnd); (5.94791666666667 : 18.8806062825521 : JumpStart); (6.11458333333333 : 18.8806062825521 : JumpEnd); (6.375 : 18.8806062825521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/PoslovniPartner/PoslovniPartner_ServisnaKnjizica" />
+      <nodes>
+        <classShapeMoniker Id="a3c9f8ee-c8dd-4499-bfe6-e034660a009a" />
+        <classShapeMoniker Id="b9c0a74f-d627-43ea-aafb-017d88f4bab2" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0b802640-e4b7-4338-a1b4-7db2267ef7d6" absoluteBounds="10, 14.125, 2.25, 5.8092268880208326">
+      <DataClassMoniker Name="/LavAutoDataContext/TipAutomobila" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5156c34b-02d1-4b5b-9c95-7355a0bcc919" absoluteBounds="10.015, 14.585, 2.2199999999999998, 5.249226888020833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(10 : 19.51361328125); (9.77083333333333 : 19.51361328125 : JumpStart); (9.60416666666667 : 19.51361328125 : JumpEnd); (9.52083333333333 : 19.51361328125 : JumpStart); (9.35416666666667 : 19.51361328125 : JumpEnd); (8.70833333333333 : 19.51361328125 : JumpStart); (8.54166666666667 : 19.51361328125 : JumpEnd); (8.375 : 19.51361328125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/TipAutomobila/TipAutomobila_ServisnaKnjizica" />
+      <nodes>
+        <classShapeMoniker Id="0b802640-e4b7-4338-a1b4-7db2267ef7d6" />
+        <classShapeMoniker Id="b9c0a74f-d627-43ea-aafb-017d88f4bab2" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f975cf7f-208f-4cc7-98b8-d2d6dfbd7770" absoluteBounds="10.25, 11.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/LavAutoDataContext/ModelAutomobila" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a9852c93-9344-4bd3-b930-628400351040" absoluteBounds="10.265, 12.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.25 : 13.5208968098958); (11.25 : 14.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/ModelAutomobila/ModelAutomobila_TipAutomobila" />
+      <nodes>
+        <classShapeMoniker Id="f975cf7f-208f-4cc7-98b8-d2d6dfbd7770" />
+        <classShapeMoniker Id="0b802640-e4b7-4338-a1b4-7db2267ef7d6" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1026c551-e7da-4823-9a9f-a7034a2f534f" absoluteBounds="10.25, 9.875, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/LavAutoDataContext/Proizvodjac" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bd2dafbd-8cc7-4821-9894-9c6a8ed1edd1" absoluteBounds="10.265, 10.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.25 : 11.0689925130208); (11.25 : 11.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Proizvodjac/Proizvodjac_ModelAutomobila" />
+      <nodes>
+        <classShapeMoniker Id="1026c551-e7da-4823-9a9f-a7034a2f534f" />
+        <classShapeMoniker Id="f975cf7f-208f-4cc7-98b8-d2d6dfbd7770" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f0b28945-60b9-4b98-85f5-88ef20176121" absoluteBounds="12.75, 20.375, 2, 1.9631982421875">
+      <DataClassMoniker Name="/LavAutoDataContext/Artikal" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bcfa6834-8bf6-4a71-8edb-900e7b411009" absoluteBounds="12.765, 20.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(12.25 : 10.4719962565104); (12.625 : 10.4719962565104); (12.625 : 20); (13.249998 : 20); (13.249998 : 20.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Proizvodjac/Proizvodjac_Artikal" />
+      <nodes>
+        <classShapeMoniker Id="1026c551-e7da-4823-9a9f-a7034a2f534f" />
+        <classShapeMoniker Id="f0b28945-60b9-4b98-85f5-88ef20176121" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="36b87bca-abaa-4985-b9ef-a888233a7b68" absoluteBounds="15.5, 14.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/LavAutoDataContext/Stablo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3bd6f161-10a0-44a7-b11c-07f971ba4c3a" absoluteBounds="15.515, 15.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(16.2086362792969 : 16.8381982421875); (16.2086362792969 : 17.0881982421875); (16.8052381835938 : 17.0881982421875); (16.8052381835938 : 16.8381982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Stablo/Stablo_Stablo" />
+      <nodes>
+        <classShapeMoniker Id="36b87bca-abaa-4985-b9ef-a888233a7b68" />
+        <classShapeMoniker Id="36b87bca-abaa-4985-b9ef-a888233a7b68" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="fdadabc7-1502-4778-b1ad-c9ea3fc542e4" absoluteBounds="15.5, 17.625, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/LavAutoDataContext/VezaArtikalStablo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="15e2b737-09b5-4454-8c67-8f2ef45a8559" absoluteBounds="15.515, 18.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(12.78125 : 20.375); (12.78125 : 18.03125); (15.5 : 18.03125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Artikal/Artikal_VezaArtikalStablo" />
+      <nodes>
+        <classShapeMoniker Id="f0b28945-60b9-4b98-85f5-88ef20176121" />
+        <classShapeMoniker Id="fdadabc7-1502-4778-b1ad-c9ea3fc542e4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(15.7918181396484 : 16.8381982421875); (15.7918181396484 : 17.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Stablo/Stablo_VezaArtikalStablo" />
+      <nodes>
+        <classShapeMoniker Id="36b87bca-abaa-4985-b9ef-a888233a7b68" />
+        <classShapeMoniker Id="fdadabc7-1502-4778-b1ad-c9ea3fc542e4" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ad28588b-bea7-46b5-8c21-58f9112b6223" absoluteBounds="18.25, 17, 2.125, 1.7708968098958331">
+      <DataClassMoniker Name="/LavAutoDataContext/VezaArtikalKriterijum" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ea0e6c06-48b3-44bf-a7c5-6c1831f258fb" absoluteBounds="18.265, 17.46, 2.0949999999999998, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(14.75 : 20.40625); (19.8437525 : 20.40625); (19.8437525 : 18.7708968098958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Artikal/Artikal_VezaArtikalKriterijum" />
+      <nodes>
+        <classShapeMoniker Id="f0b28945-60b9-4b98-85f5-88ef20176121" />
+        <classShapeMoniker Id="ad28588b-bea7-46b5-8c21-58f9112b6223" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="a108104e-bd89-4fc4-aa78-fd9587a3a9df" absoluteBounds="18.125, 14.875, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/LavAutoDataContext/Kriterijum" />
+      <nestedChildShapes>
+        <elementListCompartment Id="65339c64-2945-4dc1-8dc9-591a77891a77" absoluteBounds="18.14, 15.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(18.7499975 : 16.0689925130208); (18.7499975 : 17)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Kriterijum/Kriterijum_VezaArtikalKriterijum" />
+      <nodes>
+        <classShapeMoniker Id="a108104e-bd89-4fc4-aa78-fd9587a3a9df" />
+        <classShapeMoniker Id="ad28588b-bea7-46b5-8c21-58f9112b6223" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f5730363-33c3-40d0-92f3-bcdda097a3fb" absoluteBounds="13.5, 7.125, 3.25, 7.3476383463541657">
+      <DataClassMoniker Name="/LavAutoDataContext/Motor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="10f6c103-b9e0-46ad-b910-283625aff136" absoluteBounds="13.515, 7.5850000000000009, 3.2199999999999998, 6.7876383463541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(12.25 : 10.1109981282552); (13.5 : 10.1109981282552)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Proizvodjac/Proizvodjac_Motor" />
+      <nodes>
+        <classShapeMoniker Id="1026c551-e7da-4823-9a9f-a7034a2f534f" />
+        <classShapeMoniker Id="f5730363-33c3-40d0-92f3-bcdda097a3fb" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="5215406f-aed7-4d11-b5b0-0580e487c6a7" absoluteBounds="10.375, 7.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LavAutoDataContext/VezaTipAutomobilaMotor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b0716fbc-00c3-4641-bf33-d11fa0357cf7" absoluteBounds="10.39, 7.9600000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(13.5 : 8.28929768880208); (12.375 : 8.28929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Motor/Motor_VezaTipAutomobilaMotor" />
+      <nodes>
+        <classShapeMoniker Id="f5730363-33c3-40d0-92f3-bcdda097a3fb" />
+        <classShapeMoniker Id="5215406f-aed7-4d11-b5b0-0580e487c6a7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.09375 : 14.125); (10.09375 : 8.28929768880208); (10.375 : 8.28929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/TipAutomobila/TipAutomobila_VezaTipAutomobilaMotor" />
+      <nodes>
+        <classShapeMoniker Id="0b802640-e4b7-4338-a1b4-7db2267ef7d6" />
+        <classShapeMoniker Id="5215406f-aed7-4d11-b5b0-0580e487c6a7" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b81b6306-c8f4-4433-8d8e-5bdff1fd32e6" absoluteBounds="10.125, 20.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LavAutoDataContext/PoreskaStopa" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0d029eab-006e-4539-9c14-6cd260027118" absoluteBounds="10.14, 21.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(12.125 : 21.4431469726563); (12.75 : 21.4431469726563)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/PoreskaStopa/PoreskaStopa_Artikal" />
+      <nodes>
+        <classShapeMoniker Id="b81b6306-c8f4-4433-8d8e-5bdff1fd32e6" />
+        <classShapeMoniker Id="f0b28945-60b9-4b98-85f5-88ef20176121" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="128734d7-b3c5-4f1b-801c-235a6623a3fd" absoluteBounds="12.875, 18.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/LavAutoDataContext/Ugradnja" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d12fe8b0-2c11-4ce9-8815-fecb23a52b47" absoluteBounds="12.89, 18.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(13.8125 : 20.375); (13.8125 : 19.6939925130208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Artikal/Artikal_Ugradnja" />
+      <nodes>
+        <classShapeMoniker Id="f0b28945-60b9-4b98-85f5-88ef20176121" />
+        <classShapeMoniker Id="128734d7-b3c5-4f1b-801c-235a6623a3fd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(12.25 : 19.0969962565104); (12.4166666666667 : 19.0969962565104 : JumpStart); (12.8645833333333 : 19.0969962565104 : JumpEnd); (12.875 : 19.0969962565104)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/TipAutomobila/TipAutomobila_Ugradnja" />
+      <nodes>
+        <classShapeMoniker Id="0b802640-e4b7-4338-a1b4-7db2267ef7d6" />
+        <classShapeMoniker Id="128734d7-b3c5-4f1b-801c-235a6623a3fd" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="dc1d04a9-1130-4d35-96a4-c0ba93439986" absoluteBounds="12.875, 15.625, 2.375, 1.9631982421875">
+      <DataClassMoniker Name="/LavAutoDataContext/VezaUgradnjaKriterijum" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4a680461-f49f-4d53-b8b3-836e8ced835c" absoluteBounds="12.89, 16.085, 2.3449999999999998, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(18.15625 : 16.0689925130208); (18.15625 : 16.9190991210938); (15.25 : 16.9190991210938)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Kriterijum/Kriterijum_VezaUgradnjaKriterijum" />
+      <nodes>
+        <classShapeMoniker Id="a108104e-bd89-4fc4-aa78-fd9587a3a9df" />
+        <classShapeMoniker Id="dc1d04a9-1130-4d35-96a4-c0ba93439986" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.875 : 18.5); (13.875 : 17.5881982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Ugradnja/Ugradnja_VezaUgradnjaKriterijum" />
+      <nodes>
+        <classShapeMoniker Id="128734d7-b3c5-4f1b-801c-235a6623a3fd" />
+        <classShapeMoniker Id="dc1d04a9-1130-4d35-96a4-c0ba93439986" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e875220e-1afb-49b4-9872-efaad5c53dc9" absoluteBounds="20.375, 20.75, 2.25, 1.1939925130208333">
+      <DataClassMoniker Name="/LavAutoDataContext/VrstaBrojaZaPretragu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9af7e8d2-1e0e-4731-bccc-4a28849f4b5b" absoluteBounds="20.39, 21.21, 2.2199999999999998, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b7a04204-9a40-4bd8-8b00-249218ca76b5" absoluteBounds="16.75, 20.5, 2.375, 1.9631982421875">
+      <DataClassMoniker Name="/LavAutoDataContext/VezaArtikalBrojZaPretragu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3c661f39-ea32-41ee-a71d-56e7fc1a479f" absoluteBounds="16.765, 20.96, 2.3449999999999998, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(14.75 : 21.1737003408203); (14.9166666666667 : 21.1737003408203 : JumpStart); (15.0833333333333 : 21.1737003408203 : JumpEnd); (16.75 : 21.1737003408203)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Artikal/Artikal_VezaArtikalBrojZaPretragu" />
+      <nodes>
+        <classShapeMoniker Id="f0b28945-60b9-4b98-85f5-88ef20176121" />
+        <classShapeMoniker Id="b7a04204-9a40-4bd8-8b00-249218ca76b5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.781252 : 11.0689925130208); (11.781252 : 11.5); (12.5 : 11.5); (12.5 : 20.125); (13.1666646666667 : 20.125 : JumpStart); (13.3333313333333 : 20.125 : JumpEnd); (13.7291666666667 : 20.125 : JumpStart); (13.8958333333333 : 20.125 : JumpEnd); (15 : 20.125); (15 : 21.8497012915039); (16.75 : 21.8497012915039)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Proizvodjac/Proizvodjac_VezaArtikalBrojZaPretragu" />
+      <nodes>
+        <classShapeMoniker Id="1026c551-e7da-4823-9a9f-a7034a2f534f" />
+        <classShapeMoniker Id="b7a04204-9a40-4bd8-8b00-249218ca76b5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(20.375 : 21.3469962565104); (19.125 : 21.3469962565104)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/VrstaBrojaZaPretragu/VrstaBrojaZaPretragu_VezaArtikalBrojZaPretragu" />
+      <nodes>
+        <classShapeMoniker Id="e875220e-1afb-49b4-9872-efaad5c53dc9" />
+        <classShapeMoniker Id="b7a04204-9a40-4bd8-8b00-249218ca76b5" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b14f9571-59e4-4fd7-a6ef-833b1acd3259" absoluteBounds="6.5, 15.375, 2.375, 2.1554996744791666">
+      <DataClassMoniker Name="/LavAutoDataContext/VezaArtikalDobavljac" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d307c5f0-56c1-4a11-86c5-f87800d3e38a" absoluteBounds="6.515, 15.835, 2.3449999999999998, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.375 : 16.4527498372396); (5.66666666666667 : 16.4527498372396 : JumpStart); (5.83333333333333 : 16.4527498372396 : JumpEnd); (5.94791666666667 : 16.4527498372396 : JumpStart); (6.11458333333333 : 16.4527498372396 : JumpEnd); (6.5 : 16.4527498372396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/PoslovniPartner/PoslovniPartner_VezaArtikalDobavljac" />
+      <nodes>
+        <classShapeMoniker Id="a3c9f8ee-c8dd-4499-bfe6-e034660a009a" />
+        <classShapeMoniker Id="b14f9571-59e4-4fd7-a6ef-833b1acd3259" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(12.75 : 20.8778214863281); (12.375 : 20.8778214863281); (12.375 : 20.5); (9.77083333333333 : 20.5 : JumpStart); (9.60416666666667 : 20.5 : JumpEnd); (9.52083333333333 : 20.5 : JumpStart); (9.35416666666667 : 20.5 : JumpEnd); (8.625 : 20.5); (8.625 : 18.375); (7.6875 : 18.375); (7.6875 : 17.5304996744792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Artikal/Artikal_VezaArtikalDobavljac" />
+      <nodes>
+        <classShapeMoniker Id="f0b28945-60b9-4b98-85f5-88ef20176121" />
+        <classShapeMoniker Id="b14f9571-59e4-4fd7-a6ef-833b1acd3259" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.375 : 13.2123527018229); (5.94791666666667 : 13.2123527018229 : JumpStart); (6.11458333333333 : 13.2123527018229 : JumpEnd); (7.68884112027433 : 13.2123527018229); (7.68884112027433 : 15.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/KorisnikPrograma/KorisnikPrograma_VezaArtikalDobavljac" />
+      <nodes>
+        <classShapeMoniker Id="01e76ca0-90e5-4c13-8147-177c2c1ed473" />
+        <classShapeMoniker Id="b14f9571-59e4-4fd7-a6ef-833b1acd3259" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="fd02ec9d-0cd8-43cd-ac68-eeedc5193cd2" absoluteBounds="17.75, 13, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/LavAutoDataContext/TipCvora" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4dab157e-88e5-4003-b27c-e1f52ef8f691" absoluteBounds="17.765, 13.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(17.75 : 14.1939925130208); (17.5 : 14.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/TipCvora/TipCvora_Stablo" />
+      <nodes>
+        <classShapeMoniker Id="fd02ec9d-0cd8-43cd-ac68-eeedc5193cd2" />
+        <classShapeMoniker Id="36b87bca-abaa-4985-b9ef-a888233a7b68" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" absoluteBounds="22.625, 16.375, 4.125, 1.1939925130208333">
+      <DataClassMoniker Name="/LavAutoDataContext/OpisTabela" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1a46690d-2cec-484d-ac8c-bcacc21ea75c" absoluteBounds="22.64, 16.835, 4.0950000000000006, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1073931a-db1c-4d2c-a51f-44efa5c89690" absoluteBounds="6.5, 22.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/LavAutoDataContext/Zaglavlje" />
+      <nestedChildShapes>
+        <elementListCompartment Id="890e996f-79f4-4337-a442-f116356c08e8" absoluteBounds="6.515, 23.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.4375 : 22.3189111328125); (7.4375 : 22.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/ServisnaKnjizica/ServisnaKnjizica_Zaglavlje" />
+      <nodes>
+        <classShapeMoniker Id="b9c0a74f-d627-43ea-aafb-017d88f4bab2" />
+        <classShapeMoniker Id="1073931a-db1c-4d2c-a51f-44efa5c89690" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.375 : 14.6747054036458); (5.75 : 15.0497054036458); (5.75 : 23.8565991210938); (5.94791666666667 : 23.8565991210938 : JumpStart); (6.11458333333333 : 23.8565991210938 : JumpEnd); (6.5 : 23.8565991210938)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/KorisnikPrograma/KorisnikPrograma_Zaglavlje" />
+      <nodes>
+        <classShapeMoniker Id="01e76ca0-90e5-4c13-8147-177c2c1ed473" />
+        <classShapeMoniker Id="1073931a-db1c-4d2c-a51f-44efa5c89690" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="670feb9a-d253-4a10-af1d-756f91048499" absoluteBounds="4.5, 25.5, 2.5, 3.5016097005208326">
+      <DataClassMoniker Name="/LavAutoDataContext/Ponuda" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e7036e46-089c-4c06-9834-f7d30c313350" absoluteBounds="4.515, 25.96, 2.4699999999999998, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.625 : 11.45312775); (6.03125 : 11.45312775); (6.03125 : 25.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Radnik/Radnik_Ponuda" />
+      <nodes>
+        <classShapeMoniker Id="623e7183-cc43-4893-856a-211c9849bcb1" />
+        <classShapeMoniker Id="670feb9a-d253-4a10-af1d-756f91048499" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.75 : 24.8381982421875); (6.75 : 25.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Zaglavlje/Zaglavlje_Ponuda" />
+      <nodes>
+        <classShapeMoniker Id="1073931a-db1c-4d2c-a51f-44efa5c89690" />
+        <classShapeMoniker Id="670feb9a-d253-4a10-af1d-756f91048499" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0bf9ee5d-f691-4e83-8bc4-757d1696673a" absoluteBounds="8.25, 25.5, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/LavAutoDataContext/RadniNalog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9b9357f8-6571-44a1-bc16-422b670bb4b8" absoluteBounds="8.265, 25.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.625 : 11.1562505); (9.4375 : 11.1562505); (9.4375 : 25.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Radnik/Radnik_RadniNalog" />
+      <nodes>
+        <classShapeMoniker Id="623e7183-cc43-4893-856a-211c9849bcb1" />
+        <classShapeMoniker Id="0bf9ee5d-f691-4e83-8bc4-757d1696673a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 23.8565991210938); (8.937498 : 23.8565991210938); (8.937498 : 25.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Zaglavlje/Zaglavlje_RadniNalog" />
+      <nodes>
+        <classShapeMoniker Id="1073931a-db1c-4d2c-a51f-44efa5c89690" />
+        <classShapeMoniker Id="0bf9ee5d-f691-4e83-8bc4-757d1696673a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="8334eb44-c092-448d-8d94-4a2867c5eaf9" absoluteBounds="8.375, 29.75, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/LavAutoDataContext/StavkaUsluga" />
+      <nestedChildShapes>
+        <elementListCompartment Id="538b58b3-1c95-479d-bca0-1a2a565f12c0" absoluteBounds="8.39, 30.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.10937625 : 22.1362939453125); (11.10937625 : 32.2300032552083); (10.8645808333333 : 32.2300032552083 : JumpStart); (10.4010416666667 : 32.2300032552083 : JumpEnd); (10.375 : 32.2300032552083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LavAutoDataContext/PoreskaStopa/PoreskaStopa_StavkaUsluga" />
+      <nodes>
+        <classShapeMoniker Id="b81b6306-c8f4-4433-8d8e-5bdff1fd32e6" />
+        <classShapeMoniker Id="8334eb44-c092-448d-8d94-4a2867c5eaf9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.3125 : 28.4247054036458); (9.3125 : 29.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/RadniNalog/RadniNalog_StavkaUsluga" />
+      <nodes>
+        <classShapeMoniker Id="0bf9ee5d-f691-4e83-8bc4-757d1696673a" />
+        <classShapeMoniker Id="8334eb44-c092-448d-8d94-4a2867c5eaf9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7 : 28.7444075520833); (9.22916666666667 : 28.7444075520833 : JumpStart); (9.39583333333333 : 28.7444075520833 : JumpEnd); (10.34375 : 28.7444075520833); (10.34375 : 29.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Ponuda/Ponuda_StavkaUsluga" />
+      <nodes>
+        <classShapeMoniker Id="670feb9a-d253-4a10-af1d-756f91048499" />
+        <classShapeMoniker Id="8334eb44-c092-448d-8d94-4a2867c5eaf9" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="732a6394-c7a4-457e-b243-a460758cf0ec" absoluteBounds="8.25, 33.25, 2.375, 2.5401025390625">
+      <DataClassMoniker Name="/LavAutoDataContext/StavkaArtikal" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1478d66d-8fd7-45ea-a575-27bc77fd2e34" absoluteBounds="8.265, 33.71, 2.3449999999999998, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.5 : 17.0228767558594); (6.25 : 17.0228767558594); (6.25 : 17.7804996744792); (7.60416666666667 : 17.7804996744792 : JumpStart); (7.77083333333333 : 17.7804996744792 : JumpEnd); (9.35416666666667 : 17.7804996744792 : JumpStart); (9.52083333333333 : 17.7804996744792 : JumpEnd); (9.6875 : 17.7804996744792); (9.6875 : 25.25); (10.4010416666667 : 25.25 : JumpStart); (10.5677083333333 : 25.25 : JumpEnd); (10.625 : 25.25); (10.625 : 32.875); (10.5677083333333 : 32.875 : JumpStart); (10.4010416666667 : 32.875 : JumpEnd); (9.4375 : 32.875); (9.4375 : 33.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/VezaArtikalDobavljac/VezaArtikalDobavljac_StavkaArtikal" />
+      <nodes>
+        <classShapeMoniker Id="b14f9571-59e4-4fd7-a6ef-833b1acd3259" />
+        <classShapeMoniker Id="732a6394-c7a4-457e-b243-a460758cf0ec" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.484375 : 22.1362939453125); (10.484375 : 33.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/PoreskaStopa/PoreskaStopa_StavkaArtikal" />
+      <nodes>
+        <classShapeMoniker Id="b81b6306-c8f4-4433-8d8e-5bdff1fd32e6" />
+        <classShapeMoniker Id="732a6394-c7a4-457e-b243-a460758cf0ec" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.84375 : 32.4824039713542); (8.84375 : 33.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/StavkaUsluga/StavkaUsluga_StavkaArtikal" />
+      <nodes>
+        <classShapeMoniker Id="8334eb44-c092-448d-8d94-4a2867c5eaf9" />
+        <classShapeMoniker Id="732a6394-c7a4-457e-b243-a460758cf0ec" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f6b5d329-6082-43b5-82b3-42dc933e93c5" absoluteBounds="4.375, 29.75, 2.5, 1.5785953776041666">
+      <DataClassMoniker Name="/LavAutoDataContext/RadniNalogStavkaUsluga" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bf75ac53-3be0-4fc5-af37-3f642424bb09" absoluteBounds="4.3900000000000006, 30.21, 2.4699999999999998, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.375 : 30.5392976888021); (6.875 : 30.5392976888021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/StavkaUsluga/StavkaUsluga_RadniNalogStavkaUsluga" />
+      <nodes>
+        <classShapeMoniker Id="8334eb44-c092-448d-8d94-4a2867c5eaf9" />
+        <classShapeMoniker Id="f6b5d329-6082-43b5-82b3-42dc933e93c5" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="38aa2c38-d847-4e74-979b-2fdf47ce507b" absoluteBounds="0.5, 31.5, 2, 2.5401025390625">
+      <DataClassMoniker Name="/LavAutoDataContext/Usluga" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4dfece63-7c22-436b-b09a-d855bba44c3b" absoluteBounds="0.51500000000000012, 31.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 31.9912019856771); (5.41666666666667 : 31.9912019856771 : JumpStart); (5.58333333333333 : 31.9912019856771 : JumpEnd); (8.375 : 31.9912019856771)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Usluga/Usluga_StavkaUsluga" />
+      <nodes>
+        <classShapeMoniker Id="38aa2c38-d847-4e74-979b-2fdf47ce507b" />
+        <classShapeMoniker Id="8334eb44-c092-448d-8d94-4a2867c5eaf9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.7812475 : 22.1362939453125); (10.7812475 : 32.6450512695313); (10.7083333333333 : 32.6450512695313 : JumpStart); (10.4010416666667 : 32.6450512695313 : JumpEnd); (8.92708333333333 : 32.6450512695313 : JumpStart); (8.76041666666667 : 32.6450512695313 : JumpEnd); (6.75 : 32.6450512695313); (6.75 : 32.25); (5.58333333333333 : 32.25 : JumpStart); (5.41666666666667 : 32.25 : JumpEnd); (2.875 : 32.25); (2.875 : 32.8013032695313); (2.5 : 32.8013032695313)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LavAutoDataContext/PoreskaStopa/PoreskaStopa_Usluga" />
+      <nodes>
+        <classShapeMoniker Id="b81b6306-c8f4-4433-8d8e-5bdff1fd32e6" />
+        <classShapeMoniker Id="38aa2c38-d847-4e74-979b-2fdf47ce507b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ee45ba6e-1f82-4820-b173-fe84395e2621" absoluteBounds="0.5, 34.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LavAutoDataContext/VrstaUsluge" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f9ae5648-dbb3-4d3f-8611-02fcb44c36f2" absoluteBounds="0.51500000000000012, 35.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 34.75); (1.5 : 34.0401025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/VrstaUsluge/VrstaUsluge_Usluga" />
+      <nodes>
+        <classShapeMoniker Id="ee45ba6e-1f82-4820-b173-fe84395e2621" />
+        <classShapeMoniker Id="38aa2c38-d847-4e74-979b-2fdf47ce507b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ec4204d3-04fa-473b-ad4f-adf248a3d238" absoluteBounds="11.625, 27.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LavAutoDataContext/RadnoMesto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="13868beb-9ffa-4897-9af1-455ef4d22ab5" absoluteBounds="11.64, 27.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b4e70219-32d9-4c5b-b9b6-bc89a218a697" absoluteBounds="4.5, 32.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LavAutoDataContext/RadniNalogStatus" />
+      <nestedChildShapes>
+        <elementListCompartment Id="93e09de8-2929-4dff-9063-181674f37db6" absoluteBounds="4.515, 32.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 32.5); (5.5 : 31.3285953776042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/RadniNalogStatus/RadniNalogStatus_RadniNalogStavkaUsluga" />
+      <nodes>
+        <classShapeMoniker Id="b4e70219-32d9-4c5b-b9b6-bc89a218a697" />
+        <classShapeMoniker Id="f6b5d329-6082-43b5-82b3-42dc933e93c5" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1abfd2eb-33a1-483b-86d4-c1cbe0988191" absoluteBounds="0.5, 29.375, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LavAutoDataContext/NosilacGrupe" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b3e4f695-6b02-41e5-b02e-8efc94fb72a3" absoluteBounds="0.515, 29.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 30.7612939453125); (1.5 : 31.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/NosilacGrupe/NosilacGrupe_Usluga" />
+      <nodes>
+        <classShapeMoniker Id="1abfd2eb-33a1-483b-86d4-c1cbe0988191" />
+        <classShapeMoniker Id="38aa2c38-d847-4e74-979b-2fdf47ce507b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="a5d23964-2c3b-4e9d-a3f9-4885fc0d49a6" absoluteBounds="3.25, 34.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LavAutoDataContext/Nivo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6147a1a4-6a94-4a84-a7ad-3ce3a066158f" absoluteBounds="3.265, 35.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.84375 : 34.875); (3.84375 : 32.8013032695313); (2.5 : 32.8013032695313)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Nivo/Nivo_Usluga" />
+      <nodes>
+        <classShapeMoniker Id="a5d23964-2c3b-4e9d-a3f9-4885fc0d49a6" />
+        <classShapeMoniker Id="38aa2c38-d847-4e74-979b-2fdf47ce507b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="54ce361e-8c48-4095-8b3e-ede93898581b" absoluteBounds="0.5, 25.5, 2.375, 1.3862939453125">
+      <DataClassMoniker Name="/LavAutoDataContext/NacinZahtevaZaPonudu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f0d8cde4-b0cf-4fd2-b372-c89e8ac19022" absoluteBounds="0.515, 25.96, 2.3449999999999998, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.875 : 26.1931469726563); (3.04166666666667 : 26.1931469726563 : JumpStart); (3.20833333333333 : 26.1931469726563 : JumpEnd); (4.5 : 26.1931469726563)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/NacinZahtevaZaPonudu/NacinZahtevaZaPonudu_Ponuda" />
+      <nodes>
+        <classShapeMoniker Id="54ce361e-8c48-4095-8b3e-ede93898581b" />
+        <classShapeMoniker Id="670feb9a-d253-4a10-af1d-756f91048499" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="be76fa1a-145d-494b-ba9a-7c77cc129bb7" absoluteBounds="0.5, 27.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LavAutoDataContext/Bod" />
+      <nestedChildShapes>
+        <elementListCompartment Id="20e43a84-307c-4c32-92b7-bff12063a552" absoluteBounds="0.51500000000000012, 27.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 28.9535953776042); (2.875 : 29.3285953776042); (2.875 : 31.125); (2.5 : 31.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/Bod/Bod_Usluga" />
+      <nodes>
+        <classShapeMoniker Id="be76fa1a-145d-494b-ba9a-7c77cc129bb7" />
+        <classShapeMoniker Id="38aa2c38-d847-4e74-979b-2fdf47ce507b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(24.6875 : 17.5689925130208); (24.6875 : 19.8453597005208); (19.9270858333333 : 19.8453597005208 : JumpStart); (19.7604191666667 : 19.8453597005208 : JumpEnd); (13.8958333333333 : 19.8453597005208 : JumpStart); (13.7291666666667 : 19.8453597005208 : JumpEnd); (12.7083333333333 : 19.8453597005208 : JumpStart); (12.4166666666667 : 19.8453597005208 : JumpEnd); (12.25 : 19.8453597005208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_TipAutomobila" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="0b802640-e4b7-4338-a1b4-7db2267ef7d6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(23.6249975 : 17.5689925130208); (23.6249975 : 19.8141072005208); (12.25 : 19.8141072005208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_TipAutomobila1" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="0b802640-e4b7-4338-a1b4-7db2267ef7d6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(25.7500025 : 17.5689925130208); (25.7500025 : 19.8766122005208); (19.9270858333333 : 19.8766122005208 : JumpStart); (19.7604191666667 : 19.8766122005208 : JumpEnd); (13.8958333333333 : 19.8766122005208 : JumpStart); (13.7291666666667 : 19.8766122005208 : JumpEnd); (12.7083333333333 : 19.8766122005208 : JumpStart); (12.4166666666667 : 19.8766122005208 : JumpEnd); (12.25 : 19.8766122005208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_TipAutomobila2" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="0b802640-e4b7-4338-a1b4-7db2267ef7d6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(23.09374625 : 17.5689925130208); (23.09374625 : 19.7852998567708); (19.9270858333333 : 19.7852998567708 : JumpStart); (19.7604191666667 : 19.7852998567708 : JumpEnd); (13.8958333333333 : 19.7852998567708 : JumpStart); (13.7291666666667 : 19.7852998567708 : JumpEnd); (12.7083333333333 : 19.7852998567708 : JumpStart); (12.4166666666667 : 19.7852998567708 : JumpEnd); (12.25 : 19.7852998567708)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_TipAutomobila3" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="0b802640-e4b7-4338-a1b4-7db2267ef7d6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(24.15624875 : 17.5689925130208); (24.15624875 : 19.9054195442708); (19.9270858333333 : 19.9054195442708 : JumpStart); (19.7604191666667 : 19.9054195442708 : JumpEnd); (13.8958333333333 : 19.9054195442708 : JumpStart); (13.7291666666667 : 19.9054195442708 : JumpEnd); (12.7083333333333 : 19.9054195442708 : JumpStart); (12.4166666666667 : 19.9054195442708 : JumpEnd); (12.25 : 19.9054195442708)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_TipAutomobila4" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="0b802640-e4b7-4338-a1b4-7db2267ef7d6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(25.21875125 : 17.5689925130208); (25.21875125 : 19.8297334505208); (23.4427052083333 : 19.8297334505208 : JumpStart); (23.2760385416667 : 19.8297334505208 : JumpEnd); (19.9270858333333 : 19.8297334505208 : JumpStart); (19.7604191666667 : 19.8297334505208 : JumpEnd); (13.8958333333333 : 19.8297334505208 : JumpStart); (13.7291666666667 : 19.8297334505208 : JumpEnd); (12.8645833333333 : 19.8297334505208 : JumpStart); (12.4166666666667 : 19.8297334505208 : JumpEnd); (12.25 : 19.8297334505208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_TipAutomobila5" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="0b802640-e4b7-4338-a1b4-7db2267ef7d6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(26.28125375 : 17.5689925130208); (26.28125375 : 19.8609859505208); (19.9270858333333 : 19.8609859505208 : JumpStart); (19.7604191666667 : 19.8609859505208 : JumpEnd); (13.8958333333333 : 19.8609859505208 : JumpStart); (13.7291666666667 : 19.8609859505208 : JumpEnd); (12.7083333333333 : 19.8609859505208 : JumpStart); (12.5416666666667 : 19.8609859505208 : JumpEnd); (12.25 : 19.8609859505208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_TipAutomobila6" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="0b802640-e4b7-4338-a1b4-7db2267ef7d6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(24.6875 : 16.375); (24.6875 : 14.6738191731771); (12.25 : 14.6738191731771)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_TipAutomobila7" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="0b802640-e4b7-4338-a1b4-7db2267ef7d6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(23.6249975 : 16.375); (23.6249975 : 14.7744120865885); (23.4427052083333 : 14.7744120865885 : JumpStart); (23.2760385416667 : 14.7744120865885 : JumpEnd); (23.0442667708333 : 14.7744120865885 : JumpStart); (22.6119744791667 : 14.7744120865885 : JumpEnd); (12.7083333333333 : 14.7744120865885 : JumpStart); (12.4166666666667 : 14.7744120865885 : JumpEnd); (12.25 : 14.7744120865885)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_TipAutomobila8" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="0b802640-e4b7-4338-a1b4-7db2267ef7d6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(25.7500025 : 16.375); (25.7500025 : 14.5732262597656); (25.0364589583333 : 14.5732262597656 : JumpStart); (24.8697922916667 : 14.5732262597656 : JumpEnd); (24.5052077083333 : 14.5732262597656 : JumpStart); (24.3385410416667 : 14.5732262597656 : JumpEnd); (23.4427052083333 : 14.5732262597656 : JumpStart); (23.2760385416667 : 14.5732262597656 : JumpEnd); (22.9114539583333 : 14.5732262597656 : JumpStart); (22.6119744791667 : 14.5732262597656 : JumpEnd); (12.7083333333333 : 14.5732262597656 : JumpStart); (12.5416666666667 : 14.5732262597656 : JumpEnd); (12.25 : 14.5732262597656)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_TipAutomobila9" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="0b802640-e4b7-4338-a1b4-7db2267ef7d6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(23.09374625 : 16.375); (23.09374625 : 14.7934560432943); (23.0442667708333 : 14.7934560432943 : JumpStart); (22.6119744791667 : 14.7934560432943 : JumpEnd); (12.7083333333333 : 14.7934560432943 : JumpStart); (12.4166666666667 : 14.7934560432943 : JumpEnd); (12.25 : 14.7934560432943)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_TipAutomobila10" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="0b802640-e4b7-4338-a1b4-7db2267ef7d6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(24.15624875 : 16.375); (24.15624875 : 14.7553681298828); (23.4427052083333 : 14.7553681298828 : JumpStart); (23.2760385416667 : 14.7553681298828 : JumpEnd); (22.9114539583333 : 14.7553681298828 : JumpStart); (22.6119744791667 : 14.7553681298828 : JumpEnd); (12.7083333333333 : 14.7553681298828 : JumpStart); (12.5416666666667 : 14.7553681298828 : JumpEnd); (12.25 : 14.7553681298828)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_TipAutomobila11" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="0b802640-e4b7-4338-a1b4-7db2267ef7d6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(25.21875125 : 16.375); (25.21875125 : 14.7145936515299); (25.0364589583333 : 14.7145936515299 : JumpStart); (24.8697922916667 : 14.7145936515299 : JumpEnd); (24.5052077083333 : 14.7145936515299 : JumpStart); (24.3385410416667 : 14.7145936515299 : JumpEnd); (23.9739564583333 : 14.7145936515299 : JumpStart); (23.8072897916667 : 14.7145936515299 : JumpEnd); (23.4427052083333 : 14.7145936515299 : JumpStart); (23.2760385416667 : 14.7145936515299 : JumpEnd); (23.0442667708333 : 14.7145936515299 : JumpStart); (22.6119744791667 : 14.7145936515299 : JumpEnd); (12.7083333333333 : 14.7145936515299 : JumpStart); (12.4166666666667 : 14.7145936515299 : JumpEnd); (12.25 : 14.7145936515299)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_TipAutomobila12" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="0b802640-e4b7-4338-a1b4-7db2267ef7d6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(26.28125325 : 16.375); (26.28125325 : 14.6288883463542); (25.5677102083333 : 14.6288883463542 : JumpStart); (25.4010435416667 : 14.6288883463542 : JumpEnd); (25.0364589583333 : 14.6288883463542 : JumpStart); (24.8697922916667 : 14.6288883463542 : JumpEnd); (24.5052077083333 : 14.6288883463542 : JumpStart); (24.3385410416667 : 14.6288883463542 : JumpEnd); (23.9739564583333 : 14.6288883463542 : JumpStart); (23.8072897916667 : 14.6288883463542 : JumpEnd); (23.4427052083333 : 14.6288883463542 : JumpStart); (23.2760385416667 : 14.6288883463542 : JumpEnd); (23.0442667708333 : 14.6288883463542 : JumpStart); (22.6119744791667 : 14.6288883463542 : JumpEnd); (12.875 : 14.6288883463542); (12.875 : 12.6354484049479); (12.7083333333333 : 12.6354484049479 : JumpStart); (12.4166666666667 : 12.6354484049479 : JumpEnd); (12.25 : 12.6354484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_ModelAutomobila" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="f975cf7f-208f-4cc7-98b8-d2d6dfbd7770" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(23.359371875 : 17.5689925130208); (23.359371875 : 20.390625); (15.0833333333333 : 20.390625 : JumpStart); (14.9166666666667 : 20.390625 : JumpEnd); (14.75 : 20.390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_Artikal" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="f0b28945-60b9-4b98-85f5-88ef20176121" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(22.625 : 16.6065991210938); (18.8333308333333 : 16.6065991210938 : JumpStart); (18.6666641666667 : 16.6065991210938 : JumpEnd); (18.2395833333333 : 16.6065991210938 : JumpStart); (18.0729166666667 : 16.6065991210938 : JumpEnd); (17.5 : 16.6065991210938)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_Stablo" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="36b87bca-abaa-4985-b9ef-a888233a7b68" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(22.625 : 17.2844962565104); (20.375 : 17.2844962565104)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_VezaArtikalKriterijum" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="ad28588b-bea7-46b5-8c21-58f9112b6223" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(22.625 : 16.7941016210938); (18.8333308333333 : 16.7941016210938 : JumpStart); (18.6666641666667 : 16.7941016210938 : JumpEnd); (18.171875 : 16.7941016210938); (18.171875 : 16.0689925130208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_Kriterijum" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="a108104e-bd89-4fc4-aa78-fd9587a3a9df" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(22.828120625 : 16.375); (22.828120625 : 10.03125); (16.75 : 10.03125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_Motor" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="f5730363-33c3-40d0-92f3-bcdda097a3fb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(23.359371875 : 16.375); (23.359371875 : 11.5156275); (22.9114539583333 : 11.5156275 : JumpStart); (22.7447872916667 : 11.5156275 : JumpEnd); (16.75 : 11.5156275)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_Motor1" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="f5730363-33c3-40d0-92f3-bcdda097a3fb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(23.890623125 : 16.375); (23.890623125 : 8.5468725); (16.75 : 8.5468725)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_Motor2" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="f5730363-33c3-40d0-92f3-bcdda097a3fb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(24.421874375 : 16.375); (24.421874375 : 12.25781625); (23.4427052083333 : 12.25781625 : JumpStart); (23.2760385416667 : 12.25781625 : JumpEnd); (22.9114539583333 : 12.25781625 : JumpStart); (22.6119744791667 : 12.25781625 : JumpEnd); (16.75 : 12.25781625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_Motor3" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="f5730363-33c3-40d0-92f3-bcdda097a3fb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(24.953125625 : 16.375); (24.953125625 : 10.77343875); (16.75 : 10.77343875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_Motor4" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="f5730363-33c3-40d0-92f3-bcdda097a3fb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(25.484376875 : 16.375); (25.484376875 : 9.28906125); (23.9739564583333 : 9.28906125 : JumpStart); (23.8072897916667 : 9.28906125 : JumpEnd); (16.75 : 9.28906125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_Motor5" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="f5730363-33c3-40d0-92f3-bcdda097a3fb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(26.546879125 : 16.375); (26.546879125 : 7.80468375); (16.75 : 7.80468375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_Motor6" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="f5730363-33c3-40d0-92f3-bcdda097a3fb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(26.015627875 : 16.375); (26.015627875 : 12.628910625); (25.5677102083333 : 12.628910625 : JumpStart); (25.4010435416667 : 12.628910625 : JumpEnd); (25.0364589583333 : 12.628910625 : JumpStart); (24.8697922916667 : 12.628910625 : JumpEnd); (24.5052077083333 : 12.628910625 : JumpStart); (24.3385410416667 : 12.628910625 : JumpEnd); (23.9739564583333 : 12.628910625 : JumpStart); (23.8072897916667 : 12.628910625 : JumpEnd); (23.4427052083333 : 12.628910625 : JumpStart); (23.2760385416667 : 12.628910625 : JumpEnd); (23.0442667708333 : 12.628910625 : JumpStart); (22.6119744791667 : 12.628910625 : JumpEnd); (16.75 : 12.628910625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_Motor7" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="f5730363-33c3-40d0-92f3-bcdda097a3fb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(22.6953078125 : 16.375); (22.6953078125 : 11.886721875); (16.75 : 11.886721875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_Motor8" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="f5730363-33c3-40d0-92f3-bcdda097a3fb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(22.9609334375 : 16.375); (22.9609334375 : 11.144533125); (22.9114539583333 : 11.144533125 : JumpStart); (22.7447872916667 : 11.144533125 : JumpEnd); (16.75 : 11.144533125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_Motor9" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="f5730363-33c3-40d0-92f3-bcdda097a3fb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(22.625 : 17.0392989388021); (20.4375 : 17.0392989388021); (20.4375 : 16.9375); (16.8885715169271 : 16.9375 : JumpStart); (16.7219048502605 : 16.9375 : JumpEnd); (16.2919696126302 : 16.9375 : JumpStart); (16.1253029459636 : 16.9375 : JumpEnd); (15.8751514729817 : 16.9375 : JumpStart); (15.7084848063151 : 16.9375 : JumpEnd); (15.3125 : 16.9375); (15.3125 : 15.5625); (14.0625 : 15.5625); (14.0625 : 15.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LavAutoDataContext/OpisTabela/OpisTabela_VezaUgradnjaKriterijum" />
+      <nodes>
+        <classShapeMoniker Id="d3dbf2ad-32f8-4486-b1e0-46fe65db9b96" />
+        <classShapeMoniker Id="dc1d04a9-1130-4d35-96a4-c0ba93439986" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="04102ccf-db7d-41ce-b517-e277444f2e23" absoluteBounds="12, 32.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LavAutoDataContext/RadnoVreme" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b4bd165a-5df1-4221-bdb5-478fb7adf40e" absoluteBounds="12.015, 32.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ade6a7e7-a307-45ef-9144-7594fabf1d73" absoluteBounds="11.75, 29.375, 2.5, 2.5401025390625">
+      <DataClassMoniker Name="/LavAutoDataContext/StavkaUslugaRadniRaspored" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5fdd84b7-d4fd-4f5e-a8e5-d8e49d30884a" absoluteBounds="11.765, 29.835, 2.4699999999999998, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(10.375 : 31.1122535412598); (10.4010416666667 : 31.1122535412598 : JumpStart); (10.8645808333333 : 31.1122535412598 : JumpEnd); (11.0260429166667 : 31.1122535412598 : JumpStart); (11.1927095833333 : 31.1122535412598 : JumpEnd); (11.75 : 31.1122535412598)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LavAutoDataContext/StavkaUsluga/StavkaUsluga_StavkaUslugaRadniRaspored" />
+      <nodes>
+        <classShapeMoniker Id="8334eb44-c092-448d-8d94-4a2867c5eaf9" />
+        <classShapeMoniker Id="ade6a7e7-a307-45ef-9144-7594fabf1d73" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.625 : 13.9343082682292); (1.625 : 14.1843082682292); (2.7337196267528 : 14.1843082682292 : JumpStart); (2.90038629341947 : 14.1843082682292 : JumpEnd); (2.91666666666667 : 14.1843082682292 : JumpStart); (3.08333333333333 : 14.1843082682292 : JumpEnd); (3.125 : 14.1843082682292); (3.125 : 29.5); (9.22916666666667 : 29.5 : JumpStart); (9.39583333333333 : 29.5 : JumpEnd); (10.2604166666667 : 29.5 : JumpStart); (10.8645808333333 : 29.5 : JumpEnd); (11.0260429166667 : 29.5 : JumpStart); (11.1927095833333 : 29.5 : JumpEnd); (11.375 : 29.5); (11.375 : 30.2123747706299); (11.75 : 30.2123747706299)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LavAutoDataContext/Radnik/Radnik_StavkaUslugaRadniRaspored" />
+      <nodes>
+        <classShapeMoniker Id="623e7183-cc43-4893-856a-211c9849bcb1" />
+        <classShapeMoniker Id="ade6a7e7-a307-45ef-9144-7594fabf1d73" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(12.6875 : 28.6362939453125); (12.6875 : 29.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LavAutoDataContext/RadnoMesto/RadnoMesto_StavkaUslugaRadniRaspored" />
+      <nodes>
+        <classShapeMoniker Id="ec4204d3-04fa-473b-ad4f-adf248a3d238" />
+        <classShapeMoniker Id="ade6a7e7-a307-45ef-9144-7594fabf1d73" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13 : 32.5); (13 : 31.9151025390625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LavAutoDataContext/RadnoVreme/RadnoVreme_StavkaUslugaRadniRaspored" />
+      <nodes>
+        <classShapeMoniker Id="04102ccf-db7d-41ce-b517-e277444f2e23" />
+        <classShapeMoniker Id="ade6a7e7-a307-45ef-9144-7594fabf1d73" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

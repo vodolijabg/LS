@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AutomobilDetaljnoDataSet" targetNamespace="http://tempuri.org/AutomobilDetaljnoDataSet.xsd" xmlns:mstns="http://tempuri.org/AutomobilDetaljnoDataSet.xsd" xmlns="http://tempuri.org/AutomobilDetaljnoDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AutomobilDetaljnoDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="AutomobilDetaljnoDataSet" msprop:Generator_DataSetName="AutomobilDetaljnoDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tipAutomobilaDetaljnoDataTable" msprop:Generator_UserTableName="tipAutomobilaDetaljnoDataTable" msprop:Generator_RowDeletedName="tipAutomobilaDetaljnoDataTableRowDeleted" msprop:Generator_TableClassName="tipAutomobilaDetaljnoDataTableDataTable" msprop:Generator_RowChangedName="tipAutomobilaDetaljnoDataTableRowChanged" msprop:Generator_RowClassName="tipAutomobilaDetaljnoDataTableRow" msprop:Generator_RowChangingName="tipAutomobilaDetaljnoDataTableRowChanging" msprop:Generator_RowEvArgName="tipAutomobilaDetaljnoDataTableRowChangeEvent" msprop:Generator_RowEvHandlerName="tipAutomobilaDetaljnoDataTableRowChangeEventHandler" msprop:Generator_TablePropName="tipAutomobilaDetaljnoDataTable" msprop:Generator_TableVarName="tabletipAutomobilaDetaljnoDataTable" msprop:Generator_RowDeletingName="tipAutomobilaDetaljnoDataTableRowDeleting">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="motorDataTable" msprop:Generator_UserTableName="motorDataTable" msprop:Generator_RowDeletedName="motorDataTableRowDeleted" msprop:Generator_TableClassName="motorDataTableDataTable" msprop:Generator_RowChangedName="motorDataTableRowChanged" msprop:Generator_RowClassName="motorDataTableRow" msprop:Generator_RowChangingName="motorDataTableRowChanging" msprop:Generator_RowEvArgName="motorDataTableRowChangeEvent" msprop:Generator_RowEvHandlerName="motorDataTableRowChangeEventHandler" msprop:Generator_TablePropName="motorDataTable" msprop:Generator_TableVarName="tablemotorDataTable" msprop:Generator_RowDeletingName="motorDataTableRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Motor_ID" msprop:Generator_UserColumnName="Motor_ID" msprop:Generator_ColumnPropNameInRow="Motor_ID" msprop:Generator_ColumnVarNameInTable="columnMotor_ID" msprop:Generator_ColumnPropNameInTable="Motor_IDColumn" type="xs:short" minOccurs="0" />
+              <xs:element name="Oznaka" msprop:Generator_UserColumnName="Oznaka" msprop:Generator_ColumnPropNameInRow="Oznaka" msprop:Generator_ColumnVarNameInTable="columnOznaka" msprop:Generator_ColumnPropNameInTable="OznakaColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,13 @@
+D:\LavAuto\VS_Projekti\Lav\MaskedTextBox.Control\bin\Release\MaskedTextBox.Control.dll
+D:\LavAuto\VS_Projekti\Lav\MaskedTextBox.Control\bin\Release\MaskedTextBox.Control.pdb
+D:\LavAuto\VS_Projekti\Lav\MaskedTextBox.Control\obj\Release\ResolveAssemblyReference.cache
+D:\LavAuto\VS_Projekti\Lav\MaskedTextBox.Control\obj\Release\GeneratedInternalTypeHelper.g.cs
+D:\LavAuto\VS_Projekti\Lav\MaskedTextBox.Control\obj\Release\MaskedTextBox.Control_MarkupCompile.cache
+D:\LavAuto\VS_Projekti\Lav\MaskedTextBox.Control\obj\Release\MaskedTextBox.Control_MarkupCompile.lref
+D:\LavAuto\VS_Projekti\Lav\MaskedTextBox.Control\obj\Release\Themes\Generic.baml
+D:\LavAuto\VS_Projekti\Lav\MaskedTextBox.Control\obj\Release\MaskedTextBox.Control.g.resources
+D:\LavAuto\VS_Projekti\Lav\MaskedTextBox.Control\obj\Release\MaskedTextBox.Control.Properties.Resources.resources
+D:\LavAuto\VS_Projekti\Lav\MaskedTextBox.Control\obj\Release\ResGen.read.1.tlog
+D:\LavAuto\VS_Projekti\Lav\MaskedTextBox.Control\obj\Release\ResGen.write.1.tlog
+D:\LavAuto\VS_Projekti\Lav\MaskedTextBox.Control\obj\Release\MaskedTextBox.Control.dll
+D:\LavAuto\VS_Projekti\Lav\MaskedTextBox.Control\obj\Release\MaskedTextBox.Control.pdb

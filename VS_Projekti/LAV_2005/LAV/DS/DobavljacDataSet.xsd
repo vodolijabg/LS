@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DobavljacDataSet" targetNamespace="http://tempuri.org/DobavljacDataSet.xsd" xmlns:mstns="http://tempuri.org/DobavljacDataSet.xsd" xmlns="http://tempuri.org/DobavljacDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LAV_TDConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="LAV_TDConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.LAV.Properties.Settings.GlobalReference.Default.LAV_TDConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DobavljacDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DobavljacDataSet" msprop:Generator_DataSetName="DobavljacDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="vwDobavljac" msprop:Generator_UserTableName="vwDobavljac" msprop:Generator_RowDeletedName="vwDobavljacRowDeleted" msprop:Generator_RowChangedName="vwDobavljacRowChanged" msprop:Generator_RowClassName="vwDobavljacRow" msprop:Generator_RowChangingName="vwDobavljacRowChanging" msprop:Generator_RowEvArgName="vwDobavljacRowChangeEvent" msprop:Generator_RowEvHandlerName="vwDobavljacRowChangeEventHandler" msprop:Generator_TableClassName="vwDobavljacDataTable" msprop:Generator_TableVarName="tablevwDobavljac" msprop:Generator_RowDeletingName="vwDobavljacRowDeleting" msprop:Generator_TablePropName="vwDobavljac">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Šifra" msprop:Generator_UserColumnName="Šifra" msprop:Generator_ColumnVarNameInTable="columnŠifra" msprop:Generator_ColumnPropNameInRow="Šifra" msprop:Generator_ColumnPropNameInTable="ŠifraColumn" type="xs:short" />
+              <xs:element name="Naziv" msprop:Generator_UserColumnName="Naziv" msprop:Generator_ColumnVarNameInTable="columnNaziv" msprop:Generator_ColumnPropNameInRow="Naziv" msprop:Generator_ColumnPropNameInTable="NazivColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Telefon" msprop:Generator_UserColumnName="Telefon" msprop:Generator_ColumnVarNameInTable="columnTelefon" msprop:Generator_ColumnPropNameInRow="Telefon" msprop:Generator_ColumnPropNameInTable="TelefonColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Kontakt_x0020_osoba" msprop:Generator_UserColumnName="Kontakt osoba" msprop:Generator_ColumnVarNameInTable="columnKontakt_osoba" msprop:Generator_ColumnPropNameInRow="Kontakt_osoba" msprop:Generator_ColumnPropNameInTable="Kontakt_osobaColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Napomena" msprop:Generator_UserColumnName="Napomena" msprop:Generator_ColumnVarNameInTable="columnNapomena" msprop:Generator_ColumnPropNameInRow="Napomena" msprop:Generator_ColumnPropNameInTable="NapomenaColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="uspDajArtikleDobavljaca" msprop:Generator_UserTableName="uspDajArtikleDobavljaca" msprop:Generator_RowDeletedName="uspDajArtikleDobavljacaRowDeleted" msprop:Generator_TableClassName="uspDajArtikleDobavljacaDataTable" msprop:Generator_RowChangedName="uspDajArtikleDobavljacaRowChanged" msprop:Generator_RowClassName="uspDajArtikleDobavljacaRow" msprop:Generator_RowChangingName="uspDajArtikleDobavljacaRowChanging" msprop:Generator_RowEvArgName="uspDajArtikleDobavljacaRowChangeEvent" msprop:Generator_RowEvHandlerName="uspDajArtikleDobavljacaRowChangeEventHandler" msprop:Generator_TablePropName="uspDajArtikleDobavljaca" msprop:Generator_TableVarName="tableuspDajArtikleDobavljaca" msprop:Generator_RowDeletingName="uspDajArtikleDobavljacaRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Proizvođač" msprop:Generator_UserColumnName="Proizvođač" msprop:Generator_ColumnPropNameInRow="Proizvođač" msprop:Generator_ColumnVarNameInTable="columnProizvođač" msprop:Generator_ColumnPropNameInTable="ProizvođačColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Broj_x0020_proizvođača" msprop:Generator_UserColumnName="Broj proizvođača" msprop:Generator_ColumnPropNameInRow="Broj_proizvođača" msprop:Generator_ColumnVarNameInTable="columnBroj_proizvođača" msprop:Generator_ColumnPropNameInTable="Broj_proizvođačaColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="66" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cena" msprop:Generator_UserColumnName="Cena" msprop:Generator_ColumnPropNameInRow="Cena" msprop:Generator_ColumnVarNameInTable="columnCena" msprop:Generator_ColumnPropNameInTable="CenaColumn" type="xs:decimal" />
+              <xs:element name="Datum_x0020_ažuriranja" msprop:Generator_UserColumnName="Datum ažuriranja" msprop:Generator_ColumnPropNameInRow="Datum_ažuriranja" msprop:Generator_ColumnVarNameInTable="columnDatum_ažuriranja" msprop:Generator_ColumnPropNameInTable="Datum_ažuriranjaColumn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:vwDobavljac" />
+      <xs:field xpath="mstns:Šifra" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

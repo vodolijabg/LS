@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LAV" GeneratedClassName="LavSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="_Server" Type="System.String" Scope="User">
+      <Value Profile="(Default)">serverp\sqlexpress</Value>
+    </Setting>
+    <Setting Name="_Baza" Type="System.String" Scope="User">
+      <Value Profile="(Default)">LAV</Value>
+    </Setting>
+    <Setting Name="_Autentifikacija" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SQL</Value>
+    </Setting>
+    <Setting Name="_Korisnik" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sa</Value>
+    </Setting>
+    <Setting Name="_Lozinka" Type="System.String" Scope="User">
+      <Value Profile="(Default)">auto1!Lav</Value>
+    </Setting>
+    <Setting Name="_UspesnePretrage" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;1&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

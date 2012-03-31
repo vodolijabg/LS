@@ -1,0 +1,468 @@
+﻿
+START TRANSACTION ISOLATION LEVEL SERIALIZABLE, READ WRITE;
+
+CREATE SCHEMA dbo;
+
+SET search_path TO DBO,"$user",public;
+
+CREATE DOMAIN dbo.PIB AS INTEGER CONSTRAINT PIB_Unsigned_Chk CHECK (VALUE >= 0);
+
+CREATE DOMAIN dbo.JMBG AS BIGINT CONSTRAINT JMBG_Unsigned_Chk CHECK (VALUE >= 0);
+
+CREATE DOMAIN dbo.Kolicina AS INTEGER CONSTRAINT Kolicina_Unsigned_Chk CHECK (VALUE >= 0);
+
+CREATE DOMAIN dbo.Kilometraza AS INTEGER CONSTRAINT Kilometraza_Unsigned_Chk CHECK (VALUE >= 0);
+
+CREATE DOMAIN dbo.Godiste AS INTEGER CONSTRAINT Godiste_Unsigned_Chk CHECK (VALUE >= 0);
+
+CREATE DOMAIN dbo.VrednostMinuta AS INTEGER CONSTRAINT VrednostMinuta_Unsigned_Chk CHECK (VALUE >= 0);
+
+CREATE TABLE dbo.Radnik
+(
+	RadnikID SERIAL NOT NULL,
+	Sifra CHARACTER VARYING(50) NOT NULL,
+	Nadimak CHARACTER VARYING(50) NOT NULL,
+	Ime CHARACTER VARYING(50),
+	Prezime CHARACTER VARYING(50),
+	Telefon CHARACTER VARYING(50),
+	DatumRodjenja DATE,
+	Adresa CHARACTER VARYING(100),
+	JMBG dbo.JMBG,
+	ZaposlenOd DATE,
+	Raspored CHARACTER VARYING(50),
+	ImeOca CHARACTER VARYING(50),
+	MestoID INTEGER,
+	CONSTRAINT Radnik_PK PRIMARY KEY(RadnikID),
+	CONSTRAINT Radnik_UC1 UNIQUE(Sifra),
+	CONSTRAINT Radnik_UC2 UNIQUE(Nadimak)
+);
+
+CREATE TABLE dbo.Artikal
+(
+	ArtikalID SERIAL NOT NULL,
+	PoreskaStopaID INTEGER NOT NULL,
+	Sifra CHARACTER VARYING(50),
+	Napomena CHARACTER VARYING(500),
+	CONSTRAINT Artikal_PK PRIMARY KEY(ArtikalID),
+	CONSTRAINT Artikal_UC UNIQUE(Sifra)
+);
+
+CREATE TABLE dbo.Usluga
+(
+	UslugaID SERIAL NOT NULL,
+	Sifra CHARACTER VARYING(50) NOT NULL,
+	VrstaUslugeID INTEGER NOT NULL,
+	NosilacGrupeID INTEGER NOT NULL,
+	NivoID INTEGER NOT NULL,
+	PozicijaID INTEGER NOT NULL,
+	NormaMinuta dbo.VrednostMinuta NOT NULL,
+	BrojBodova DECIMAL(18,2) NOT NULL,
+	BodID INTEGER NOT NULL,
+	PoreskaStopaID INTEGER NOT NULL,
+	CONSTRAINT Usluga_PK PRIMARY KEY(UslugaID),
+	CONSTRAINT Usluga_UC1 UNIQUE(Sifra),
+	CONSTRAINT Usluga_UC2 UNIQUE(VrstaUslugeID, NivoID, NosilacGrupeID, PozicijaID)
+);
+
+CREATE TABLE dbo.TipAutomobila
+(
+	TipAutomobilaID SERIAL NOT NULL,
+	CONSTRAINT TipAutomobila_PK PRIMARY KEY(TipAutomobilaID)
+);
+
+CREATE TABLE dbo.RadnoMesto
+(
+	RadnoMestoID SERIAL NOT NULL,
+	Naziv CHARACTER VARYING(50) NOT NULL,
+	Sifra CHARACTER VARYING(50) NOT NULL,
+	CONSTRAINT RadnoMesto_PK PRIMARY KEY(RadnoMestoID),
+	CONSTRAINT RadnoMesto_UC1 UNIQUE(Naziv),
+	CONSTRAINT RadnoMesto_UC2 UNIQUE(Sifra)
+);
+
+CREATE TABLE dbo.RadniNalog
+(
+	RadniNalogID SERIAL NOT NULL,
+	Vreme TIMESTAMP NOT NULL,
+	RadnikID INTEGER NOT NULL,
+	ServisnaKnjizicaID INTEGER NOT NULL,
+	KorisnikProgramaID INTEGER NOT NULL,
+	PredvidjenoVremeMinuta dbo.VrednostMinuta,
+	Kilometraza dbo.Kilometraza,
+	RegistarskiBroj CHARACTER VARYING(15),
+	DatumRegistracije DATE,
+	Napomena CHARACTER VARYING(500),
+	CONSTRAINT RadniNalog_PK PRIMARY KEY(RadniNalogID)
+);
+
+CREATE TABLE dbo.ServisnaKnjizica
+(
+	ServisnaKnjizicaID SERIAL NOT NULL,
+	Sifra CHARACTER VARYING(50) NOT NULL,
+	"ABS" BOOLEAN NOT NULL,
+	PS BOOLEAN NOT NULL,
+	AC BOOLEAN NOT NULL,
+	TipAutomobilaID INTEGER NOT NULL,
+	Napomena CHARACTER VARYING(500),
+	RegistarskiBroj CHARACTER VARYING(15),
+	DatumRegistracije DATE,
+	BrojSasije CHARACTER VARYING(30),
+	BrojMotora CHARACTER VARYING(30),
+	Godiste dbo.Godiste,
+	Kilometraza dbo.Kilometraza,
+	DimenzijaGuma CHARACTER VARYING(50),
+	FizickoLiceID INTEGER,
+	PoslovniPartnerID INTEGER,
+	CONSTRAINT ServisnaKnjizica_PK PRIMARY KEY(ServisnaKnjizicaID),
+	CONSTRAINT ServisnaKnjizica_UC UNIQUE(Sifra)
+);
+
+CREATE TABLE dbo.NosilacGrupe
+(
+	NosilacGrupeID SERIAL NOT NULL,
+	Naziv CHARACTER VARYING(50) NOT NULL,
+	Sifra CHARACTER VARYING(50) NOT NULL,
+	CONSTRAINT NosilacGrupe_PK PRIMARY KEY(NosilacGrupeID),
+	CONSTRAINT NosilacGrupe_UC1 UNIQUE(Naziv),
+	CONSTRAINT NosilacGrupe_UC2 UNIQUE(Sifra)
+);
+
+CREATE TABLE dbo.Bod
+(
+	BodID SERIAL NOT NULL,
+	Sifra CHARACTER VARYING(50) NOT NULL,
+	Naziv CHARACTER VARYING(50) NOT NULL,
+	Vrednost DECIMAL(18,2) NOT NULL,
+	CONSTRAINT Bod_PK PRIMARY KEY(BodID),
+	CONSTRAINT Bod_UC1 UNIQUE(Sifra),
+	CONSTRAINT Bod_UC2 UNIQUE(Naziv)
+);
+
+CREATE TABLE dbo.RadnoVreme
+(
+	RadnoVremeID SERIAL NOT NULL,
+	Sifra CHARACTER VARYING(50) NOT NULL,
+	PocinjeOd TIME NOT NULL,
+	TrajeDo TIME NOT NULL,
+	CONSTRAINT RadnoVreme_PK PRIMARY KEY(RadnoVremeID),
+	CONSTRAINT RadnoVreme_UC UNIQUE(Sifra)
+);
+
+CREATE TABLE dbo.StavkaUsluga
+(
+	StavkaUslugaID SERIAL NOT NULL,
+	UslugaID INTEGER NOT NULL,
+	UslugaKolicina dbo.Kolicina NOT NULL,
+	UslugaCenaBezPoreza DECIMAL(18,2) NOT NULL,
+	UslugaPoreskaStopa_ID INTEGER NOT NULL,
+	RadniNalogID INTEGER,
+	PonudaID INTEGER,
+	CONSTRAINT StavkaUsluga_UC1 UNIQUE(PonudaID, UslugaID),
+	CONSTRAINT StavkaUsluga_UC2 UNIQUE(RadniNalogID, UslugaID),
+	CONSTRAINT StavkaUsluga_PK PRIMARY KEY(StavkaUslugaID)
+);
+
+CREATE TABLE dbo.KorisnikPrograma
+(
+	KorisnikProgramaID SERIAL NOT NULL,
+	Sifra CHARACTER VARYING(50) NOT NULL,
+	Naziv CHARACTER VARYING(50) NOT NULL,
+	Adresa CHARACTER VARYING(100) NOT NULL,
+	PIB dbo.PIB NOT NULL,
+	Telefon CHARACTER VARYING(50) NOT NULL,
+	ZiroRacun CHARACTER VARYING(100) NOT NULL,
+	Faks CHARACTER VARYING(50) NOT NULL,
+	MaticniBroj CHARACTER VARYING(8) NOT NULL,
+	EMail CHARACTER VARYING(100) NOT NULL,
+	MestoID INTEGER NOT NULL,
+	CONSTRAINT KorisnikPrograma_PK PRIMARY KEY(KorisnikProgramaID),
+	CONSTRAINT KorisnikPrograma_UC UNIQUE(Sifra)
+);
+
+CREATE TABLE dbo.Mesto
+(
+	MestoID SERIAL NOT NULL,
+	Naziv CHARACTER VARYING(50) NOT NULL,
+	Sifra CHARACTER VARYING(50) NOT NULL,
+	PozivniBroj CHARACTER VARYING(5),
+	PostanskiBroj CHARACTER VARYING(5),
+	CONSTRAINT Mesto_PK PRIMARY KEY(MestoID),
+	CONSTRAINT Mesto_UC1 UNIQUE(Naziv),
+	CONSTRAINT Mesto_UC2 UNIQUE(Sifra)
+);
+
+CREATE TABLE dbo.RadniNalogStatus
+(
+	RadniNalogStatusID SERIAL NOT NULL,
+	Naziv CHARACTER VARYING(50) NOT NULL,
+	Sifra CHARACTER VARYING(50) NOT NULL,
+	CONSTRAINT RadniNalogStatus_PK PRIMARY KEY(RadniNalogStatusID),
+	CONSTRAINT RadniNalogStatus_UC1 UNIQUE(Naziv),
+	CONSTRAINT RadniNalogStatus_UC2 UNIQUE(Sifra)
+);
+
+CREATE TABLE dbo.FizickoLice
+(
+	FizickoLiceID SERIAL NOT NULL,
+	Telefon CHARACTER VARYING(50) NOT NULL,
+	Sifra CHARACTER VARYING(50) NOT NULL,
+	Ime CHARACTER VARYING(50) NOT NULL,
+	RegistrovanKupac BOOLEAN NOT NULL,
+	Prezime CHARACTER VARYING(50),
+	EMail CHARACTER VARYING(100),
+	Adresa CHARACTER VARYING(100),
+	MestoID INTEGER,
+	CONSTRAINT FizickoLice_PK PRIMARY KEY(FizickoLiceID),
+	CONSTRAINT FizickoLice_UC1 UNIQUE(Telefon),
+	CONSTRAINT FizickoLice_UC2 UNIQUE(Sifra)
+);
+
+CREATE TABLE dbo.PoslovniPartner
+(
+	PoslovniPartnerID SERIAL NOT NULL,
+	Sifra CHARACTER VARYING(50) NOT NULL,
+	SkracenNaziv CHARACTER VARYING(50) NOT NULL,
+	PIB dbo.PIB,
+	Adresa CHARACTER VARYING(100),
+	EMail1 CHARACTER VARYING(100),
+	KontaktOsoba2 CHARACTER VARYING(100),
+	Telefon1 CHARACTER VARYING(50),
+	ZiroRacun CHARACTER VARYING(100),
+	PunNaziv CHARACTER VARYING(200),
+	MaticniBroj CHARACTER VARYING(8),
+	KontaktOsoba1 CHARACTER VARYING(100),
+	Telefon2 CHARACTER VARYING(50),
+	Faks CHARACTER VARYING(50),
+	EMail2 CHARACTER VARYING(100),
+	MestoID INTEGER,
+	NacinOrganizacijeFirmeID INTEGER,
+	CONSTRAINT PoslovniPartner_PK PRIMARY KEY(PoslovniPartnerID),
+	CONSTRAINT PoslovniPartner_UC1 UNIQUE(Sifra),
+	CONSTRAINT PoslovniPartner_UC2 UNIQUE(SkracenNaziv)
+);
+
+CREATE TABLE dbo.RadniNalogStavkaUsluga
+(
+	RadniNalogStavkaUslugaID INTEGER NOT NULL,
+	PredvidjenoVremeMinuta dbo.VrednostMinuta NOT NULL,
+	RadniNalogStatusID INTEGER NOT NULL,
+	Napomena CHARACTER VARYING(500),
+	UtrosenoVremeMinuta dbo.VrednostMinuta,
+	CONSTRAINT RadniNalogStavkaUsluga_PK PRIMARY KEY(RadniNalogStavkaUslugaID)
+);
+
+CREATE TABLE dbo.PoreskaStopa
+(
+	PoreskaStopaID SERIAL NOT NULL,
+	VrednostProcenata dbo.Kolicina NOT NULL,
+	Sifra CHARACTER VARYING(50) NOT NULL,
+	CONSTRAINT PoreskaStopa_PK PRIMARY KEY(PoreskaStopaID),
+	CONSTRAINT PoreskaStopa_UC1 UNIQUE(VrednostProcenata),
+	CONSTRAINT PoreskaStopa_UC2 UNIQUE(Sifra)
+);
+
+CREATE TABLE dbo.NacinZahtevaZaPonudu
+(
+	NacinZahtevaZaPonuduID SERIAL NOT NULL,
+	Sifra CHARACTER VARYING(50) NOT NULL,
+	Naziv CHARACTER VARYING(50) NOT NULL,
+	CONSTRAINT NacinZahtevaZaPonudu_PK PRIMARY KEY(NacinZahtevaZaPonuduID),
+	CONSTRAINT NacinZahtevaZaPonudu_UC1 UNIQUE(Sifra),
+	CONSTRAINT NacinZahtevaZaPonudu_UC2 UNIQUE(Naziv)
+);
+
+CREATE TABLE dbo.VezaArtikalDobavljac
+(
+	VezaArtikalDobavljacID SERIAL NOT NULL,
+	ArtikalID INTEGER NOT NULL,
+	Cena DECIMAL(18,2) NOT NULL,
+	DatumAzuriranja DATE NOT NULL,
+	PoslovniPartnerID INTEGER,
+	KorisnikProgramaID INTEGER,
+	KolicinaNaStanju DECIMAL(18,2),
+	CONSTRAINT VezaArtikalDobavljac_UC1 UNIQUE(ArtikalID, PoslovniPartnerID),
+	CONSTRAINT VezaArtikalDobavljac_PK PRIMARY KEY(VezaArtikalDobavljacID),
+	CONSTRAINT VezaArtikalDobavljac_UC2 UNIQUE(KorisnikProgramaID, ArtikalID)
+);
+
+CREATE TABLE dbo.Ponuda
+(
+	PonudaID SERIAL NOT NULL,
+	PosaljiSMSObavestenje BOOLEAN NOT NULL,
+	ObavestiTelefonom BOOLEAN NOT NULL,
+	PreuzimaLicno BOOLEAN NOT NULL,
+	Vreme TIMESTAMP NOT NULL,
+	NacinZahtevaZaPonuduID INTEGER NOT NULL,
+	RadnikID INTEGER NOT NULL,
+	ServisnaKnjizicaID INTEGER NOT NULL,
+	KorisnikProgramaID INTEGER NOT NULL,
+	PoslatoSMSObavestenjeU DATE,
+	ObavestenTelefonomU DATE,
+	PreuzeoLicnoU DATE,
+	Napomena CHARACTER VARYING(500),
+	CONSTRAINT Ponuda_PK PRIMARY KEY(PonudaID)
+);
+
+CREATE TABLE dbo.VrstaUsluge
+(
+	VrstaUslugeID SERIAL NOT NULL,
+	Naziv CHARACTER VARYING(50) NOT NULL,
+	Sifra CHARACTER VARYING(50) NOT NULL,
+	CONSTRAINT VrstaUsluge_PK PRIMARY KEY(VrstaUslugeID),
+	CONSTRAINT VrstaUsluge_UC1 UNIQUE(Naziv),
+	CONSTRAINT VrstaUsluge_UC2 UNIQUE(Sifra)
+);
+
+CREATE TABLE dbo.Nivo
+(
+	NivoID SERIAL NOT NULL,
+	Naziv CHARACTER VARYING(50) NOT NULL,
+	Sifra CHARACTER VARYING(50) NOT NULL,
+	CONSTRAINT Nivo_PK PRIMARY KEY(NivoID),
+	CONSTRAINT Nivo_UC1 UNIQUE(Naziv),
+	CONSTRAINT Nivo_UC2 UNIQUE(Sifra)
+);
+
+CREATE TABLE dbo.StavkaArtikal
+(
+	StavkaArtikalID SERIAL NOT NULL,
+	ArtikalBrojProizvodjaca CHARACTER VARYING(100) NOT NULL,
+	ArtikalProizvodjacID SMALLINT NOT NULL,
+	ArtikalProizvodjacNaziv CHARACTER VARYING(100) NOT NULL,
+	StavkaUslugaID INTEGER NOT NULL,
+	ArtikalCenaBezPoreza DECIMAL(18,2) NOT NULL,
+	ArtikalKolicina dbo.Kolicina NOT NULL,
+	ArtikalNaziv CHARACTER VARYING NOT NULL,
+	ArtikalPoreskaStopa_ID INTEGER NOT NULL,
+	NosilacGrupeID INTEGER NOT NULL,
+	PoslovniPartnerID INTEGER,
+	KorisnikProgramaID INTEGER,
+	CONSTRAINT StavkaArtikal_PK PRIMARY KEY(StavkaArtikalID),
+	CONSTRAINT StavkaArtikal_UC UNIQUE(StavkaUslugaID, ArtikalBrojProizvodjaca, ArtikalProizvodjacNaziv, ArtikalProizvodjacID)
+);
+
+CREATE TABLE dbo.StavkaUslugaRadniRaspored
+(
+	StavkaUslugaRadniRasporedID SERIAL NOT NULL,
+	Datum DATE NOT NULL,
+	RadnoVremeID INTEGER NOT NULL,
+	RadnikID INTEGER NOT NULL,
+	RadnoMestoID INTEGER NOT NULL,
+	StavkaUslugaID INTEGER NOT NULL,
+	CONSTRAINT StavkaUslugaRadniRaspored_PK PRIMARY KEY(StavkaUslugaRadniRasporedID),
+	CONSTRAINT StavkaUslugaRadniRaspored_UC UNIQUE(StavkaUslugaID, RadnoMestoID, Datum, RadnikID, RadnoVremeID)
+);
+
+CREATE TABLE dbo.NacinOrganizacijeFirme
+(
+	NacinOrganizacijeFirmeID SERIAL NOT NULL,
+	Sifra CHARACTER VARYING(50) NOT NULL,
+	Naziv CHARACTER VARYING(50) NOT NULL,
+	CONSTRAINT NacinOrganizacijeFirme_PK PRIMARY KEY(NacinOrganizacijeFirmeID),
+	CONSTRAINT NacinOrganizacijeFirme_UC1 UNIQUE(Sifra),
+	CONSTRAINT NacinOrganizacijeFirme_UC2 UNIQUE(Naziv)
+);
+
+CREATE TABLE dbo.VezaRadnikKorisnickiNalog
+(
+	VezaRadnikKorisnickiNalogID SERIAL NOT NULL,
+	KorisnickiNalog CHARACTER VARYING(100) NOT NULL,
+	Lozinka CHARACTER VARYING(100) NOT NULL,
+	RadnikID INTEGER NOT NULL,
+	CONSTRAINT VezaRadnikKorisnickiNalog_PK PRIMARY KEY(VezaRadnikKorisnickiNalogID),
+	CONSTRAINT VezaRadnikKorisnickiNalog_UC UNIQUE(KorisnickiNalog)
+);
+
+CREATE TABLE dbo.Pozicija
+(
+	PozicijaID SERIAL NOT NULL,
+	Naziv CHARACTER VARYING(50) NOT NULL,
+	Sifra CHARACTER VARYING(50) NOT NULL,
+	CONSTRAINT Pozicija_PK PRIMARY KEY(PozicijaID),
+	CONSTRAINT Pozicija_UC1 UNIQUE(Naziv),
+	CONSTRAINT Pozicija_UC2 UNIQUE(Sifra)
+);
+
+ALTER TABLE dbo.Radnik ADD CONSTRAINT Radnik_FK FOREIGN KEY (MestoID) REFERENCES dbo.Mesto (MestoID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.Artikal ADD CONSTRAINT Artikal_FK FOREIGN KEY (PoreskaStopaID) REFERENCES dbo.PoreskaStopa (PoreskaStopaID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.Usluga ADD CONSTRAINT Usluga_FK1 FOREIGN KEY (BodID) REFERENCES dbo.Bod (BodID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.Usluga ADD CONSTRAINT Usluga_FK2 FOREIGN KEY (VrstaUslugeID) REFERENCES dbo.VrstaUsluge (VrstaUslugeID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.Usluga ADD CONSTRAINT Usluga_FK3 FOREIGN KEY (PoreskaStopaID) REFERENCES dbo.PoreskaStopa (PoreskaStopaID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.Usluga ADD CONSTRAINT Usluga_FK4 FOREIGN KEY (NosilacGrupeID) REFERENCES dbo.NosilacGrupe (NosilacGrupeID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.Usluga ADD CONSTRAINT Usluga_FK5 FOREIGN KEY (NivoID) REFERENCES dbo.Nivo (NivoID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.Usluga ADD CONSTRAINT Usluga_FK6 FOREIGN KEY (PozicijaID) REFERENCES dbo.Pozicija (PozicijaID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.RadniNalog ADD CONSTRAINT RadniNalog_FK1 FOREIGN KEY (RadnikID) REFERENCES dbo.Radnik (RadnikID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.RadniNalog ADD CONSTRAINT RadniNalog_FK2 FOREIGN KEY (ServisnaKnjizicaID) REFERENCES dbo.ServisnaKnjizica (ServisnaKnjizicaID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.RadniNalog ADD CONSTRAINT RadniNalog_FK3 FOREIGN KEY (KorisnikProgramaID) REFERENCES dbo.KorisnikPrograma (KorisnikProgramaID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.ServisnaKnjizica ADD CONSTRAINT ServisnaKnjizica_FK1 FOREIGN KEY (TipAutomobilaID) REFERENCES dbo.TipAutomobila (TipAutomobilaID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.ServisnaKnjizica ADD CONSTRAINT ServisnaKnjizica_FK2 FOREIGN KEY (FizickoLiceID) REFERENCES dbo.FizickoLice (FizickoLiceID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.ServisnaKnjizica ADD CONSTRAINT ServisnaKnjizica_FK3 FOREIGN KEY (PoslovniPartnerID) REFERENCES dbo.PoslovniPartner (PoslovniPartnerID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.StavkaUsluga ADD CONSTRAINT StavkaUsluga_FK1 FOREIGN KEY (UslugaID) REFERENCES dbo.Usluga (UslugaID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.StavkaUsluga ADD CONSTRAINT StavkaUsluga_FK2 FOREIGN KEY (UslugaPoreskaStopa_ID) REFERENCES dbo.PoreskaStopa (PoreskaStopaID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.StavkaUsluga ADD CONSTRAINT StavkaUsluga_FK3 FOREIGN KEY (RadniNalogID) REFERENCES dbo.RadniNalog (RadniNalogID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.StavkaUsluga ADD CONSTRAINT StavkaUsluga_FK4 FOREIGN KEY (PonudaID) REFERENCES dbo.Ponuda (PonudaID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.KorisnikPrograma ADD CONSTRAINT KorisnikPrograma_FK FOREIGN KEY (MestoID) REFERENCES dbo.Mesto (MestoID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.FizickoLice ADD CONSTRAINT FizickoLice_FK FOREIGN KEY (MestoID) REFERENCES dbo.Mesto (MestoID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.PoslovniPartner ADD CONSTRAINT PoslovniPartner_FK1 FOREIGN KEY (MestoID) REFERENCES dbo.Mesto (MestoID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.PoslovniPartner ADD CONSTRAINT PoslovniPartner_FK2 FOREIGN KEY (NacinOrganizacijeFirmeID) REFERENCES dbo.NacinOrganizacijeFirme (NacinOrganizacijeFirmeID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.RadniNalogStavkaUsluga ADD CONSTRAINT RadniNalogStavkaUsluga_FK1 FOREIGN KEY (RadniNalogStatusID) REFERENCES dbo.RadniNalogStatus (RadniNalogStatusID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.RadniNalogStavkaUsluga ADD CONSTRAINT RadniNalogStavkaUsluga_FK2 FOREIGN KEY (RadniNalogStavkaUslugaID) REFERENCES dbo.StavkaUsluga (StavkaUslugaID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.VezaArtikalDobavljac ADD CONSTRAINT VezaArtikalDobavljac_FK1 FOREIGN KEY (PoslovniPartnerID) REFERENCES dbo.PoslovniPartner (PoslovniPartnerID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.VezaArtikalDobavljac ADD CONSTRAINT VezaArtikalDobavljac_FK2 FOREIGN KEY (ArtikalID) REFERENCES dbo.Artikal (ArtikalID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.VezaArtikalDobavljac ADD CONSTRAINT VezaArtikalDobavljac_FK3 FOREIGN KEY (KorisnikProgramaID) REFERENCES dbo.KorisnikPrograma (KorisnikProgramaID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.Ponuda ADD CONSTRAINT Ponuda_FK1 FOREIGN KEY (NacinZahtevaZaPonuduID) REFERENCES dbo.NacinZahtevaZaPonudu (NacinZahtevaZaPonuduID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.Ponuda ADD CONSTRAINT Ponuda_FK2 FOREIGN KEY (RadnikID) REFERENCES dbo.Radnik (RadnikID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.Ponuda ADD CONSTRAINT Ponuda_FK3 FOREIGN KEY (ServisnaKnjizicaID) REFERENCES dbo.ServisnaKnjizica (ServisnaKnjizicaID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.Ponuda ADD CONSTRAINT Ponuda_FK4 FOREIGN KEY (KorisnikProgramaID) REFERENCES dbo.KorisnikPrograma (KorisnikProgramaID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.StavkaArtikal ADD CONSTRAINT StavkaArtikal_FK1 FOREIGN KEY (ArtikalPoreskaStopa_ID) REFERENCES dbo.PoreskaStopa (PoreskaStopaID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.StavkaArtikal ADD CONSTRAINT StavkaArtikal_FK2 FOREIGN KEY (StavkaUslugaID) REFERENCES dbo.StavkaUsluga (StavkaUslugaID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.StavkaArtikal ADD CONSTRAINT StavkaArtikal_FK3 FOREIGN KEY (PoslovniPartnerID) REFERENCES dbo.PoslovniPartner (PoslovniPartnerID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.StavkaArtikal ADD CONSTRAINT StavkaArtikal_FK4 FOREIGN KEY (KorisnikProgramaID) REFERENCES dbo.KorisnikPrograma (KorisnikProgramaID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.StavkaArtikal ADD CONSTRAINT StavkaArtikal_FK5 FOREIGN KEY (NosilacGrupeID) REFERENCES dbo.NosilacGrupe (NosilacGrupeID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.StavkaUslugaRadniRaspored ADD CONSTRAINT StavkaUslugaRadniRaspored_FK1 FOREIGN KEY (RadnoVremeID) REFERENCES dbo.RadnoVreme (RadnoVremeID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.StavkaUslugaRadniRaspored ADD CONSTRAINT StavkaUslugaRadniRaspored_FK2 FOREIGN KEY (RadnikID) REFERENCES dbo.Radnik (RadnikID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.StavkaUslugaRadniRaspored ADD CONSTRAINT StavkaUslugaRadniRaspored_FK3 FOREIGN KEY (RadnoMestoID) REFERENCES dbo.RadnoMesto (RadnoMestoID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.StavkaUslugaRadniRaspored ADD CONSTRAINT StavkaUslugaRadniRaspored_FK4 FOREIGN KEY (StavkaUslugaID) REFERENCES dbo.StavkaUsluga (StavkaUslugaID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE dbo.VezaRadnikKorisnickiNalog ADD CONSTRAINT VezaRadnikKorisnickiNalog_FK FOREIGN KEY (RadnikID) REFERENCES dbo.Radnik (RadnikID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+COMMIT WORK;

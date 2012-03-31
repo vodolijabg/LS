@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RobaDataSet" targetNamespace="http://tempuri.org/RobaDataSet.xsd" xmlns:mstns="http://tempuri.org/RobaDataSet.xsd" xmlns="http://tempuri.org/RobaDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LAVConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="LAVConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.LAV.Properties.Settings.GlobalReference.Default.LAVConnectionString1" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RobaDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="RobaDataSet" msprop:Generator_DataSetName="RobaDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="vwRoba" msprop:Generator_UserTableName="vwRoba" msprop:Generator_RowDeletedName="vwRobaRowDeleted" msprop:Generator_TableClassName="vwRobaDataTable" msprop:Generator_RowChangedName="vwRobaRowChanged" msprop:Generator_RowClassName="vwRobaRow" msprop:Generator_RowChangingName="vwRobaRowChanging" msprop:Generator_RowEvArgName="vwRobaRowChangeEvent" msprop:Generator_RowEvHandlerName="vwRobaRowChangeEventHandler" msprop:Generator_TablePropName="vwRoba" msprop:Generator_TableVarName="tablevwRoba" msprop:Generator_RowDeletingName="vwRobaRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Roba_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="Roba_ID" msprop:Generator_ColumnPropNameInRow="Roba_ID" msprop:Generator_ColumnVarNameInTable="columnRoba_ID" msprop:Generator_ColumnPropNameInTable="Roba_IDColumn" type="xs:int" />
+              <xs:element name="Stara_x0020_šifra" msprop:Generator_UserColumnName="Stara šifra" msprop:Generator_ColumnPropNameInRow="Stara_šifra" msprop:Generator_ColumnVarNameInTable="columnStara_šifra" msprop:Generator_ColumnPropNameInTable="Stara_šifraColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Interna_x0020_šifra" msprop:Generator_UserColumnName="Interna šifra" msprop:Generator_ColumnPropNameInRow="Interna_šifra" msprop:Generator_ColumnVarNameInTable="columnInterna_šifra" msprop:Generator_ColumnPropNameInTable="Interna_šifraColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Naziv" msprop:Generator_UserColumnName="Naziv" msprop:Generator_ColumnPropNameInRow="Naziv" msprop:Generator_ColumnVarNameInTable="columnNaziv" msprop:Generator_ColumnPropNameInTable="NazivColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cena" msprop:Generator_UserColumnName="Cena" msprop:Generator_ColumnPropNameInRow="Cena" msprop:Generator_ColumnVarNameInTable="columnCena" msprop:Generator_ColumnPropNameInTable="CenaColumn" type="xs:decimal" />
+              <xs:element name="Cena_x0020_ugradnje" msprop:Generator_UserColumnName="Cena ugradnje" msprop:Generator_ColumnPropNameInRow="Cena_ugradnje" msprop:Generator_ColumnVarNameInTable="columnCena_ugradnje" msprop:Generator_ColumnPropNameInTable="Cena_ugradnjeColumn" type="xs:decimal" />
+              <xs:element name="Norma_x0020_sati" msprop:Generator_UserColumnName="Norma sati" msprop:Generator_ColumnPropNameInRow="Norma_sati" msprop:Generator_ColumnVarNameInTable="columnNorma_sati" msprop:Generator_ColumnPropNameInTable="Norma_satiColumn" type="xs:decimal" />
+              <xs:element name="Napomena" msprop:Generator_UserColumnName="Napomena" msprop:Generator_ColumnPropNameInRow="Napomena" msprop:Generator_ColumnVarNameInTable="columnNapomena" msprop:Generator_ColumnPropNameInTable="NapomenaColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:vwRoba" />
+      <xs:field xpath="mstns:Roba_ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

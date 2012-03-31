@@ -1,0 +1,13 @@
+﻿<Application x:Class="Servis.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    StartupUri= "Prijava.xaml">
+    <Application.Resources>
+
+        <Style  x:Key="ObojiSvakiDrugiRed">
+            <Setter Property="ListBoxItem.Background" Value="Bisque" ></Setter>
+        </Style>
+
+    </Application.Resources>
+    
+</Application>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="LavAuto_ORM">
+</Property><Property Name="Solution File" Value="D:\LavAuto\LavAuto_ORM\LavAuto_ORM.sln">
+</Property><Property Name="User Options File" Value="D:\LavAuto\LavAuto_ORM\LavAuto_ORM.suo">
+</Property><Property Name="Date" Value="25. maj 2011">
+</Property><Property Name="Time" Value="20:04">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="LavAuto_ORM.sln" Description="File successfully backed up as D:\LavAuto\LavAuto_ORM\Backup\LavAuto_ORM.sln">
+</Event><Event ErrorLevel="0" Project="" Source="LavAuto_ORM.suo" Description="File successfully backed up as D:\LavAuto\LavAuto_ORM\Backup\LavAuto_ORM.suo">
+</Event><Event ErrorLevel="0" Project="LavAuto_ORM" Source="LavAuto_ORM.csproj" Description="Project file successfully backed up as D:\LavAuto\LavAuto_ORM\Backup\LavAuto_ORM.csproj">
+</Event><Event ErrorLevel="0" Project="LavAuto_ORM" Source="Class1.cs" Description="File successfully backed up as D:\LavAuto\LavAuto_ORM\Backup\Class1.cs">
+</Event><Event ErrorLevel="0" Project="LavAuto_ORM" Source="LavAuto._ORMCustomToolReport.cs" Description="File successfully backed up as D:\LavAuto\LavAuto_ORM\Backup\LavAuto._ORMCustomToolReport.cs">
+</Event><Event ErrorLevel="0" Project="LavAuto_ORM" Source="Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\LavAuto\LavAuto_ORM\Backup\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="LavAuto_ORM" Source="Test._ORMCustomToolReport.cs" Description="File successfully backed up as D:\LavAuto\LavAuto_ORM\Backup\Test._ORMCustomToolReport.cs">
+</Event><Event ErrorLevel="0" Project="LavAuto_ORM" Source="LavAuto.orm" Description="File successfully backed up as D:\LavAuto\LavAuto_ORM\Backup\LavAuto.orm">
+</Event><Event ErrorLevel="0" Project="LavAuto_ORM" Source="Test.orm" Description="File successfully backed up as D:\LavAuto\LavAuto_ORM\Backup\Test.orm">
+</Event><Event ErrorLevel="0" Project="LavAuto_ORM" Source="LavAuto.DCIL.xml" Description="File successfully backed up as D:\LavAuto\LavAuto_ORM\Backup\LavAuto.DCIL.xml">
+</Event><Event ErrorLevel="0" Project="LavAuto_ORM" Source="LavAuto.DDIL.xml" Description="File successfully backed up as D:\LavAuto\LavAuto_ORM\Backup\LavAuto.DDIL.xml">
+</Event><Event ErrorLevel="0" Project="LavAuto_ORM" Source="LavAuto.PostgreSQL.sql" Description="File successfully backed up as D:\LavAuto\LavAuto_ORM\Backup\LavAuto.PostgreSQL.sql">
+</Event><Event ErrorLevel="0" Project="LavAuto_ORM" Source="LavAuto.SQLServer.sql" Description="File successfully backed up as D:\LavAuto\LavAuto_ORM\Backup\LavAuto.SQLServer.sql">
+</Event><Event ErrorLevel="0" Project="LavAuto_ORM" Source="LavAuto.SQLStandard.sql" Description="File successfully backed up as D:\LavAuto\LavAuto_ORM\Backup\LavAuto.SQLStandard.sql">
+</Event><Event ErrorLevel="0" Project="LavAuto_ORM" Source="Test.DCIL.xml" Description="File successfully backed up as D:\LavAuto\LavAuto_ORM\Backup\Test.DCIL.xml">
+</Event><Event ErrorLevel="0" Project="LavAuto_ORM" Source="Test.DDIL.xml" Description="File successfully backed up as D:\LavAuto\LavAuto_ORM\Backup\Test.DDIL.xml">
+</Event><Event ErrorLevel="0" Project="LavAuto_ORM" Source="Test.SQLServer.sql" Description="File successfully backed up as D:\LavAuto\LavAuto_ORM\Backup\Test.SQLServer.sql">
+</Event><Event ErrorLevel="0" Project="LavAuto_ORM" Source="LavAuto_ORM.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="LavAuto_ORM" Source="LavAuto_ORM.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="LavAuto_ORM.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="LavAuto_ORM.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="LavAuto_ORM" Source="LavAuto_ORM.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

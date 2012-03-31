@@ -1,0 +1,12 @@
+D:\LavAuto\VS_Projekti\Lav\ExportRadniNalogWebServis\obj\Debug\ResolveAssemblyReference.cache
+D:\LavAuto\VS_Projekti\Lav\ExportRadniNalogWebServis\bin\ExportRadniNalogWebServis.dll
+D:\LavAuto\VS_Projekti\Lav\ExportRadniNalogWebServis\bin\ExportRadniNalogWebServis.pdb
+D:\LavAuto\VS_Projekti\Lav\ExportRadniNalogWebServis\obj\Debug\ExportRadniNalogWebServis.dll
+D:\LavAuto\VS_Projekti\Lav\ExportRadniNalogWebServis\obj\Debug\ExportRadniNalogWebServis.pdb
+D:\LavAuto\VS_Projekti\Lav\ExportRadniNalogWebServis\bin\log4net.dll
+d:\LavAuto\LAV-GitHub\SERVIS\VS_Projekti\Lav\ExportRadniNalogWebServis\bin\ExportRadniNalogWebServis.dll
+d:\LavAuto\LAV-GitHub\SERVIS\VS_Projekti\Lav\ExportRadniNalogWebServis\bin\ExportRadniNalogWebServis.pdb
+d:\LavAuto\LAV-GitHub\SERVIS\VS_Projekti\Lav\ExportRadniNalogWebServis\bin\log4net.dll
+d:\LavAuto\LAV-GitHub\SERVIS\VS_Projekti\Lav\ExportRadniNalogWebServis\obj\Debug\ResolveAssemblyReference.cache
+d:\LavAuto\LAV-GitHub\SERVIS\VS_Projekti\Lav\ExportRadniNalogWebServis\obj\Debug\ExportRadniNalogWebServis.dll
+d:\LavAuto\LAV-GitHub\SERVIS\VS_Projekti\Lav\ExportRadniNalogWebServis\obj\Debug\ExportRadniNalogWebServis.pdb

@@ -1,0 +1,23 @@
+﻿<Page x:Class="Servis.Izvestaji.Porudzbenica"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:rpt="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+      mc:Ignorable="d"       
+	Title="Porudzbenica" KeepAlive="False" Loaded="Page_Loaded" >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <WindowsFormsHost Grid.Column="0" Grid.Row="0" >
+            <rpt:ReportViewer x:Name="reportViewerIzvestaj"></rpt:ReportViewer>
+        </WindowsFormsHost>
+    </Grid>
+</Page>

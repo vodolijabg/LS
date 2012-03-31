@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="TecDoc_SQL">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="ORION:ORION\Oliver">
+          <Created>2009-07-09T20:51:41.8698041+02:00</Created>
+          <Type>SQL</Type>
+          <Server>ORION</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB>TD</InitialDB>
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="1_Opis.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>1_Opis.sql</FullPath>
+        </FileNode>
+        <FileNode Name="2_Proizvodjac.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>2_Proizvodjac.sql</FullPath>
+        </FileNode>
+        <FileNode Name="3_ModelAutomobila.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>3_ModelAutomobila.sql</FullPath>
+        </FileNode>
+        <FileNode Name="4_TipAutomobila.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>4_TipAutomobila.sql</FullPath>
+        </FileNode>
+        <FileNode Name="5_TipCvora.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>5_TipCvora.sql</FullPath>
+        </FileNode>
+        <FileNode Name="6_Stablo.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>6_Stablo.sql</FullPath>
+        </FileNode>
+        <FileNode Name="7_Artikal.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>7_Artikal.sql</FullPath>
+        </FileNode>
+        <FileNode Name="8_Motor.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>8_Motor.sql</FullPath>
+        </FileNode>
+        <FileNode Name="9_VezaTipAutomobilaMotor.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>9_VezaTipAutomobilaMotor.sql</FullPath>
+        </FileNode>
+        <FileNode Name="10_VezaArtikalStablo.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>10_VezaArtikalStablo.sql</FullPath>
+        </FileNode>
+        <FileNode Name="11_VrstaBrojaZaPretragu.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>11_VrstaBrojaZaPretragu.sql</FullPath>
+        </FileNode>
+        <FileNode Name="12_VezaArtikalBrojZaPretragu.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>12_VezaArtikalBrojZaPretragu.sql</FullPath>
+        </FileNode>
+        <FileNode Name="13_Kriterijum.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>13_Kriterijum.sql</FullPath>
+        </FileNode>
+        <FileNode Name="14_VezaArtikalKriterijum.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>14_VezaArtikalKriterijum.sql</FullPath>
+        </FileNode>
+        <FileNode Name="15_Ugradnja.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>15_Ugradnja.sql</FullPath>
+        </FileNode>
+        <FileNode Name="16_VezaUgradnjaKriterijum.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>16_VezaUgradnjaKriterijum.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

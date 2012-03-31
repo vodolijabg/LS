@@ -1,0 +1,472 @@
+﻿<Page x:Class="Servis.Ponuda"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Servis"
+    Title="Ponuda" Loaded="Page_Loaded" KeepAlive="True" >
+    <Page.Resources>
+        <Style x:Key="listViewItem_MouseDoubleClick_Handler" TargetType="{x:Type ListViewItem}">
+            <EventSetter Event="MouseDoubleClick" Handler="listViewItem_MouseDoubleClick" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+            <!--<Setter Property="Background">
+                <Setter.Value>
+                    <Binding RelativeSource="{RelativeSource Self}" >             
+                        <Binding.Converter>
+                            <local:BackgroundConverter></local:BackgroundConverter>
+                        </Binding.Converter>
+                    </Binding>
+                </Setter.Value>
+            </Setter>-->
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0" Height="28">
+            <StackPanel.Background>
+                <LinearGradientBrush StartPoint="0, 0" EndPoint="0,1">
+                    <!--<GradientStop Color="#FFBD69" Offset="0" />
+                    <GradientStop Color="#FFAC42" Offset="0.40625" />
+                    <GradientStop Color="#FB8C3C" Offset="0.40625" />
+                    <GradientStop Color="#FED364" Offset="1" />-->
+
+                    <GradientStop Color="#E3EFFF" Offset="0" />
+                    <GradientStop Color="#C4DDFF" Offset="0.40625" />
+                    <GradientStop Color="#ADD1FF" Offset="0.40625" />
+                    <GradientStop Color="#C0DBFF" Offset="1" />
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Button Name="buttonDodajWizard" Click="buttonDodajWizard_Click">
+                <Image Source="Images/wizard.ico" ToolTip="Dodaj"></Image>
+            </Button>
+            <Button Name="buttonDodaj" Click="buttonDodaj_Click">
+                <Image Source="Images/Add.ico" ToolTip="Dodaj"></Image>
+            </Button>
+            <Button  Name="buttonIzmeni" Click="buttonIzmeni_Click">
+                <Image Source="Images/Edit.ico" ToolTip="Izmeni"></Image>
+            </Button>
+            <Button  Name="buttonObrisi" Click="buttonObrisi_Click">
+                <Image Source="Images/Delete.ico" ToolTip="Obrisi"></Image>
+            </Button>
+            <Button Name="buttonOsvezi" Click="buttonOsvezi_Click">
+                <Image Source="Images/Refresh.ico" ToolTip="Osvezi" ></Image>
+            </Button>
+            <TextBlock VerticalAlignment ="Center" Margin="10,0,5,0" >ID:</TextBlock>
+            <TextBox Width="100" Margin="0,2,5,2" Name="textBoxTraziPonudaID"></TextBox>
+            <Button IsDefault="True"  Name="buttonNadji" Click="buttonNadji_Click">
+                <Image Source="Images/Search.ico" ToolTip="Nadji"></Image>
+            </Button>
+            <!--<Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition ></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Margin="4" Text="Odaberi vrstu partnera" FontWeight="Bold" FontStyle="Normal"  TextDecorations="Underline"></TextBlock>
+                <RadioButton Grid.Row="0" Grid.Column="1" Name="radioButtonFizickoLice" Margin="4" Click="radioButton_Click" IsChecked="True">Fizičko Lice</RadioButton>
+                <RadioButton Grid.Row="0" Grid.Column="2" Name="radioButtonPoslovniPartner" Margin="4" Click="radioButton_Click" >Poslovni partner</RadioButton>
+            </Grid>-->
+        </StackPanel>
+
+        <ListView Grid.Row="1" Margin="0,3,3,3" Name="listViewPonuda" ItemContainerStyle="{StaticResource listViewItem_MouseDoubleClick_Handler}"  SelectionMode="Single">
+            <!--<ListView.ItemContainerStyleSelector>
+                <local:AlternatingRowStyleSelector AlternateStyle="{StaticResource ObojiSvakiDrugiRed}" />
+            </ListView.ItemContainerStyleSelector>-->
+            <ListView.View>
+                <GridView AllowsColumnReorder="True">
+                    <GridView.Columns>
+                        <GridViewColumn Width="50" >
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Status" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image  Width="20" Height="20">
+                                        <Image.Source>
+                                            <MultiBinding >
+                                                <MultiBinding.Converter>
+                                                    <local:DajIkonuZaStatusPonudeConverter></local:DajIkonuZaStatusPonudeConverter>
+                                                </MultiBinding.Converter>
+                                                <!--<MultiBinding.ConverterParameter>*</MultiBinding.ConverterParameter>-->
+                                                <Binding Path="PreuzimaLicno"></Binding>
+                                                <Binding Path="PreuzeoLicnoU"></Binding>
+                                                <Binding Path="ObavestiTelefonom"></Binding>
+                                                <Binding Path="ObavestenTelefonomU"></Binding>
+                                                <Binding Path="PosaljiSmsObavestenje"></Binding>
+                                                <Binding Path="PoslatoSmsObavestenjeU"></Binding>
+                                                <Binding Path="PosaljiEMail"></Binding>
+                                                <Binding Path="PoslatEMailU"></Binding>
+                                                <Binding Path="StavkaUslugas"></Binding>
+                                            </MultiBinding>
+                                        </Image.Source>
+                                    </Image>
+                                    
+                                    <!--<TextBlock >
+                                        <TextBlock.Text>
+                                            <Binding Path="PonudaID" ></Binding>
+                                        </TextBlock.Text>
+                                    </TextBlock>-->
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="50" >
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="ID" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock >
+                                        <TextBlock.Text>
+                                            <Binding Path="PonudaID" ></Binding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="0">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="FizickoLiceID" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock >
+                                        <TextBlock.Text>
+                                            <Binding Path="FizickoLiceID" ></Binding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="0">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="PoslovniPartnerID" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock >
+                                        <TextBlock.Text>
+                                            <Binding Path="PoslovniPartnerID" ></Binding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="100">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Vrsta partnera" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock >
+                                        <TextBlock.Text>
+                                            <MultiBinding >
+                                                <MultiBinding.Converter>
+                                                    <local:DajVrstuPartneraConverter></local:DajVrstuPartneraConverter>
+                                                </MultiBinding.Converter>
+                                                <MultiBinding.ConverterParameter>-</MultiBinding.ConverterParameter>
+                                                <Binding Path="ServisnaKnjizica.PoslovniPartnerID"></Binding>
+                                                <Binding Path="ServisnaKnjizica.FizickoLiceID"></Binding>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="100">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Partner" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock >
+                                        <TextBlock.Text>
+                                            <MultiBinding >
+                                                <MultiBinding.Converter>
+                                                    <local:DajNazivPartneraConverter></local:DajNazivPartneraConverter>
+                                                </MultiBinding.Converter>
+                                                <MultiBinding.ConverterParameter>-</MultiBinding.ConverterParameter>
+                                                <Binding Path="ServisnaKnjizica.PoslovniPartner.SkracenNaziv"></Binding>
+                                                <Binding Path="ServisnaKnjizica.FizickoLice.Ime"></Binding>
+                                                <Binding Path="ServisnaKnjizica.FizickoLice.Prezime"></Binding>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="120">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Servisna knjižica šifra" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock >
+                                        <TextBlock.Text>
+                                            <Binding Path="ServisnaKnjizica.Sifra" ></Binding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="250">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Tip" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock >
+                                        <TextBlock.Text>
+                                            <MultiBinding >
+                                                <MultiBinding.Converter>
+                                                    <local:ConcatenateThreeStringConverter></local:ConcatenateThreeStringConverter>
+                                                </MultiBinding.Converter>
+                                                <!--<MultiBinding.ConverterParameter>-</MultiBinding.ConverterParameter>-->
+                                                <Binding Path="ServisnaKnjizica.TipAutomobila.ModelAutomobila.Proizvodjac.Naziv"></Binding>
+                                                <Binding Path="ServisnaKnjizica.TipAutomobila.ModelAutomobila.OpisTabela.Opis"></Binding>
+                                                <Binding Path="ServisnaKnjizica.TipAutomobila.OpisTabela.Opis"></Binding>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="100">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Ponudu uneo" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock >
+                                        <TextBlock.Text>
+                                            <Binding Path="Radnik.Nadimak" ></Binding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="150">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Vreme kreiranja" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock >
+                                        <TextBlock.Text>
+                                            <Binding Path="Vreme" >
+                                                <Binding.ConverterParameter>g</Binding.ConverterParameter>
+                                                <Binding.Converter>                                                    
+                                                    <local:DateTimeToStringConverter></local:DateTimeToStringConverter>
+                                                </Binding.Converter>
+                                            </Binding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="150">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Način zahteva za ponudu" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock >
+                                        <TextBlock.Text>
+                                            <Binding Path="NacinZahtevaZaPonudu.Naziv"></Binding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="150">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Preuzima lično" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox IsEnabled="False">
+                                        <CheckBox.IsChecked>
+                                            <Binding Path="PreuzimaLicno" ></Binding>
+                                        </CheckBox.IsChecked>
+                                    </CheckBox>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="150">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Preuzeo lično u" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock >
+                                        <TextBlock.Text>
+                                            <Binding Path="PreuzeoLicnoU" >
+                                                <Binding.ConverterParameter>g</Binding.ConverterParameter>
+                                                <Binding.Converter>
+                                                    <local:DateTimeToStringConverter></local:DateTimeToStringConverter>
+                                                </Binding.Converter>
+                                            </Binding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="150">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Obavesti telefonom" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox IsEnabled="False">
+                                        <CheckBox.IsChecked>
+                                            <Binding Path="ObavestiTelefonom" ></Binding>
+                                        </CheckBox.IsChecked>
+                                    </CheckBox>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="150">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Obavešten telefonom u" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock >
+                                        <TextBlock.Text>
+                                            <Binding Path="ObavestenTelefonomU" >            
+                                                <Binding.ConverterParameter>g</Binding.ConverterParameter>
+                                                <Binding.Converter>
+                                                    <local:DateTimeToStringConverter></local:DateTimeToStringConverter>
+                                                </Binding.Converter>
+                                            </Binding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="150">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Pošalji sms obaveštenje" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox IsEnabled="False">
+                                        <CheckBox.IsChecked>
+                                            <Binding Path="PosaljiSMSObavestenje" ></Binding>
+                                        </CheckBox.IsChecked>
+                                    </CheckBox>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="150">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Poslato sms obaveštenje u" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock >
+                                        <TextBlock.Text>
+                                            <Binding Path="PoslatoSMSObavestenjeU" >      
+                                                <Binding.ConverterParameter>g</Binding.ConverterParameter>                                                
+                                                <Binding.Converter>
+                                                    <local:DateTimeToStringConverter></local:DateTimeToStringConverter>
+                                                </Binding.Converter>
+                                            </Binding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="200">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Napomena" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock >
+                                        <TextBlock.Text>
+                                            <Binding Path="Napomena" ></Binding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        
+                        <GridViewColumn Width="0">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Status" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock >
+                                        <TextBlock.Text>
+                                            <Binding Path="Status" ></Binding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="0">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="VremePromene" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock >
+                                        <TextBlock.Text>
+                                            <Binding Path="VremePromene" >
+                                                <Binding.ConverterParameter>g</Binding.ConverterParameter>                                                
+                                                <Binding.Converter>
+                                                    <local:DateTimeToStringConverter></local:DateTimeToStringConverter>
+                                                </Binding.Converter>
+                                            </Binding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="0">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Korisnički nalog" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock >
+                                        <TextBlock.Text>
+                                            <Binding Path="KorisnickiNalog"></Binding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0" Height="30">
+            <StackPanel.Background>
+                <LinearGradientBrush StartPoint="0, 0" EndPoint="0,1">
+                    <!--<GradientStop Color="#FFBD69" Offset="0" />
+                    <GradientStop Color="#FFAC42" Offset="0.40625" />
+                    <GradientStop Color="#FB8C3C" Offset="0.40625" />
+                    <GradientStop Color="#FED364" Offset="1" />-->
+                    <GradientStop Color="#E3EFFF" Offset="0" />
+                    <GradientStop Color="#C4DDFF" Offset="0.40625" />
+                    <GradientStop Color="#ADD1FF" Offset="0.40625" />
+                    <GradientStop Color="#C0DBFF" Offset="1" />
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <TextBlock VerticalAlignment ="Center" Margin="10,0,0,0" >Ukupan broj redova:</TextBlock>
+            <TextBlock Name="textBlockBrojRedova" VerticalAlignment ="Center" Margin="10,0,0,0" Text="{Binding ElementName=listViewPonuda, Path=Items.Count}"></TextBlock>
+        </StackPanel>
+
+    </Grid>
+</Page>

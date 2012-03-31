@@ -1,0 +1,10 @@
+E:\LavAuto\LavAuto_ORM\obj\Debug\ResolveAssemblyReference.cache
+E:\LavAuto\LavAuto_ORM\bin\Debug\LavAuto_ORM.dll
+E:\LavAuto\LavAuto_ORM\bin\Debug\LavAuto_ORM.pdb
+E:\LavAuto\LavAuto_ORM\obj\Debug\LavAuto_ORM.dll
+E:\LavAuto\LavAuto_ORM\obj\Debug\LavAuto_ORM.pdb
+D:\LavAuto\LavAuto_ORM\bin\Debug\LavAuto_ORM.dll
+D:\LavAuto\LavAuto_ORM\bin\Debug\LavAuto_ORM.pdb
+D:\LavAuto\LavAuto_ORM\obj\Debug\ResolveAssemblyReference.cache
+D:\LavAuto\LavAuto_ORM\obj\Debug\LavAuto_ORM.dll
+D:\LavAuto\LavAuto_ORM\obj\Debug\LavAuto_ORM.pdb

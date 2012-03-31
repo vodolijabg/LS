@@ -1,0 +1,673 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ADA2C29D-1BE2-4042-9202-7891B95CB224}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LAV</RootNamespace>
+    <AssemblyName>LAV</AssemblyName>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ManifestCertificateThumbprint>BC839FA82826FE16C467E026334701C4BFEC068E</ManifestCertificateThumbprint>
+    <ManifestKeyFile>LAV_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <TargetZone>LocalIntranet</TargetZone>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <PublishUrl>D:\Projekti\LAVAuto\2\Setup_20081101\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>25</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Automobil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Automobil.Designer.cs">
+      <DependentUpon>Automobil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AutomobilDetaljno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AutomobilDetaljno.Designer.cs">
+      <DependentUpon>AutomobilDetaljno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodatniPodaci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodatniPodaci.Designer.cs">
+      <DependentUpon>DodatniPodaci.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DS\ArtikalDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArtikalDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\AutomobilDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutomobilDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\AutomobilDetaljnoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutomobilDetaljnoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\KorisnikProgramaDataSet.cs">
+      <DependentUpon>KorisnikProgramaDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DS\KorisnikProgramaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KorisnikProgramaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\MestoDataSet.cs">
+      <DependentUpon>MestoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\MestoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MestoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\NadjiPonuduDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NadjiPonuduDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\PonudaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PonudaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\PoslovniPartnerDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PoslovniPartnerDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\RadnikDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RadnikDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\RobaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RobaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\StampajPodatkeOKorisnikuDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StampajPodatkeOKorisnikuDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\StampajPonuduDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StampajPonuduDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\StavkaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StavkaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\UslugaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UslugaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Konekcija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Konekcija.Designer.cs">
+      <DependentUpon>Konekcija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KorisnikPrograma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KorisnikPrograma.Designer.cs">
+      <DependentUpon>KorisnikPrograma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mesto.designer.cs">
+      <DependentUpon>Mesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DS\DobavljacDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DobavljacDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS\PretragaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PretragaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Izvestaji\ArtikliDobavljaca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Izvestaji\ArtikliDobavljaca.Designer.cs">
+      <DependentUpon>ArtikliDobavljaca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Izvestaji\ArtikliDobavljacaCrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArtikliDobavljacaCrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Izvestaji\Brojac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Izvestaji\Brojac.Designer.cs">
+      <DependentUpon>Brojac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Izvestaji\BrojacCrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BrojacCrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MDI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI.Designer.cs">
+      <DependentUpon>MDI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NadjiPonudu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NadjiPonudu.Designer.cs">
+      <DependentUpon>NadjiPonudu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Napomena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Napomena.designer.cs">
+      <DependentUpon>Napomena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PodaciOkorisnikuCrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PodaciOkorisnikuCrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PomocneKlase\Index.cs" />
+    <Compile Include="PomocneKlase\Stringovi.cs" />
+    <Compile Include="Ponuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ponuda.Designer.cs">
+      <DependentUpon>Ponuda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PoslovniPartner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PoslovniPartner.designer.cs">
+      <DependentUpon>PoslovniPartner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Artikal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Artikal.Designer.cs">
+      <DependentUpon>Artikal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pretraga\PoslovniPartnerPretraga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pretraga\PoslovniPartnerPretraga.Designer.cs">
+      <DependentUpon>PoslovniPartnerPretraga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Automobil.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Automobil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AutomobilDetaljno.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AutomobilDetaljno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodatniPodaci.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DodatniPodaci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Konekcija.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Konekcija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KorisnikPrograma.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>KorisnikPrograma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mesto.resx">
+      <DependentUpon>Mesto.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Izvestaji\ArtikliDobavljaca.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ArtikliDobavljaca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Izvestaji\ArtikliDobavljacaCrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ArtikliDobavljacaCrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Izvestaji\Brojac.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Brojac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Izvestaji\BrojacCrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BrojacCrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NadjiPonudu.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NadjiPonudu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Napomena.resx">
+      <DependentUpon>Napomena.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PodaciOkorisnikuCrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PodaciOkorisnikuCrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ponuda.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Ponuda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PoslovniPartner.resx">
+      <DependentUpon>PoslovniPartner.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Artikal.resx">
+      <DependentUpon>Artikal.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pretraga\PoslovniPartnerPretraga.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PoslovniPartnerPretraga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Radnik.resx">
+      <DependentUpon>Radnik.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Roba.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Roba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StampajPonudu.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>StampajPonudu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StampajPonuduCrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StampajPonuduCrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usluga.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Usluga.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Radnik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Radnik.Designer.cs">
+      <DependentUpon>Radnik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Roba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Roba.Designer.cs">
+      <DependentUpon>Roba.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LavSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>LavSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="StampajPonudu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StampajPonudu.Designer.cs">
+      <DependentUpon>StampajPonudu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StampajPonuduCrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StampajPonuduCrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Usluga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usluga.Designer.cs">
+      <DependentUpon>Usluga.cs</DependentUpon>
+    </Compile>
+    <None Include="DS\PretragaDataSet.xsc">
+      <DependentUpon>PretragaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\PretragaDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PretragaDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\PretragaDataSet.xss">
+      <DependentUpon>PretragaDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DB\DB.csproj">
+      <Project>{BD69C126-A08F-4640-AEF3-E7334D831435}</Project>
+      <Name>DB</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DS\ArtikalDataSet.xsc">
+      <DependentUpon>ArtikalDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\ArtikalDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ArtikalDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\ArtikalDataSet.xss">
+      <DependentUpon>ArtikalDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\AutomobilDataSet.xsc">
+      <DependentUpon>AutomobilDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\AutomobilDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AutomobilDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\AutomobilDataSet.xss">
+      <DependentUpon>AutomobilDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DobavljacDataSet.xsc">
+      <DependentUpon>DobavljacDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\DobavljacDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DobavljacDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\DobavljacDataSet.xss">
+      <DependentUpon>DobavljacDataSet.xsd</DependentUpon>
+    </None>
+    <BaseApplicationManifest Include="Properties\app.manifest" />
+    <None Include="DS\KorisnikProgramaDataSet.xsc">
+      <DependentUpon>KorisnikProgramaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\KorisnikProgramaDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KorisnikProgramaDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\KorisnikProgramaDataSet.xss">
+      <DependentUpon>KorisnikProgramaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\MestoDataSet.xsc">
+      <DependentUpon>MestoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\MestoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MestoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DS\MestoDataSet.xss">
+      <DependentUpon>MestoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\PoslovniPartnerDataSet.xsc">
+      <DependentUpon>PoslovniPartnerDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\PoslovniPartnerDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PoslovniPartnerDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\PoslovniPartnerDataSet.xss">
+      <DependentUpon>PoslovniPartnerDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\RadnikDataSet.xsc">
+      <DependentUpon>RadnikDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\RadnikDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RadnikDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\RadnikDataSet.xss">
+      <DependentUpon>RadnikDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\RobaDataSet.xsc">
+      <DependentUpon>RobaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\RobaDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RobaDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\RobaDataSet.xss">
+      <DependentUpon>RobaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\UslugaDataSet.xsc">
+      <DependentUpon>UslugaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\UslugaDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UslugaDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\UslugaDataSet.xss">
+      <DependentUpon>UslugaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\search.bmp" />
+    <None Include="LavSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>LavSettings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="BusinessObjects.CrystalReports.NET.2.0">
+      <Visible>False</Visible>
+      <ProductName>Crystal Reports for .NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Data.Access.Components.2.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Data Access Components 2.8</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DS\AutomobilDetaljnoDataSet.xsc">
+      <DependentUpon>AutomobilDetaljnoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\AutomobilDetaljnoDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AutomobilDetaljnoDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\AutomobilDetaljnoDataSet.xss">
+      <DependentUpon>AutomobilDetaljnoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\NadjiPonuduDataSet.xsc">
+      <DependentUpon>NadjiPonuduDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\NadjiPonuduDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NadjiPonuduDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\NadjiPonuduDataSet.xss">
+      <DependentUpon>NadjiPonuduDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\PonudaDataSet.xsc">
+      <DependentUpon>PonudaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\PonudaDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PonudaDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\PonudaDataSet.xss">
+      <DependentUpon>PonudaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\StampajPodatkeOKorisnikuDataSet.xsc">
+      <DependentUpon>StampajPodatkeOKorisnikuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\StampajPodatkeOKorisnikuDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StampajPodatkeOKorisnikuDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\StampajPodatkeOKorisnikuDataSet.xss">
+      <DependentUpon>StampajPodatkeOKorisnikuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\StampajPonuduDataSet.xsc">
+      <DependentUpon>StampajPonuduDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\StampajPonuduDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StampajPonuduDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\StampajPonuduDataSet.xss">
+      <DependentUpon>StampajPonuduDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\StavkaDataSet.xsc">
+      <DependentUpon>StavkaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DS\StavkaDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StavkaDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\StavkaDataSet.xss">
+      <DependentUpon>StavkaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LAV_TemporaryKey.pfx" />
+    <None Include="Resources\Collapsed.bmp" />
+    <None Include="Resources\Print.bmp" />
+    <None Include="Resources\printer.bmp" />
+    <Content Include="Resources\Save.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

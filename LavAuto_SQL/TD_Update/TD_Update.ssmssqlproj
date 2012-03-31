@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="TD_Update">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="ORION\SQL2008:ORION\Oliver">
+          <Created>2011-02-05T19:35:56.9885622+01:00</Created>
+          <Type>SQL</Type>
+          <Server>ORION\SQL2008</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName />
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="1_Proizvodjac.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION\SQL2008:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION\SQL2008</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>1_Proizvodjac.sql</FullPath>
+        </FileNode>
+        <FileNode Name="2_Opis.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION\SQL2008:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION\SQL2008</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>2_Opis.sql</FullPath>
+        </FileNode>
+        <FileNode Name="3_Artikal.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION\SQL2008:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION\SQL2008</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>3_Artikal.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

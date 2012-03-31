@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <configSections>
+        <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+            <section name="AutoServis.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+        </sectionGroup>
+    </configSections>
+    <connectionStrings>
+        <add name="AutoServis.Properties.Settings.Setting" connectionString="Data Source=localhost;Initial Catalog=LavAuto;Integrated Security=True"
+            providerName="System.Data.SqlClient" />
+    </connectionStrings>
+    <userSettings>
+        <AutoServis.Properties.Settings>
+            <setting name="KonekcioniString" serializeAs="String">
+                <value>Data Source=localhost;Initial Catalog=LavAuto;Integrated Security=True</value>
+            </setting>
+            <setting name="AutomatskiDodeliSifruMesto" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="AutomatskiDodeliSifruRadnik" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="AutomatskiDodeliSifruFizickoLice" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="AutomatskiDodeliSifruNacinZahtevaZaPonudu" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="AutomatskiDodeliSifruNosilacGrupe" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="AutomatskiDodeliSifruRadnoMesto" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="AutomatskiDodeliSifruRadniNalogStatus" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="AutomatskiDodeliSifruBod" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="AutomatskiDodeliSifruPoslovniPartner" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="AutomatskiDodeliSifruUsluga" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="AutomatskiDodeliSifruServisnaKnjizica" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="DesetPoslednjihUspesnihPretraga" serializeAs="Xml">
+                <value>
+                    <ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+                </value>
+            </setting>
+        </AutoServis.Properties.Settings>
+    </userSettings>
+</configuration>

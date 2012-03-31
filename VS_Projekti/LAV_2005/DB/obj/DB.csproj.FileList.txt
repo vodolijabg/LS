@@ -1,0 +1,10 @@
+bin\Release\DB.dll
+bin\Release\DB.pdb
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\DB.dll
+obj\Release\DB.pdb
+bin\Debug\DB.dll
+bin\Debug\DB.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\DB.dll
+obj\Debug\DB.pdb

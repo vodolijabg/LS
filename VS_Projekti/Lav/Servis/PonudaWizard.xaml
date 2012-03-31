@@ -1,0 +1,8 @@
+﻿<Window x:Class="Servis.PonudaWizard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ponuda" MinHeight="200" MinWidth="400"  SizeToContent="WidthAndHeight"  ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid>
+        <Frame Name="framePonudaWizard" Background="White" NavigationUIVisibility="Hidden" ></Frame>
+    </Grid>
+</Window>

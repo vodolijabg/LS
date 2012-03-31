@@ -1,0 +1,293 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="LavAuto_SQL">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="ORION:ORION\Oliver">
+          <Created>2011-05-24T19:15:28.9400238+02:00</Created>
+          <Type>SQL</Type>
+          <Server>ORION</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName />
+        </ConnectionNode>
+        <ConnectionNode Name="ORION:sa">
+          <Created>2011-05-26T19:55:45.0919632+02:00</Created>
+          <Type>SQL</Type>
+          <Server>ORION</Server>
+          <UserName>sa</UserName>
+          <Authentication>SQL</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="serverp:sa">
+          <Created>2011-05-30T19:44:26.2450824+02:00</Created>
+          <Type>SQL</Type>
+          <Server>serverp</Server>
+          <UserName>sa</UserName>
+          <Authentication>SQL</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="2_DDL_DopunaZa_TD.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:False:sa</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName>sa</AssociatedConnUserName>
+          <FullPath>2_DDL_DopunaZa_TD.sql</FullPath>
+        </FileNode>
+        <FileNode Name="5_Dodatni_Constrainti.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:False:sa</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName>sa</AssociatedConnUserName>
+          <FullPath>5_Dodatni_Constrainti.sql</FullPath>
+        </FileNode>
+        <FileNode Name="1_DDL_TD.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:False:sa</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName>sa</AssociatedConnUserName>
+          <FullPath>1_DDL_TD.sql</FullPath>
+        </FileNode>
+        <FileNode Name="8_Indexi.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:False:sa</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName>sa</AssociatedConnUserName>
+          <FullPath>8_Indexi.sql</FullPath>
+        </FileNode>
+        <FileNode Name="4_DDL_DopunaSistemsak.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:False:sa</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName>sa</AssociatedConnUserName>
+          <FullPath>4_DDL_DopunaSistemsak.sql</FullPath>
+        </FileNode>
+        <FileNode Name="7_Triger_StavkaArtikal_1.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>7_Triger_StavkaArtikal_1.sql</FullPath>
+        </FileNode>
+        <FileNode Name="7_Triger_StavkaUsluga_1.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:False:sa</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName>sa</AssociatedConnUserName>
+          <FullPath>7_Triger_StavkaUsluga_1.sql</FullPath>
+        </FileNode>
+        <FileNode Name="7_Trigeri.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>7_Trigeri.sql</FullPath>
+        </FileNode>
+        <FileNode Name="3_DDL.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>3_DDL.sql</FullPath>
+        </FileNode>
+        <FileNode Name="3_DDL_Orginal.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:False:sa</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName>sa</AssociatedConnUserName>
+          <FullPath>3_DDL_Orginal.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspObrisiArtikal.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>uspObrisiArtikal.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspIzmeniRobuRoban.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>uspIzmeniRobuRoban.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspUnesiRobuRoban.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>uspUnesiRobuRoban.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspNadjiArtikal_1.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>uspNadjiArtikal_1.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspNadjiArtikal.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>uspNadjiArtikal.sql</FullPath>
+        </FileNode>
+        <FileNode Name="vwNajpovoljnijiDobavljac.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>vwNajpovoljnijiDobavljac.sql</FullPath>
+        </FileNode>
+        <FileNode Name="_ZaOptimizaciju.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>_ZaOptimizaciju.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspUnesiZalihe.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ORION:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ORION</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>uspUnesiZalihe.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspNadjiRobu.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>uspNadjiRobu.sql</FullPath>
+        </FileNode>
+        <FileNode Name="udfDajOciscenBrojZaPretragu.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>udfDajOciscenBrojZaPretragu.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspDajPadajucuListuNamenaGumaRoban.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>uspDajPadajucuListuNamenaGumaRoban.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspDajPadajucuListuProizvodjaciAkumulatoraRoban.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>uspDajPadajucuListuProizvodjaciAkumulatoraRoban.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspDajPadajucuListuProizvodjaciGumaRoban.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>uspDajPadajucuListuProizvodjaciGumaRoban.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspDajPadajucuListuProizvodjaciUljaRoban.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>uspDajPadajucuListuProizvodjaciUljaRoban.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspDajPadajucuListuSezonaGumaRoban.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>uspDajPadajucuListuSezonaGumaRoban.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspDajPadajucuListuViskozitetUljaRoban.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>uspDajPadajucuListuViskozitetUljaRoban.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspNadjiAkumulator.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>uspNadjiAkumulator.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspNadjiGumu.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>uspNadjiGumu.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspNadjiUlje.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>uspNadjiUlje.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspUnesiAkumulatorRoban.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>uspUnesiAkumulatorRoban.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspUnesiCenuDobavljacaTD.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>uspUnesiCenuDobavljacaTD.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspUnesiCenuKorisnikaProgramaTD.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>uspUnesiCenuKorisnikaProgramaTD.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspUnesiGumuRoban.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>uspUnesiGumuRoban.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspUnesiPoslovniPartnerRoban.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>uspUnesiPoslovniPartnerRoban.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspUnesiRadnikaRoban.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>uspUnesiRadnikaRoban.sql</FullPath>
+        </FileNode>
+        <FileNode Name="uspUnesiUljeRoban.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>uspUnesiUljeRoban.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items>
+        <FileNode Name="IsprazniBazu.sq">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>IsprazniBazu.sq</FullPath>
+        </FileNode>
+        <FileNode Name="KriptovanjePasswordKolone">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>KriptovanjePasswordKolone</FullPath>
+        </FileNode>
+        <FileNode Name="PopravljanjeFragmentobanihIndexa.sq">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>PopravljanjeFragmentobanihIndexa.sq</FullPath>
+        </FileNode>
+        <FileNode Name="RebuilSvihIndexaUSvakojTabeliUbazi.sq">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>RebuilSvihIndexaUSvakojTabeliUbazi.sq</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

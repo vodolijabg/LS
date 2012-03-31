@@ -1,0 +1,191 @@
+﻿<PageFunction
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+    x:Class="AutoServis.RadniRaspored"
+    x:TypeArguments="sys:String"
+    xmlns:local="clr-namespace:AutoServis"
+    xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+    Title="RadniRaspored" WindowTitle="RadniRaspored" KeepAlive="True" Loaded="PageFunction_Loaded"  RemoveFromJournal="True">
+  <Grid>
+        
+      <Border Style="{StaticResource Pozadina}" Name="borderNajveci">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                
+                <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Name="textBlockSemaSazeta"></TextBlock>
+                
+                <Border Grid.Column="0" Grid.Row="1" Style="{StaticResource Pozadina}" Width="180" Height="210" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <WindowsFormsHost>
+                        <wf:MonthCalendar MaxSelectionCount="1" MinDate="1.1.2009" DateSelected="monthCalendarDatum_DateSelected" x:Name="monthCalendarDatum"></wf:MonthCalendar>
+                    </WindowsFormsHost>
+                </Border>
+                
+                <Border Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Style="{StaticResource Pozadina}" Name="borderSema" >
+                    <TabControl >
+                        <TabItem Header="Po Radnim Mestima">
+                            <Border  Style="{StaticResource Pozadina}" >
+                                    
+                                <ListBox Margin="3,3,3,3" Name="listBoxRadnoMestoLista">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Tag="{Binding Path=RadnoMesto_ID}" >
+                                                <ListBox Name="listBoxRadnoVremeLista" Tag="{Binding Path=Naziv}">
+                                                    <ListBox.ItemsSource>
+                                                        <Binding ElementName="listBoxRadnoMestoLista" Path="Tag" >
+                                                        </Binding>
+                                                    </ListBox.ItemsSource>                                                    
+                                                    <ListBox.ItemTemplate>
+                                                        <DataTemplate>
+                                                           
+                                                           <Border Style="{StaticResource Pozadina}" Height="100" Width="200" Margin="1">
+                                                                <Grid>
+                                                                    <Grid.ColumnDefinitions>
+                                                                        <ColumnDefinition></ColumnDefinition>
+                                                                        <ColumnDefinition></ColumnDefinition>
+                                                                    </Grid.ColumnDefinitions>
+                                                                    <Grid.RowDefinitions>
+                                                                        <RowDefinition Height="Auto"></RowDefinition>
+                                                                        <RowDefinition></RowDefinition>
+                                                                    </Grid.RowDefinitions>
+
+                                                                    <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="0">
+                                                                            <TextBlock.Text>
+                                                                               <Binding Path="Tag">
+                                                                                    <Binding.RelativeSource>
+                                                                                        <RelativeSource AncestorLevel="1" AncestorType="{x:Type ListBox}" Mode="FindAncestor"></RelativeSource>
+                                                                                    </Binding.RelativeSource>
+                                                                                </Binding>
+                                                                            </TextBlock.Text>
+                                                                    </TextBlock>
+
+                                                                    <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="0">
+                                                                            <TextBlock.Text>
+                                                                                <Binding Path="Sifra"></Binding>
+                                                                            </TextBlock.Text>
+                                                                    </TextBlock>
+                                                                      
+                                                                    <ListBox Name="listBoxStavkaUslugaRadniRasporedLista" Grid.Column="0" Grid.Row="1" Margin="0" Grid.ColumnSpan="2" MouseDoubleClick="listBoxStavkaUslugaRadniRasporedLista_MouseDoubleClick" AllowDrop="True" Drop="listBoxStavkaUslugaRadniRasporedLista_Drop" >
+                                                                            <ListBox.ItemsSource>
+                                                                                <MultiBinding >
+                                                                                    <MultiBinding.Converter>
+                                                                                        <local:FilterStavkaUslugaRadniRasporedPoRadnoMestoMultiValueConverter></local:FilterStavkaUslugaRadniRasporedPoRadnoMestoMultiValueConverter>
+                                                                                    </MultiBinding.Converter>
+                                                                                    <!--<MultiBinding.ConverterParameter>1</MultiBinding.ConverterParameter>-->
+                                                                                    <!--<Binding  Path="StavkaUslugaRadniRasporeds"></Binding>-->
+                                                                                    <Binding ElementName="borderSema"  Path="Tag"></Binding>
+                                                                                    <Binding Path="Tag">
+                                                                                        <Binding.RelativeSource>
+                                                                                            <RelativeSource AncestorLevel="1" AncestorType="{x:Type StackPanel}" Mode="FindAncestor"></RelativeSource>
+                                                                                        </Binding.RelativeSource>
+                                                                                    </Binding>
+                                                                                    <Binding Path="RadnoVreme_ID"></Binding>
+                                                                                </MultiBinding>
+                                                                            </ListBox.ItemsSource>
+                                                                            <ListBox.ItemTemplate>
+                                                                                <DataTemplate >
+                                                                                    
+                                                                                    <TextBlock MouseDown="TextBlock_MouseDown" >
+                                                                                        <TextBlock.FontWeight>
+                                                                                            <MultiBinding >
+                                                                                                <MultiBinding.Converter>
+                                                                                                    <local:DajFontHeighConverter></local:DajFontHeighConverter>
+                                                                                                </MultiBinding.Converter>
+                                                                                                <Binding ElementName="borderNajveci" Path="Tag"></Binding>
+                                                                                                <Binding Path="StavkaUsluga.RadniNalog.RadniNalog_ID"></Binding>
+                                                                                            </MultiBinding>
+                                                                                        </TextBlock.FontWeight>
+                                                                                        <TextBlock.Text>
+                                                                                            <MultiBinding >
+                                                                                                <MultiBinding.Converter>
+                                                                                                    <local:ConcatenateRadnikAndRadniNalogConverter></local:ConcatenateRadnikAndRadniNalogConverter>
+                                                                                                </MultiBinding.Converter>
+                                                                                                <MultiBinding.ConverterParameter>-</MultiBinding.ConverterParameter>
+                                                                                                <Binding Path="Radnik.Nadimak"></Binding>
+                                                                                                <Binding Path="StavkaUsluga.RadniNalog.RadniNalog_ID"></Binding>
+                                                                                                <Binding Path="StavkaUsluga_ID"></Binding>
+                                                                                                <Binding Path="StavkaUslugaRadniRaspored_ID"></Binding>
+                                                                                            </MultiBinding>
+                                                                                        </TextBlock.Text>
+                                                                                        <TextBlock.Tag>
+                                                                                            <!--u tag stavljam ItemSource od liste-->
+                                                                                            <Binding ElementName="listBoxStavkaUslugaRadniRasporedLista"  ></Binding>
+                                                                                        </TextBlock.Tag>
+                                                                                        <!--<ToolTipService.ShowDuration>0</ToolTipService.ShowDuration>
+                                                                                        <ToolTipService.InitialShowDelay>1</ToolTipService.InitialShowDelay>-->
+                                                                                        <TextBlock.ToolTip>
+                                                                                            <StackPanel>
+                                                                                                <TextBlock>TTTT</TextBlock>
+                                                                                                <TextBlock>
+                                                                                                    <TextBlock.Text>
+                                                                                                        <Binding Path="StavkaUslugaRadniRaspored_ID"></Binding>
+                                                                                                    </TextBlock.Text>
+                                                                                                </TextBlock>
+                                                                                            </StackPanel>
+                                                                                            <!--<Binding Path="StavkaUslugaRadniRaspored_ID"></Binding>-->
+                                                                                        </TextBlock.ToolTip>
+                                                                                    </TextBlock>
+                                                                            </DataTemplate>
+                                                                            </ListBox.ItemTemplate>
+                                                                        <ListBox.Tag>
+                                                                            <MultiBinding >
+                                                                                <MultiBinding.Converter>
+                                                                                    <local:ConcatenateTwoStringConverter></local:ConcatenateTwoStringConverter>
+                                                                                </MultiBinding.Converter>
+                                                                                <MultiBinding.ConverterParameter>$</MultiBinding.ConverterParameter>
+                                                                                <Binding Path="Sifra"></Binding>
+                                                                                <Binding Path="Tag">
+                                                                                    <Binding.RelativeSource>
+                                                                                        <RelativeSource AncestorLevel="1" AncestorType="{x:Type ListBox}" Mode="FindAncestor"></RelativeSource>
+                                                                                    </Binding.RelativeSource>
+                                                                                </Binding>
+                                                                            </MultiBinding>
+                                                                        </ListBox.Tag>
+                                                                    </ListBox>
+
+                                                                </Grid>
+                                                            </Border>
+
+                                                        </DataTemplate>
+                                                        
+                                                    </ListBox.ItemTemplate>
+
+                                                    <ListBox.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel></WrapPanel>
+                                                        </ItemsPanelTemplate>
+                                                    </ListBox.ItemsPanel>
+                                                </ListBox>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                        
+                                    </ListBox.ItemTemplate>
+
+                                </ListBox>
+
+                            </Border>
+                        </TabItem>
+                        <TabItem Header="Po Radnicima">
+
+                        </TabItem>
+                    </TabControl>
+                </Border>
+                
+                <TextBlock Grid.Row="2" Name="textBlockSemaZaDatum" Margin="3" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
+                <Button Grid.Row="3" Margin="3" Name="buttonPrikazi" Height="25" VerticalAlignment="Top"  Click="buttonPrikazi_Click">Prikaži</Button>
+            </Grid>
+        </Border>
+      
+  </Grid>
+</PageFunction>

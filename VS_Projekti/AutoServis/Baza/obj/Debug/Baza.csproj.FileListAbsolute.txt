@@ -1,0 +1,12 @@
+E:\LavAuto\VS_Projekti\AutoServis\Baza\bin\Debug\Baza.dll.config
+E:\LavAuto\VS_Projekti\AutoServis\Baza\bin\Debug\Baza.dll
+E:\LavAuto\VS_Projekti\AutoServis\Baza\bin\Debug\Baza.pdb
+E:\LavAuto\VS_Projekti\AutoServis\Baza\obj\Debug\ResolveAssemblyReference.cache
+E:\LavAuto\VS_Projekti\AutoServis\Baza\obj\Debug\Baza.dll
+E:\LavAuto\VS_Projekti\AutoServis\Baza\obj\Debug\Baza.pdb
+D:\LavAuto\VS_Projekti\AutoServis\Baza\bin\Debug\Baza.dll.config
+D:\LavAuto\VS_Projekti\AutoServis\Baza\bin\Debug\Baza.dll
+D:\LavAuto\VS_Projekti\AutoServis\Baza\bin\Debug\Baza.pdb
+D:\LavAuto\VS_Projekti\AutoServis\Baza\obj\Debug\ResolveAssemblyReference.cache
+D:\LavAuto\VS_Projekti\AutoServis\Baza\obj\Debug\Baza.dll
+D:\LavAuto\VS_Projekti\AutoServis\Baza\obj\Debug\Baza.pdb

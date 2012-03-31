@@ -1,0 +1,19 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ReferencePath>C:\Program Files\Business Objects\Common\2.8\managed\C:\Program Files\Common Files\Business Objects\2.7\Managed\</ReferencePath>
+    <PublishUrlHistory>D:\Projekti\LAVAuto\2\Setup_20081101\|C:\Documents and Settings\Oliver\Desktop\Setup_20080823\|C:\Documents and Settings\Oliver\Desktop\Setup\|D:\Oliver\LAVAuto\SETUP_LAV\|C:\Documents and Settings\Oliver\Desktop\</PublishUrlHistory>
+    <InstallUrlHistory>
+    </InstallUrlHistory>
+    <SupportUrlHistory>
+    </SupportUrlHistory>
+    <UpdateUrlHistory>
+    </UpdateUrlHistory>
+    <BootstrapperUrlHistory>
+    </BootstrapperUrlHistory>
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>true</VerifyUploadedFiles>
+    <ProjectView>ProjectFiles</ProjectView>
+    <ErrorReportUrlHistory>
+    </ErrorReportUrlHistory>
+  </PropertyGroup>
+</Project>

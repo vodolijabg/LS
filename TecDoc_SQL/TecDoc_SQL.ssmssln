@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "TecDoc_SQL", "TecDoc_SQL\TecDoc_SQL.ssmssqlproj", "{544DBF54-D8EC-4EE8-8EF4-1E187B4D84D3}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "DDL", "DDL\DDL.ssmssqlproj", "{7FBC1315-5ADF-4913-AF4D-F11C6FCB2833}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{544DBF54-D8EC-4EE8-8EF4-1E187B4D84D3}.Default|Default.ActiveCfg = Default
+		{7FBC1315-5ADF-4913-AF4D-F11C6FCB2833}.Default|Default.ActiveCfg = Default
+		{00000000-0000-0000-0000-000000000000}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

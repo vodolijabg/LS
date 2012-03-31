@@ -1,0 +1,1012 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dcl:schema name="dbo" xmlns:dcl="http://schemas.orm.net/DIL/DCIL" xmlns:dil="http://schemas.orm.net/DIL/DIL" xmlns:ddt="http://schemas.orm.net/DIL/DILDT" xmlns:dep="http://schemas.orm.net/DIL/DILEP" xmlns:dml="http://schemas.orm.net/DIL/DMIL" xmlns:ddl="http://schemas.orm.net/DIL/DDIL">
+	<dcl:domain name="PIB">
+		<dcl:predefinedDataType name="INTEGER" />
+		<dcl:checkConstraint name="PIB_Unsigned_Chk">
+			<dep:comparisonPredicate operator="greaterThanOrEquals">
+				<dep:valueKeyword />
+				<ddt:exactNumericLiteral value="0" />
+			</dep:comparisonPredicate>
+		</dcl:checkConstraint>
+	</dcl:domain>
+	<dcl:domain name="JMBG">
+		<dcl:predefinedDataType name="BIGINT" />
+		<dcl:checkConstraint name="JMBG_Unsigned_Chk">
+			<dep:comparisonPredicate operator="greaterThanOrEquals">
+				<dep:valueKeyword />
+				<ddt:exactNumericLiteral value="0" />
+			</dep:comparisonPredicate>
+		</dcl:checkConstraint>
+	</dcl:domain>
+	<dcl:domain name="Kolicina">
+		<dcl:predefinedDataType name="INTEGER" />
+		<dcl:checkConstraint name="Kolicina_Unsigned_Chk">
+			<dep:comparisonPredicate operator="greaterThanOrEquals">
+				<dep:valueKeyword />
+				<ddt:exactNumericLiteral value="0" />
+			</dep:comparisonPredicate>
+		</dcl:checkConstraint>
+	</dcl:domain>
+	<dcl:domain name="Kilometraza">
+		<dcl:predefinedDataType name="INTEGER" />
+		<dcl:checkConstraint name="Kilometraza_Unsigned_Chk">
+			<dep:comparisonPredicate operator="greaterThanOrEquals">
+				<dep:valueKeyword />
+				<ddt:exactNumericLiteral value="0" />
+			</dep:comparisonPredicate>
+		</dcl:checkConstraint>
+	</dcl:domain>
+	<dcl:domain name="Godiste">
+		<dcl:predefinedDataType name="INTEGER" />
+		<dcl:checkConstraint name="Godiste_Unsigned_Chk">
+			<dep:comparisonPredicate operator="greaterThanOrEquals">
+				<dep:valueKeyword />
+				<ddt:exactNumericLiteral value="0" />
+			</dep:comparisonPredicate>
+		</dcl:checkConstraint>
+	</dcl:domain>
+	<dcl:domain name="VrednostMinuta">
+		<dcl:predefinedDataType name="INTEGER" />
+		<dcl:checkConstraint name="VrednostMinuta_Unsigned_Chk">
+			<dep:comparisonPredicate operator="greaterThanOrEquals">
+				<dep:valueKeyword />
+				<ddt:exactNumericLiteral value="0" />
+			</dep:comparisonPredicate>
+		</dcl:checkConstraint>
+	</dcl:domain>
+	<dcl:table name="Radnik">
+		<dcl:column name="RadnikID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Sifra" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Nadimak" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Ime" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Prezime" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Telefon" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="DatumRodjenja" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="DATE" />
+		</dcl:column>
+		<dcl:column name="Adresa" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="100" />
+		</dcl:column>
+		<dcl:column name="JMBG" isNullable="true" isIdentity="false">
+			<dcl:domainRef name="JMBG" />
+		</dcl:column>
+		<dcl:column name="ZaposlenOd" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="DATE" />
+		</dcl:column>
+		<dcl:column name="Raspored" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="ImeOca" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="MestoID" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="Radnik_PK" isPrimary="true">
+			<dcl:columnRef name="RadnikID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="Radnik_UC1" isPrimary="false">
+			<dcl:columnRef name="Sifra" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="Radnik_UC2" isPrimary="false">
+			<dcl:columnRef name="Nadimak" />
+		</dcl:uniquenessConstraint>
+		<dcl:referenceConstraint name="Radnik_FK" targetTable="Mesto">
+			<dcl:columnRef sourceName="MestoID" targetName="MestoID" />
+		</dcl:referenceConstraint>
+	</dcl:table>
+	<dcl:table name="Artikal">
+		<dcl:column name="ArtikalID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="PoreskaStopaID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Sifra" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Napomena" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="500" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="Artikal_PK" isPrimary="true">
+			<dcl:columnRef name="ArtikalID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="Artikal_UC" isPrimary="false">
+			<dcl:columnRef name="Sifra" />
+		</dcl:uniquenessConstraint>
+		<dcl:referenceConstraint name="Artikal_FK" targetTable="PoreskaStopa">
+			<dcl:columnRef sourceName="PoreskaStopaID" targetName="PoreskaStopaID" />
+		</dcl:referenceConstraint>
+	</dcl:table>
+	<dcl:table name="Usluga">
+		<dcl:column name="UslugaID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Sifra" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="VrstaUslugeID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="NosilacGrupeID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="NivoID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="PozicijaID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="NormaMinuta" isNullable="false" isIdentity="false">
+			<dcl:domainRef name="VrednostMinuta" />
+		</dcl:column>
+		<dcl:column name="BrojBodova" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="DECIMAL" precision="18" scale="2" />
+		</dcl:column>
+		<dcl:column name="BodID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="PoreskaStopaID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="Usluga_PK" isPrimary="true">
+			<dcl:columnRef name="UslugaID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="Usluga_UC1" isPrimary="false">
+			<dcl:columnRef name="Sifra" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="Usluga_UC2" isPrimary="false">
+			<dcl:columnRef name="VrstaUslugeID" />
+			<dcl:columnRef name="NivoID" />
+			<dcl:columnRef name="NosilacGrupeID" />
+			<dcl:columnRef name="PozicijaID" />
+		</dcl:uniquenessConstraint>
+		<dcl:referenceConstraint name="Usluga_FK1" targetTable="Bod">
+			<dcl:columnRef sourceName="BodID" targetName="BodID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="Usluga_FK2" targetTable="VrstaUsluge">
+			<dcl:columnRef sourceName="VrstaUslugeID" targetName="VrstaUslugeID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="Usluga_FK3" targetTable="PoreskaStopa">
+			<dcl:columnRef sourceName="PoreskaStopaID" targetName="PoreskaStopaID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="Usluga_FK4" targetTable="NosilacGrupe">
+			<dcl:columnRef sourceName="NosilacGrupeID" targetName="NosilacGrupeID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="Usluga_FK5" targetTable="Nivo">
+			<dcl:columnRef sourceName="NivoID" targetName="NivoID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="Usluga_FK6" targetTable="Pozicija">
+			<dcl:columnRef sourceName="PozicijaID" targetName="PozicijaID" />
+		</dcl:referenceConstraint>
+	</dcl:table>
+	<dcl:table name="TipAutomobila">
+		<dcl:column name="TipAutomobilaID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="TipAutomobila_PK" isPrimary="true">
+			<dcl:columnRef name="TipAutomobilaID" />
+		</dcl:uniquenessConstraint>
+	</dcl:table>
+	<dcl:table name="RadnoMesto">
+		<dcl:column name="RadnoMestoID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Naziv" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Sifra" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="RadnoMesto_PK" isPrimary="true">
+			<dcl:columnRef name="RadnoMestoID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="RadnoMesto_UC1" isPrimary="false">
+			<dcl:columnRef name="Naziv" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="RadnoMesto_UC2" isPrimary="false">
+			<dcl:columnRef name="Sifra" />
+		</dcl:uniquenessConstraint>
+	</dcl:table>
+	<dcl:table name="RadniNalog">
+		<dcl:column name="RadniNalogID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Vreme" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="TIMESTAMP" />
+		</dcl:column>
+		<dcl:column name="RadnikID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="ServisnaKnjizicaID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="KorisnikProgramaID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="PredvidjenoVremeMinuta" isNullable="true" isIdentity="false">
+			<dcl:domainRef name="VrednostMinuta" />
+		</dcl:column>
+		<dcl:column name="Kilometraza" isNullable="true" isIdentity="false">
+			<dcl:domainRef name="Kilometraza" />
+		</dcl:column>
+		<dcl:column name="RegistarskiBroj" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="15" />
+		</dcl:column>
+		<dcl:column name="DatumRegistracije" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="DATE" />
+		</dcl:column>
+		<dcl:column name="Napomena" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="500" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="RadniNalog_PK" isPrimary="true">
+			<dcl:columnRef name="RadniNalogID" />
+		</dcl:uniquenessConstraint>
+		<dcl:referenceConstraint name="RadniNalog_FK1" targetTable="Radnik">
+			<dcl:columnRef sourceName="RadnikID" targetName="RadnikID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="RadniNalog_FK2" targetTable="ServisnaKnjizica">
+			<dcl:columnRef sourceName="ServisnaKnjizicaID" targetName="ServisnaKnjizicaID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="RadniNalog_FK3" targetTable="KorisnikPrograma">
+			<dcl:columnRef sourceName="KorisnikProgramaID" targetName="KorisnikProgramaID" />
+		</dcl:referenceConstraint>
+	</dcl:table>
+	<dcl:table name="ServisnaKnjizica">
+		<dcl:column name="ServisnaKnjizicaID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Sifra" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="&quot;ABS&quot;" requestedName="ABS" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="BOOLEAN" />
+		</dcl:column>
+		<dcl:column name="PS" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="BOOLEAN" />
+		</dcl:column>
+		<dcl:column name="AC" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="BOOLEAN" />
+		</dcl:column>
+		<dcl:column name="TipAutomobilaID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Napomena" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="500" />
+		</dcl:column>
+		<dcl:column name="RegistarskiBroj" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="15" />
+		</dcl:column>
+		<dcl:column name="DatumRegistracije" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="DATE" />
+		</dcl:column>
+		<dcl:column name="BrojSasije" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="30" />
+		</dcl:column>
+		<dcl:column name="BrojMotora" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="30" />
+		</dcl:column>
+		<dcl:column name="Godiste" isNullable="true" isIdentity="false">
+			<dcl:domainRef name="Godiste" />
+		</dcl:column>
+		<dcl:column name="Kilometraza" isNullable="true" isIdentity="false">
+			<dcl:domainRef name="Kilometraza" />
+		</dcl:column>
+		<dcl:column name="DimenzijaGuma" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="FizickoLiceID" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="PoslovniPartnerID" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="ServisnaKnjizica_PK" isPrimary="true">
+			<dcl:columnRef name="ServisnaKnjizicaID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="ServisnaKnjizica_UC" isPrimary="false">
+			<dcl:columnRef name="Sifra" />
+		</dcl:uniquenessConstraint>
+		<dcl:referenceConstraint name="ServisnaKnjizica_FK1" targetTable="TipAutomobila">
+			<dcl:columnRef sourceName="TipAutomobilaID" targetName="TipAutomobilaID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="ServisnaKnjizica_FK2" targetTable="FizickoLice">
+			<dcl:columnRef sourceName="FizickoLiceID" targetName="FizickoLiceID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="ServisnaKnjizica_FK3" targetTable="PoslovniPartner">
+			<dcl:columnRef sourceName="PoslovniPartnerID" targetName="PoslovniPartnerID" />
+		</dcl:referenceConstraint>
+	</dcl:table>
+	<dcl:table name="NosilacGrupe">
+		<dcl:column name="NosilacGrupeID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Naziv" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Sifra" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="NosilacGrupe_PK" isPrimary="true">
+			<dcl:columnRef name="NosilacGrupeID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="NosilacGrupe_UC1" isPrimary="false">
+			<dcl:columnRef name="Naziv" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="NosilacGrupe_UC2" isPrimary="false">
+			<dcl:columnRef name="Sifra" />
+		</dcl:uniquenessConstraint>
+	</dcl:table>
+	<dcl:table name="Bod">
+		<dcl:column name="BodID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Sifra" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Naziv" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Vrednost" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="DECIMAL" precision="18" scale="2" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="Bod_PK" isPrimary="true">
+			<dcl:columnRef name="BodID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="Bod_UC1" isPrimary="false">
+			<dcl:columnRef name="Sifra" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="Bod_UC2" isPrimary="false">
+			<dcl:columnRef name="Naziv" />
+		</dcl:uniquenessConstraint>
+	</dcl:table>
+	<dcl:table name="RadnoVreme">
+		<dcl:column name="RadnoVremeID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Sifra" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="PocinjeOd" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="TIME" />
+		</dcl:column>
+		<dcl:column name="TrajeDo" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="TIME" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="RadnoVreme_PK" isPrimary="true">
+			<dcl:columnRef name="RadnoVremeID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="RadnoVreme_UC" isPrimary="false">
+			<dcl:columnRef name="Sifra" />
+		</dcl:uniquenessConstraint>
+	</dcl:table>
+	<dcl:table name="StavkaUsluga">
+		<dcl:column name="StavkaUslugaID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="UslugaID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="UslugaKolicina" isNullable="false" isIdentity="false">
+			<dcl:domainRef name="Kolicina" />
+		</dcl:column>
+		<dcl:column name="UslugaCenaBezPoreza" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="DECIMAL" precision="18" scale="2" />
+		</dcl:column>
+		<dcl:column name="UslugaPoreskaStopa_ID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="RadniNalogID" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="PonudaID" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="StavkaUsluga_UC1" isPrimary="false">
+			<dcl:columnRef name="PonudaID" />
+			<dcl:columnRef name="UslugaID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="StavkaUsluga_UC2" isPrimary="false">
+			<dcl:columnRef name="RadniNalogID" />
+			<dcl:columnRef name="UslugaID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="StavkaUsluga_PK" isPrimary="true">
+			<dcl:columnRef name="StavkaUslugaID" />
+		</dcl:uniquenessConstraint>
+		<dcl:referenceConstraint name="StavkaUsluga_FK1" targetTable="Usluga">
+			<dcl:columnRef sourceName="UslugaID" targetName="UslugaID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="StavkaUsluga_FK2" targetTable="PoreskaStopa">
+			<dcl:columnRef sourceName="UslugaPoreskaStopa_ID" targetName="PoreskaStopaID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="StavkaUsluga_FK3" targetTable="RadniNalog">
+			<dcl:columnRef sourceName="RadniNalogID" targetName="RadniNalogID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="StavkaUsluga_FK4" targetTable="Ponuda">
+			<dcl:columnRef sourceName="PonudaID" targetName="PonudaID" />
+		</dcl:referenceConstraint>
+	</dcl:table>
+	<dcl:table name="KorisnikPrograma">
+		<dcl:column name="KorisnikProgramaID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Sifra" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Naziv" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Adresa" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="100" />
+		</dcl:column>
+		<dcl:column name="PIB" isNullable="false" isIdentity="false">
+			<dcl:domainRef name="PIB" />
+		</dcl:column>
+		<dcl:column name="Telefon" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="ZiroRacun" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="100" />
+		</dcl:column>
+		<dcl:column name="Faks" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="MaticniBroj" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="8" />
+		</dcl:column>
+		<dcl:column name="EMail" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="100" />
+		</dcl:column>
+		<dcl:column name="MestoID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="KorisnikPrograma_PK" isPrimary="true">
+			<dcl:columnRef name="KorisnikProgramaID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="KorisnikPrograma_UC" isPrimary="false">
+			<dcl:columnRef name="Sifra" />
+		</dcl:uniquenessConstraint>
+		<dcl:referenceConstraint name="KorisnikPrograma_FK" targetTable="Mesto">
+			<dcl:columnRef sourceName="MestoID" targetName="MestoID" />
+		</dcl:referenceConstraint>
+	</dcl:table>
+	<dcl:table name="Mesto">
+		<dcl:column name="MestoID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Naziv" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Sifra" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="PozivniBroj" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="5" />
+		</dcl:column>
+		<dcl:column name="PostanskiBroj" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="5" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="Mesto_PK" isPrimary="true">
+			<dcl:columnRef name="MestoID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="Mesto_UC1" isPrimary="false">
+			<dcl:columnRef name="Naziv" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="Mesto_UC2" isPrimary="false">
+			<dcl:columnRef name="Sifra" />
+		</dcl:uniquenessConstraint>
+	</dcl:table>
+	<dcl:table name="RadniNalogStatus">
+		<dcl:column name="RadniNalogStatusID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Naziv" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Sifra" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="RadniNalogStatus_PK" isPrimary="true">
+			<dcl:columnRef name="RadniNalogStatusID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="RadniNalogStatus_UC1" isPrimary="false">
+			<dcl:columnRef name="Naziv" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="RadniNalogStatus_UC2" isPrimary="false">
+			<dcl:columnRef name="Sifra" />
+		</dcl:uniquenessConstraint>
+	</dcl:table>
+	<dcl:table name="FizickoLice">
+		<dcl:column name="FizickoLiceID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Telefon" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Sifra" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Ime" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="RegistrovanKupac" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="BOOLEAN" />
+		</dcl:column>
+		<dcl:column name="Prezime" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="EMail" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="100" />
+		</dcl:column>
+		<dcl:column name="Adresa" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="100" />
+		</dcl:column>
+		<dcl:column name="MestoID" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="FizickoLice_PK" isPrimary="true">
+			<dcl:columnRef name="FizickoLiceID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="FizickoLice_UC1" isPrimary="false">
+			<dcl:columnRef name="Telefon" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="FizickoLice_UC2" isPrimary="false">
+			<dcl:columnRef name="Sifra" />
+		</dcl:uniquenessConstraint>
+		<dcl:referenceConstraint name="FizickoLice_FK" targetTable="Mesto">
+			<dcl:columnRef sourceName="MestoID" targetName="MestoID" />
+		</dcl:referenceConstraint>
+	</dcl:table>
+	<dcl:table name="PoslovniPartner">
+		<dcl:column name="PoslovniPartnerID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Sifra" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="SkracenNaziv" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="PIB" isNullable="true" isIdentity="false">
+			<dcl:domainRef name="PIB" />
+		</dcl:column>
+		<dcl:column name="Adresa" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="100" />
+		</dcl:column>
+		<dcl:column name="EMail1" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="100" />
+		</dcl:column>
+		<dcl:column name="KontaktOsoba2" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="100" />
+		</dcl:column>
+		<dcl:column name="Telefon1" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="ZiroRacun" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="100" />
+		</dcl:column>
+		<dcl:column name="PunNaziv" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="200" />
+		</dcl:column>
+		<dcl:column name="MaticniBroj" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="8" />
+		</dcl:column>
+		<dcl:column name="KontaktOsoba1" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="100" />
+		</dcl:column>
+		<dcl:column name="Telefon2" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Faks" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="EMail2" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="100" />
+		</dcl:column>
+		<dcl:column name="MestoID" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="NacinOrganizacijeFirmeID" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="PoslovniPartner_PK" isPrimary="true">
+			<dcl:columnRef name="PoslovniPartnerID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="PoslovniPartner_UC1" isPrimary="false">
+			<dcl:columnRef name="Sifra" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="PoslovniPartner_UC2" isPrimary="false">
+			<dcl:columnRef name="SkracenNaziv" />
+		</dcl:uniquenessConstraint>
+		<dcl:referenceConstraint name="PoslovniPartner_FK1" targetTable="Mesto">
+			<dcl:columnRef sourceName="MestoID" targetName="MestoID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="PoslovniPartner_FK2" targetTable="NacinOrganizacijeFirme">
+			<dcl:columnRef sourceName="NacinOrganizacijeFirmeID" targetName="NacinOrganizacijeFirmeID" />
+		</dcl:referenceConstraint>
+	</dcl:table>
+	<dcl:table name="RadniNalogStavkaUsluga">
+		<dcl:column name="RadniNalogStavkaUslugaID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="PredvidjenoVremeMinuta" isNullable="false" isIdentity="false">
+			<dcl:domainRef name="VrednostMinuta" />
+		</dcl:column>
+		<dcl:column name="RadniNalogStatusID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Napomena" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="500" />
+		</dcl:column>
+		<dcl:column name="UtrosenoVremeMinuta" isNullable="true" isIdentity="false">
+			<dcl:domainRef name="VrednostMinuta" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="RadniNalogStavkaUsluga_PK" isPrimary="true">
+			<dcl:columnRef name="RadniNalogStavkaUslugaID" />
+		</dcl:uniquenessConstraint>
+		<dcl:referenceConstraint name="RadniNalogStavkaUsluga_FK1" targetTable="RadniNalogStatus">
+			<dcl:columnRef sourceName="RadniNalogStatusID" targetName="RadniNalogStatusID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="RadniNalogStavkaUsluga_FK2" targetTable="StavkaUsluga">
+			<dcl:columnRef sourceName="RadniNalogStavkaUslugaID" targetName="StavkaUslugaID" />
+		</dcl:referenceConstraint>
+	</dcl:table>
+	<dcl:table name="PoreskaStopa">
+		<dcl:column name="PoreskaStopaID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="VrednostProcenata" isNullable="false" isIdentity="false">
+			<dcl:domainRef name="Kolicina" />
+		</dcl:column>
+		<dcl:column name="Sifra" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="PoreskaStopa_PK" isPrimary="true">
+			<dcl:columnRef name="PoreskaStopaID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="PoreskaStopa_UC1" isPrimary="false">
+			<dcl:columnRef name="VrednostProcenata" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="PoreskaStopa_UC2" isPrimary="false">
+			<dcl:columnRef name="Sifra" />
+		</dcl:uniquenessConstraint>
+	</dcl:table>
+	<dcl:table name="NacinZahtevaZaPonudu">
+		<dcl:column name="NacinZahtevaZaPonuduID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Sifra" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Naziv" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="NacinZahtevaZaPonudu_PK" isPrimary="true">
+			<dcl:columnRef name="NacinZahtevaZaPonuduID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="NacinZahtevaZaPonudu_UC1" isPrimary="false">
+			<dcl:columnRef name="Sifra" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="NacinZahtevaZaPonudu_UC2" isPrimary="false">
+			<dcl:columnRef name="Naziv" />
+		</dcl:uniquenessConstraint>
+	</dcl:table>
+	<dcl:table name="VezaArtikalDobavljac">
+		<dcl:column name="VezaArtikalDobavljacID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="ArtikalID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Cena" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="DECIMAL" precision="18" scale="2" />
+		</dcl:column>
+		<dcl:column name="DatumAzuriranja" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="DATE" />
+		</dcl:column>
+		<dcl:column name="PoslovniPartnerID" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="KorisnikProgramaID" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="KolicinaNaStanju" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="DECIMAL" precision="18" scale="2" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="VezaArtikalDobavljac_UC1" isPrimary="false">
+			<dcl:columnRef name="ArtikalID" />
+			<dcl:columnRef name="PoslovniPartnerID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="VezaArtikalDobavljac_PK" isPrimary="true">
+			<dcl:columnRef name="VezaArtikalDobavljacID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="VezaArtikalDobavljac_UC2" isPrimary="false">
+			<dcl:columnRef name="KorisnikProgramaID" />
+			<dcl:columnRef name="ArtikalID" />
+		</dcl:uniquenessConstraint>
+		<dcl:referenceConstraint name="VezaArtikalDobavljac_FK1" targetTable="PoslovniPartner">
+			<dcl:columnRef sourceName="PoslovniPartnerID" targetName="PoslovniPartnerID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="VezaArtikalDobavljac_FK2" targetTable="Artikal">
+			<dcl:columnRef sourceName="ArtikalID" targetName="ArtikalID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="VezaArtikalDobavljac_FK3" targetTable="KorisnikPrograma">
+			<dcl:columnRef sourceName="KorisnikProgramaID" targetName="KorisnikProgramaID" />
+		</dcl:referenceConstraint>
+	</dcl:table>
+	<dcl:table name="Ponuda">
+		<dcl:column name="PonudaID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="PosaljiSMSObavestenje" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="BOOLEAN" />
+		</dcl:column>
+		<dcl:column name="ObavestiTelefonom" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="BOOLEAN" />
+		</dcl:column>
+		<dcl:column name="PreuzimaLicno" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="BOOLEAN" />
+		</dcl:column>
+		<dcl:column name="Vreme" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="TIMESTAMP" />
+		</dcl:column>
+		<dcl:column name="NacinZahtevaZaPonuduID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="RadnikID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="ServisnaKnjizicaID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="KorisnikProgramaID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="PoslatoSMSObavestenjeU" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="DATE" />
+		</dcl:column>
+		<dcl:column name="ObavestenTelefonomU" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="DATE" />
+		</dcl:column>
+		<dcl:column name="PreuzeoLicnoU" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="DATE" />
+		</dcl:column>
+		<dcl:column name="Napomena" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="500" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="Ponuda_PK" isPrimary="true">
+			<dcl:columnRef name="PonudaID" />
+		</dcl:uniquenessConstraint>
+		<dcl:referenceConstraint name="Ponuda_FK1" targetTable="NacinZahtevaZaPonudu">
+			<dcl:columnRef sourceName="NacinZahtevaZaPonuduID" targetName="NacinZahtevaZaPonuduID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="Ponuda_FK2" targetTable="Radnik">
+			<dcl:columnRef sourceName="RadnikID" targetName="RadnikID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="Ponuda_FK3" targetTable="ServisnaKnjizica">
+			<dcl:columnRef sourceName="ServisnaKnjizicaID" targetName="ServisnaKnjizicaID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="Ponuda_FK4" targetTable="KorisnikPrograma">
+			<dcl:columnRef sourceName="KorisnikProgramaID" targetName="KorisnikProgramaID" />
+		</dcl:referenceConstraint>
+	</dcl:table>
+	<dcl:table name="VrstaUsluge">
+		<dcl:column name="VrstaUslugeID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Naziv" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Sifra" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="VrstaUsluge_PK" isPrimary="true">
+			<dcl:columnRef name="VrstaUslugeID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="VrstaUsluge_UC1" isPrimary="false">
+			<dcl:columnRef name="Naziv" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="VrstaUsluge_UC2" isPrimary="false">
+			<dcl:columnRef name="Sifra" />
+		</dcl:uniquenessConstraint>
+	</dcl:table>
+	<dcl:table name="Nivo">
+		<dcl:column name="NivoID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Naziv" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Sifra" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="Nivo_PK" isPrimary="true">
+			<dcl:columnRef name="NivoID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="Nivo_UC1" isPrimary="false">
+			<dcl:columnRef name="Naziv" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="Nivo_UC2" isPrimary="false">
+			<dcl:columnRef name="Sifra" />
+		</dcl:uniquenessConstraint>
+	</dcl:table>
+	<dcl:table name="StavkaArtikal">
+		<dcl:column name="StavkaArtikalID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="ArtikalBrojProizvodjaca" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="100" />
+		</dcl:column>
+		<dcl:column name="ArtikalProizvodjacID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="SMALLINT" />
+		</dcl:column>
+		<dcl:column name="ArtikalProizvodjacNaziv" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="100" />
+		</dcl:column>
+		<dcl:column name="StavkaUslugaID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="ArtikalCenaBezPoreza" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="DECIMAL" precision="18" scale="2" />
+		</dcl:column>
+		<dcl:column name="ArtikalKolicina" isNullable="false" isIdentity="false">
+			<dcl:domainRef name="Kolicina" />
+		</dcl:column>
+		<dcl:column name="ArtikalNaziv" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER LARGE OBJECT" />
+		</dcl:column>
+		<dcl:column name="ArtikalPoreskaStopa_ID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="NosilacGrupeID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="PoslovniPartnerID" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="KorisnikProgramaID" isNullable="true" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="StavkaArtikal_PK" isPrimary="true">
+			<dcl:columnRef name="StavkaArtikalID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="StavkaArtikal_UC" isPrimary="false">
+			<dcl:columnRef name="StavkaUslugaID" />
+			<dcl:columnRef name="ArtikalBrojProizvodjaca" />
+			<dcl:columnRef name="ArtikalProizvodjacNaziv" />
+			<dcl:columnRef name="ArtikalProizvodjacID" />
+		</dcl:uniquenessConstraint>
+		<dcl:referenceConstraint name="StavkaArtikal_FK1" targetTable="PoreskaStopa">
+			<dcl:columnRef sourceName="ArtikalPoreskaStopa_ID" targetName="PoreskaStopaID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="StavkaArtikal_FK2" targetTable="StavkaUsluga">
+			<dcl:columnRef sourceName="StavkaUslugaID" targetName="StavkaUslugaID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="StavkaArtikal_FK3" targetTable="PoslovniPartner">
+			<dcl:columnRef sourceName="PoslovniPartnerID" targetName="PoslovniPartnerID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="StavkaArtikal_FK4" targetTable="KorisnikPrograma">
+			<dcl:columnRef sourceName="KorisnikProgramaID" targetName="KorisnikProgramaID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="StavkaArtikal_FK5" targetTable="NosilacGrupe">
+			<dcl:columnRef sourceName="NosilacGrupeID" targetName="NosilacGrupeID" />
+		</dcl:referenceConstraint>
+	</dcl:table>
+	<dcl:table name="StavkaUslugaRadniRaspored">
+		<dcl:column name="StavkaUslugaRadniRasporedID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Datum" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="DATE" />
+		</dcl:column>
+		<dcl:column name="RadnoVremeID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="RadnikID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="RadnoMestoID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="StavkaUslugaID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="StavkaUslugaRadniRaspored_PK" isPrimary="true">
+			<dcl:columnRef name="StavkaUslugaRadniRasporedID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="StavkaUslugaRadniRaspored_UC" isPrimary="false">
+			<dcl:columnRef name="StavkaUslugaID" />
+			<dcl:columnRef name="RadnoMestoID" />
+			<dcl:columnRef name="Datum" />
+			<dcl:columnRef name="RadnikID" />
+			<dcl:columnRef name="RadnoVremeID" />
+		</dcl:uniquenessConstraint>
+		<dcl:referenceConstraint name="StavkaUslugaRadniRaspored_FK1" targetTable="RadnoVreme">
+			<dcl:columnRef sourceName="RadnoVremeID" targetName="RadnoVremeID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="StavkaUslugaRadniRaspored_FK2" targetTable="Radnik">
+			<dcl:columnRef sourceName="RadnikID" targetName="RadnikID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="StavkaUslugaRadniRaspored_FK3" targetTable="RadnoMesto">
+			<dcl:columnRef sourceName="RadnoMestoID" targetName="RadnoMestoID" />
+		</dcl:referenceConstraint>
+		<dcl:referenceConstraint name="StavkaUslugaRadniRaspored_FK4" targetTable="StavkaUsluga">
+			<dcl:columnRef sourceName="StavkaUslugaID" targetName="StavkaUslugaID" />
+		</dcl:referenceConstraint>
+	</dcl:table>
+	<dcl:table name="NacinOrganizacijeFirme">
+		<dcl:column name="NacinOrganizacijeFirmeID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Sifra" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Naziv" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="NacinOrganizacijeFirme_PK" isPrimary="true">
+			<dcl:columnRef name="NacinOrganizacijeFirmeID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="NacinOrganizacijeFirme_UC1" isPrimary="false">
+			<dcl:columnRef name="Sifra" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="NacinOrganizacijeFirme_UC2" isPrimary="false">
+			<dcl:columnRef name="Naziv" />
+		</dcl:uniquenessConstraint>
+	</dcl:table>
+	<dcl:table name="VezaRadnikKorisnickiNalog">
+		<dcl:column name="VezaRadnikKorisnickiNalogID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="KorisnickiNalog" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="100" />
+		</dcl:column>
+		<dcl:column name="Lozinka" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="100" />
+		</dcl:column>
+		<dcl:column name="RadnikID" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="VezaRadnikKorisnickiNalog_PK" isPrimary="true">
+			<dcl:columnRef name="VezaRadnikKorisnickiNalogID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="VezaRadnikKorisnickiNalog_UC" isPrimary="false">
+			<dcl:columnRef name="KorisnickiNalog" />
+		</dcl:uniquenessConstraint>
+		<dcl:referenceConstraint name="VezaRadnikKorisnickiNalog_FK" targetTable="Radnik">
+			<dcl:columnRef sourceName="RadnikID" targetName="RadnikID" />
+		</dcl:referenceConstraint>
+	</dcl:table>
+	<dcl:table name="Pozicija">
+		<dcl:column name="PozicijaID" isNullable="false" isIdentity="true">
+			<dcl:predefinedDataType name="INTEGER" />
+		</dcl:column>
+		<dcl:column name="Naziv" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:column name="Sifra" isNullable="false" isIdentity="false">
+			<dcl:predefinedDataType name="CHARACTER VARYING" length="50" />
+		</dcl:column>
+		<dcl:uniquenessConstraint name="Pozicija_PK" isPrimary="true">
+			<dcl:columnRef name="PozicijaID" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="Pozicija_UC1" isPrimary="false">
+			<dcl:columnRef name="Naziv" />
+		</dcl:uniquenessConstraint>
+		<dcl:uniquenessConstraint name="Pozicija_UC2" isPrimary="false">
+			<dcl:columnRef name="Sifra" />
+		</dcl:uniquenessConstraint>
+	</dcl:table>
+</dcl:schema>

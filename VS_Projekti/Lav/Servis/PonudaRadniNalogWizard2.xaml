@@ -1,0 +1,198 @@
+﻿<PageFunction
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+    x:Class="Servis.PonudaRadniNalogWizard2"
+    x:TypeArguments="sys:String"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d"
+    xmlns:local="clr-namespace:Servis"
+    Loaded="PageFunction_Loaded"
+    Title="PonudaRadniNalogWizard2">
+    <Page.Resources>
+        <Style x:Key="myTreeViewStyle">
+            <Style.Resources>
+                <!-- Background of selected item when focussed -->
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#FF9CAAC1" />
+                <!-- Background of selected item when not focussed -->
+                <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="#FF9CAAC1" />
+            </Style.Resources>
+        </Style>
+    </Page.Resources>
+    
+    <Grid Name="gridRadniNalog" Background="#FF9CAAC1">
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="200" Height="200"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!--<TreeView Name="treeViewStavkaUsluga" Margin="5" ItemsSource="{Binding ElementName=gridRadniNalog, Path=DataContext.StavkaUslugas}">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding StavkaArtikals}">
+                    <TextBlock Text="{Binding Path=StavkaUslugaID}" Padding="2" />
+                    <HierarchicalDataTemplate.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding StavkaArtikalID}" Padding="2" />
+                        </DataTemplate>
+                    </HierarchicalDataTemplate.ItemTemplate>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>-->
+        <ScrollViewer CanContentScroll="True">
+                <TreeView Name="treeViewStavkaUsluga"  Style="{StaticResource myTreeViewStyle}" >
+                <TreeView.ItemContainerStyle> 
+                    <Style TargetType="{x:Type TreeViewItem}">
+                        <Setter Property="TreeViewItem.IsExpanded" Value="True"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="Red" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TreeView.ItemContainerStyle>
+                <TreeView.ItemsSource>
+                    <MultiBinding Mode="TwoWay" UpdateSourceTrigger="Explicit">
+                        <MultiBinding.Converter>
+                            <local:DajIzvorZaStavkaUslugaConverter></local:DajIzvorZaStavkaUslugaConverter>
+                        </MultiBinding.Converter>
+                        <Binding ElementName="gridRadniNalog" Path="DataContext.StavkaUslugas"></Binding>
+                    </MultiBinding>
+                </TreeView.ItemsSource>
+                <TreeView.ItemTemplate >
+                    <HierarchicalDataTemplate >
+                        <HierarchicalDataTemplate.ItemsSource >
+                            <MultiBinding Mode="TwoWay" UpdateSourceTrigger="Explicit">
+                                <MultiBinding.Converter>
+                                    <local:DajIzvorZaStavkaArtikalConverter></local:DajIzvorZaStavkaArtikalConverter>
+                                </MultiBinding.Converter>
+                                <Binding Path="StavkaArtikals"></Binding>
+                            </MultiBinding>
+                        </HierarchicalDataTemplate.ItemsSource>
+                        <Grid>                        
+                            <Grid.RowDefinitions>
+                                <RowDefinition ></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" Grid.Row="0" Margin="1,0,1,0" VerticalAlignment="Center" Tag="{Binding}" Click="CheckBox_Click"></CheckBox>
+                            <TextBlock Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Margin="1,0,1,0">  
+                                <TextBlock.Text>                           
+                                    <MultiBinding Mode="TwoWay" UpdateSourceTrigger="Explicit">                                
+                                        <MultiBinding.Converter>                                    
+                                            <local:ConcatenateFourStringConverter></local:ConcatenateFourStringConverter>                                
+                                        </MultiBinding.Converter>                               
+                                        <Binding Path="Usluga.VrstaUsluge.Naziv"></Binding>                                
+                                        <Binding Path="Usluga.NosilacGrupe.Naziv"></Binding>                                
+                                        <Binding Path="Usluga.Nivo.Naziv"></Binding> 
+                                        <Binding Path="Usluga.Pozicija.Naziv"></Binding>  
+                                    </MultiBinding>                        
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </Grid>
+                        <HierarchicalDataTemplate.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>                                
+                                    <Grid.RowDefinitions>                                   
+                                        <RowDefinition ></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <CheckBox Grid.Column="0" Grid.Row="0" Margin="1,0,1,0" VerticalAlignment="Center" Tag="{Binding}" Click="CheckBox_Click"></CheckBox>
+                                    <TextBlock  Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Margin="1,0,1,0">                                
+                                        <TextBlock.Text>                                    
+                                            <MultiBinding Mode="TwoWay" UpdateSourceTrigger="Explicit">                                        
+                                                <MultiBinding.Converter>                                            
+                                                    <local:ConcatenateThreeStringConverter></local:ConcatenateThreeStringConverter>                                        
+                                                </MultiBinding.Converter>                                        
+                                                <MultiBinding.ConverterParameter>[]</MultiBinding.ConverterParameter>  
+                                                <Binding Path="NosilacGrupe.Naziv"></Binding> 
+                                                <Binding Path="ArtikalProizvodjacNaziv"></Binding>
+                                                <Binding Path="ArtikalBrojProizvodjaca"></Binding>                                        
+                                                                               
+                                            </MultiBinding>                                
+                                        </TextBlock.Text>                                
+                                    </TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </HierarchicalDataTemplate.ItemTemplate>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+        </ScrollViewer>
+
+
+        <!--<ListBox Style="{StaticResource CheckBoxListStyle}" Grid.Column ="0" Grid.Row="0" Margin="3" Name="listBoxLista"  ScrollViewer.VerticalScrollBarVisibility ="Auto" >
+            <ListBox.ItemsSource>
+                <MultiBinding Mode="TwoWay" UpdateSourceTrigger="Explicit">
+                    <MultiBinding.Converter>
+                        <local:DajIzvorZaStavkaUslugaConverter></local:DajIzvorZaStavkaUslugaConverter>
+                    </MultiBinding.Converter>
+                    <Binding ElementName="gridRadniNalog" Path="DataContext.StavkaUslugas"></Binding>                    
+                </MultiBinding>
+            </ListBox.ItemsSource>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock >
+                            <TextBlock.Text>
+                                <MultiBinding Mode="TwoWay" UpdateSourceTrigger="Explicit">
+                                    <MultiBinding.Converter>
+                                        <local:ConcatenateThreeStringConverter></local:ConcatenateThreeStringConverter>
+                                    </MultiBinding.Converter>
+                                    <Binding Path="Usluga.VrstaUsluge.Naziv"></Binding>
+                                    <Binding Path="Usluga.NosilacGrupe.Naziv"></Binding>
+                                    <Binding Path="Usluga.Nivo.Naziv"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <ListBox Style="{StaticResource CheckBoxListStyle}">
+                            <ListBox.ItemsSource>
+                                <MultiBinding Mode="TwoWay" UpdateSourceTrigger="Explicit">
+                                    <MultiBinding.Converter>
+                                        <local:DajIzvorZaStavkaArtikalConverter></local:DajIzvorZaStavkaArtikalConverter>
+                                    </MultiBinding.Converter>
+                                    <Binding Path="StavkaArtikals"></Binding>
+                                </MultiBinding>
+                            </ListBox.ItemsSource>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock >                                                                                
+                                        <TextBlock.Text>
+                                            <MultiBinding Mode="TwoWay" UpdateSourceTrigger="Explicit">
+                                                <MultiBinding.Converter>
+                                                    <local:ConcatenateStringConverter></local:ConcatenateStringConverter>
+                                                </MultiBinding.Converter>
+                                                <MultiBinding.ConverterParameter>-</MultiBinding.ConverterParameter>
+                                                <Binding Path="ArtikalProizvodjacNaziv"></Binding>
+                                                <Binding Path="ArtikalBrojProizvodjaca"></Binding>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                </DataTemplate>                
+            </ListBox.ItemTemplate>
+        </ListBox>-->
+
+        <StackPanel HorizontalAlignment="Right" Grid.Column="0" Grid.Row="1" Orientation="Horizontal" Margin="0,30,5,5" VerticalAlignment="Bottom">
+            <Button  Margin="4" MinWidth="60" Name="buttonNazad" Click="buttonNazad_Click">&lt;&lt;Nazad</Button>
+            <Button  Margin="4" MinWidth="60" Name="buttonZavrsi" Click="buttonZavrsi_Click">Završi</Button>
+            <Button  Margin="4" MinWidth="60" Name="buttonOtkazi" Click="buttonOtkazi_Click">Otkaži</Button>
+        </StackPanel>
+
+
+    </Grid>
+</PageFunction>

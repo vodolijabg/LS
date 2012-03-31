@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RadnikDataSet" targetNamespace="http://tempuri.org/RadnikDataSet.xsd" xmlns:mstns="http://tempuri.org/RadnikDataSet.xsd" xmlns="http://tempuri.org/RadnikDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LAVConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="LAVConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.LAV.Properties.Settings.GlobalReference.Default.LAVConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RadnikDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="RadnikDataSet" msprop:Generator_DataSetName="RadnikDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="vwRadnik" msprop:Generator_UserTableName="vwRadnik" msprop:Generator_RowDeletedName="vwRadnikRowDeleted" msprop:Generator_TableClassName="vwRadnikDataTable" msprop:Generator_RowChangedName="vwRadnikRowChanged" msprop:Generator_RowClassName="vwRadnikRow" msprop:Generator_RowChangingName="vwRadnikRowChanging" msprop:Generator_RowEvArgName="vwRadnikRowChangeEvent" msprop:Generator_RowEvHandlerName="vwRadnikRowChangeEventHandler" msprop:Generator_TablePropName="vwRadnik" msprop:Generator_TableVarName="tablevwRadnik" msprop:Generator_RowDeletingName="vwRadnikRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Radnik_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="Radnik_ID" msprop:Generator_ColumnPropNameInRow="Radnik_ID" msprop:Generator_ColumnVarNameInTable="columnRadnik_ID" msprop:Generator_ColumnPropNameInTable="Radnik_IDColumn" type="xs:short" />
+              <xs:element name="Stara_x0020_šifra" msprop:Generator_UserColumnName="Stara šifra" msprop:Generator_ColumnPropNameInRow="Stara_šifra" msprop:Generator_ColumnVarNameInTable="columnStara_šifra" msprop:Generator_ColumnPropNameInTable="Stara_šifraColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Ime" msprop:Generator_UserColumnName="Ime" msprop:Generator_ColumnPropNameInRow="Ime" msprop:Generator_ColumnVarNameInTable="columnIme" msprop:Generator_ColumnPropNameInTable="ImeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Prezime" msprop:Generator_UserColumnName="Prezime" msprop:Generator_ColumnPropNameInRow="Prezime" msprop:Generator_ColumnVarNameInTable="columnPrezime" msprop:Generator_ColumnPropNameInTable="PrezimeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:vwRadnik" />
+      <xs:field xpath="mstns:Radnik_ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

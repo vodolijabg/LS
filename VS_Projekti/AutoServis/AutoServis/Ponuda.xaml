@@ -1,0 +1,870 @@
+﻿<!--<PageFunction
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+    xmlns:local="clr-namespace:AutoServis"
+    x:Class="AutoServis.Ponuda"
+    x:TypeArguments="sys:String"
+    Title="Ponuda" WindowTitle="Ponuda" Loaded="PageFunction_Loaded"  KeepAlive="True" >-->
+    
+    <!--xmlns:rpt="clr-namespace:Microsoft.Reporting.WebForms;assembly=Microsoft.ReportViewer.WebForms"-->
+
+
+<Page x:Class="AutoServis.Ponuda"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:AutoServis"
+    xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+    xmlns:rpt="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+    Title="Ponuda" WindowTitle="Ponuda" Loaded="PageFunction_Loaded" KeepAlive="True">
+    
+    <Border Grid.Column="0" Style="{StaticResource Pozadina}">
+        <TabControl SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Header="Pretraga" Name="tabItemPretraga">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource Pozadina}" Margin="5,5,5,0">
+
+                        <Expander Header="Pretraga" IsExpanded="True" FontSize="12">
+                            <Grid>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition ></RowDefinition>
+                                    <RowDefinition ></RowDefinition>
+                                    <RowDefinition ></RowDefinition>
+                                    <RowDefinition ></RowDefinition>
+
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0" Grid.ColumnSpan="2" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition ></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="4" Text="Odaberi Vrstu Partnera" FontWeight="Bold"></TextBlock>
+                                    <RadioButton Grid.Row="0" Grid.Column="1" Name="radioButtonFizickoLice" Margin="4" Click="radioButton_Click">Fizičko Lice</RadioButton>
+                                    <RadioButton Grid.Row="0" Grid.Column="2" Name="radioButtonPravnoLice" Margin="4" Click="radioButton_Click">Pravno Lice</RadioButton>
+
+
+                                </Grid>
+
+
+                                <RadioButton Grid.Row="1" Grid.Column="0" Name="radioButtonPretragaPartner" Margin="4" Click="radioButton_Click">Partner</RadioButton>
+
+                                <StackPanel Grid.Row="1" Grid.Column="1">
+                                    <Grid Name="gridPretragaFizickoLice">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition ></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBox Grid.Column="0" Grid.Row="0" Margin="3,3,3,3" Name="textBoxFizickoLicePretraga" IsReadOnly="True">
+                                            <TextBox.Text>
+                                                <MultiBinding>
+                                                    <MultiBinding.Converter>
+                                                        <local:ConcatenateTwoStringConverter></local:ConcatenateTwoStringConverter>
+                                                    </MultiBinding.Converter>
+                                                    <!--<MultiBinding.ConverterParameter>-</MultiBinding.ConverterParameter>-->
+                                                    <Binding ElementName="textBoxFizickoLicePretraga" Path="Tag.Ime" Mode="OneWay"></Binding>
+                                                    <Binding ElementName="textBoxFizickoLicePretraga" Path="Tag.Telefon" Mode="OneWay"></Binding>
+                                                </MultiBinding>
+                                            </TextBox.Text>
+                                        </TextBox>
+
+                                        <Button Grid.Column="1" Grid.Row="0" Margin="3,3,3,3" Width="23" Name="buttonPretragaFizickoLice" Click="buttonPretragaFizickoLice_Click" IsEnabled="False">...</Button>
+
+                                    </Grid>
+                                    <Grid Name="gridPretragaPoslovniPartner">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition ></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBox Grid.Column="0" Grid.Row="0" Margin="3,3,3,3" Name="textBoxPoslovniPartnerPretraga" IsReadOnly="True">
+                                            <TextBox.Text>
+                                                <Binding ElementName="textBoxPoslovniPartnerPretraga" Path="Tag.SkracenNaziv"  Mode="OneWay"></Binding>
+                                            </TextBox.Text>
+                                        </TextBox>
+
+                                        <Button Grid.Column="1" Grid.Row="0" Margin="3,3,3,3" Width="23" Name="buttonPretragaPoslovniPartner" Click="buttonPretragaPoslovniPartner_Click" IsEnabled="False">...</Button>
+
+                                    </Grid>
+                                </StackPanel>
+
+                                <RadioButton Grid.Row="2" Grid.Column="0" Name="radioButtonPretragaID" Margin="4" Click="radioButton_Click" >ID</RadioButton>
+                                <TextBox Grid.Row="2" Grid.Column="1" Name="textBoxPretragaID" Margin="4" IsEnabled="False"></TextBox>
+
+                                <TextBlock Grid.Row="3" Grid.Column="0" Margin="4">Prikaži</TextBlock>
+                                <Button Grid.Row="3" Grid.Column="1" Height="23" Width="23" Margin="4" Name="buttonNadji" Click="buttonNadji_Click" HorizontalAlignment="Left">...</Button>
+
+                            </Grid>
+                        </Expander>
+
+                    </Border>
+                    <Border Grid.Row="1" Style="{StaticResource Pozadina}">
+                        <ListBox Margin="3,3,3,3" Name="listBoxZaglavljeLista" TextSearch.TextPath="Zaglavlje_ID" SelectionChanged="listBoxZaglavljeLista_SelectionChanged">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <!--<TextBlock Text="{Binding Path=Zaglavlje_ID}"></TextBlock>-->
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="100"></ColumnDefinition>
+                                            <ColumnDefinition MinWidth="300"></ColumnDefinition>
+                                            <ColumnDefinition ></ColumnDefinition>
+                                            <ColumnDefinition ></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Grid.Column="0">
+                                                    <TextBlock.Text>
+                                                        <Binding Path="Zaglavlje_ID" Mode="OneWay"></Binding>
+                                                    </TextBlock.Text>
+                                        </TextBlock>
+                                        <TextBlock Grid.Column="1">                                                    
+                                                    <TextBlock.Text>
+                                                        <MultiBinding >
+                                                            <MultiBinding.Converter>
+                                                                <local:PravnoLiceAndFizickoLiceToPartnerConverter></local:PravnoLiceAndFizickoLiceToPartnerConverter>
+                                                            </MultiBinding.Converter>
+                                                            <Binding Path="ServisnaKnjizica.PoslovniPartner.SkracenNaziv" Mode="OneWay"></Binding>
+                                                            <Binding Path="ServisnaKnjizica.FizickoLice.Ime" Mode="OneWay"></Binding>
+                                                        </MultiBinding>
+                                                    </TextBlock.Text>
+                                        </TextBlock>
+                                        <TextBlock Grid.Column="2">
+                                                    <TextBlock.Text>
+                                                        <Binding Path="Vreme" Mode="OneWay">
+                                                            <Binding.ConverterParameter>d</Binding.ConverterParameter>
+                                                            <Binding.Converter>
+                                                                <local:DateTimeToStringConverter></local:DateTimeToStringConverter>
+                                                            </Binding.Converter>
+                                                        </Binding>
+                                                    </TextBlock.Text>
+                                        </TextBlock>
+                                        <TextBlock Grid.Column="3">                                                    
+                                                    <TextBlock.Text>
+                                                        <MultiBinding >
+                                                            <MultiBinding.Converter>
+                                                                <local:ConcatenateThreeStringConverter></local:ConcatenateThreeStringConverter>
+                                                            </MultiBinding.Converter>
+                                                            <!--<MultiBinding.ConverterParameter>-</MultiBinding.ConverterParameter>-->
+                                                            <Binding Path="ServisnaKnjizica.TipAutomobila.ModelAutomobila.Proizvodjac.Naziv" Mode="OneWay"></Binding>
+                                                            <Binding Path="ServisnaKnjizica.TipAutomobila.ModelAutomobila.OpisTabela.Opis" Mode="OneWay"></Binding>
+                                                            <Binding Path="ServisnaKnjizica.TipAutomobila.OpisTabela.Opis" Mode="OneWay"></Binding>
+                                                        </MultiBinding>
+                                                    </TextBlock.Text>
+                                        </TextBlock>
+
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.ItemContainerStyleSelector>
+                                <local:AlternatingRowStyleSelector AlternateStyle="{StaticResource ObojiSvakiDrugiRed}" />
+                            </ListBox.ItemContainerStyleSelector>
+                        </ListBox>
+                    </Border>
+                </Grid>
+               
+            </TabItem>
+            
+            <TabItem Header="Zaglavlje" Name="tabItemZaglavlje">
+                <Border Grid.Column="0" Style="{StaticResource Pozadina}">
+                        
+                    <Grid Name="gridZaglavlje" DataContext="{Binding ElementName=listBoxZaglavljeLista, Path=SelectedItem}">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+
+
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition ></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Grid.Row="0" Margin="3,3,10,3" VerticalAlignment="Center">ID:</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Margin="3,3,10,3" VerticalAlignment="Center" >Servisna Knjižica:</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="2" Margin="3,3,10,3" VerticalAlignment="Center" >Datum Dokumenta:</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="3" Margin="3,3,10,3" VerticalAlignment="Center">Način Zahteva Za Ponudu:</TextBlock>
+                        
+                        <TextBlock Grid.Column="0" Grid.Row="4" Margin="3,3,10,3" VerticalAlignment="Center">Preuzima Lično:</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="5" Margin="3,3,10,3" VerticalAlignment="Center">Preuzeo Lično:</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="6" Margin="3,3,10,3" VerticalAlignment="Center">Obavesti Telefonom:</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="7" Margin="3,3,10,3" VerticalAlignment="Center">Obavešten Telefonom:</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="8" Margin="3,3,10,3" VerticalAlignment="Center">Pošalji SMS Obaveštenje:</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="9" Margin="3,3,10,3" VerticalAlignment="Center">Poslato SMS Obaveštenje U:</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="10" Margin="3,3,10,3" VerticalAlignment="Center">Napomena:</TextBlock>
+                        
+                        <CheckBox Grid.Column="1" Grid.Row="4" Margin="3,3,10,3" VerticalAlignment="Center" Name="checkBoxPreuzimaLicno"
+                                  IsChecked="{Binding Path=Ponuda.PreuzimaLicno, Mode=TwoWay, UpdateSourceTrigger = Explicit}"
+                                  ></CheckBox>
+
+                        <CheckBox Grid.Column="1" Grid.Row="6" Margin="3,3,10,3" VerticalAlignment="Center" Name="checkBoxObavestiTelefonom"
+                                  IsChecked="{Binding Path=Ponuda.ObavestiTelefonom, Mode=TwoWay, UpdateSourceTrigger = Explicit}"
+                                  ></CheckBox>
+
+                        <CheckBox Grid.Column="1" Grid.Row="8" Margin="3,3,10,3" VerticalAlignment="Center" Name="checkBoxPosaljiSMSObavestenje"
+                                  IsChecked="{Binding Path=Ponuda.PosaljiSMSObavestenje,Mode=TwoWay, UpdateSourceTrigger = Explicit}"
+                                  ></CheckBox>
+                        
+                        <TextBox Grid.Column="1" Grid.Row="0" Margin="3,3,3,3" Name="textBoxZaglavljeID" Text="{Binding Path=Zaglavlje_ID, Mode=TwoWay, UpdateSourceTrigger = Explicit}"></TextBox>
+
+                        <Grid Grid.Column="1" Grid.Row="1" Name="gridServisnaKnjizica">
+                            
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition MinWidth="50" Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition MinWidth="150" Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <TextBox Grid.Column="0" Grid.Row="0" Margin="3,3,3,3" Name="textBoxServisnaKnjizica" IsReadOnly="True">
+                                <TextBox.Tag>
+                                    <Binding Path="ServisnaKnjizica" UpdateSourceTrigger="Explicit" Mode="TwoWay" >
+                                        <Binding.ValidationRules>
+                                            <local:ObavezanPodatakTagRule></local:ObavezanPodatakTagRule>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Tag>
+                                <TextBox.Text>
+                                    <Binding ElementName="textBoxServisnaKnjizica" Path="Tag.Sifra"  Mode="OneWay"></Binding>
+                                </TextBox.Text>
+                            </TextBox>
+                            
+                            <TextBox Grid.Column="1" Grid.Row="0" Margin="3,3,3,3" Name="textBoxServisnaKnjizicaPartner" IsReadOnly="True">
+                                <TextBox.Text>
+                                    <MultiBinding >
+                                        <MultiBinding.Converter>
+                                            <local:PravnoLiceAndFizickoLiceToPartnerConverter></local:PravnoLiceAndFizickoLiceToPartnerConverter>
+                                        </MultiBinding.Converter>
+                                        <Binding ElementName="textBoxServisnaKnjizica" Path="Tag.PoslovniPartner.SkracenNaziv"  Mode="OneWay"></Binding>
+                                        <Binding ElementName="textBoxServisnaKnjizica" Path="Tag.FizickoLice.Ime"  Mode="OneWay"></Binding>
+                                    </MultiBinding>
+                                </TextBox.Text>
+                            </TextBox>
+
+                            <TextBox Grid.Column="2" Grid.Row="0" Margin="3,3,3,3" Name="textBoxServisnaKnjizicaTipAutomobila" IsReadOnly="True">
+                                <TextBox.Text>
+                                    <MultiBinding >
+                                        <MultiBinding.Converter>
+                                            <local:ConcatenateThreeStringConverter></local:ConcatenateThreeStringConverter>
+                                        </MultiBinding.Converter>
+                                        <!--<MultiBinding.ConverterParameter>-</MultiBinding.ConverterParameter>-->
+                                        <Binding ElementName="textBoxServisnaKnjizica" Path="Tag.TipAutomobila.ModelAutomobila.Proizvodjac.Naziv" Mode="OneWay"></Binding>
+                                        <Binding ElementName="textBoxServisnaKnjizica" Path="Tag.TipAutomobila.ModelAutomobila.OpisTabela.Opis" Mode="OneWay"></Binding>
+                                        <Binding ElementName="textBoxServisnaKnjizica" Path="Tag.TipAutomobila.OpisTabela.Opis" Mode="OneWay"></Binding>
+                                    </MultiBinding>
+                                </TextBox.Text>
+                            </TextBox>
+
+                            <Button Grid.Column="3" Grid.Row="0" Margin="3,3,3,3" Width="23" Name="buttonServisnaKnjizica" Click="buttonServisnaKnjizica_Click">...</Button>
+                          
+                        </Grid>
+
+                        <TextBox Grid.Column="1" Grid.Row="2" Margin="3,3,3,3" Name="textBoxDatumDokumenta" IsReadOnly="True">
+                            <TextBox.Text>
+                                <Binding Path="Ponuda.Vreme" Mode="TwoWay" UpdateSourceTrigger="Explicit"  >
+                                    <Binding.ConverterParameter>g</Binding.ConverterParameter>
+                                    <Binding.Converter>
+                                        <local:DateTimeToStringConverter></local:DateTimeToStringConverter>
+                                    </Binding.Converter>
+                                    <Binding.ValidationRules>
+                                        <local:ObavezanPodatakRule></local:ObavezanPodatakRule>
+                                        <local:IsDateTimeRule></local:IsDateTimeRule>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <TextBox Grid.Column="1" Grid.Row="10" Margin="3,3,3,3" Name="textBoxNapomena" MaxLength="500" TextWrapping="Wrap" MinLines="2">
+                            <TextBox.Text>
+                                <Binding Path="Ponuda.Napomena" UpdateSourceTrigger="Explicit" Mode="TwoWay" >
+                                    <Binding.Converter>
+                                        <local:PrazanStringToNullConverter></local:PrazanStringToNullConverter>
+                                    </Binding.Converter>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+
+                        
+
+                        <Grid Grid.Column="1" Grid.Row="3" Name="gridNacinZahtevaZaPonudu">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition ></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <ComboBox Grid.Column="0" Grid.Row="0" Margin="3,3,3,3" Name="comboBoxNacinZahtevaZaPonuduLista" TextSearch.TextPath="Naziv" >
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock >
+                                <TextBlock.Text>
+                                    <Binding Path="Naziv" Mode="OneWay">
+                                        <Binding.ValidationRules>
+                                            <local:ObavezanPodatakRule></local:ObavezanPodatakRule>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBlock.Text>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+
+                                <ComboBox.ItemContainerStyleSelector>
+                                    <local:AlternatingRowStyleSelector AlternateStyle="{StaticResource ObojiSvakiDrugiRed}" />
+                                </ComboBox.ItemContainerStyleSelector>
+
+                                <ComboBox.SelectedItem>
+                                    <Binding ElementName="listBoxZaglavljeLista" Path="SelectedItem.Ponuda.NacinZahtevaZaPonudu" Mode="TwoWay" UpdateSourceTrigger="Explicit">
+                                        <Binding.ValidationRules>
+                                            <local:ObavezanPodatakListaRule></local:ObavezanPodatakListaRule>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </ComboBox.SelectedItem>
+                            </ComboBox>
+
+                            <Button Grid.Column="1" Grid.Row="0" Margin="3,3,3,3" Width="23" Name="buttonNacinZahtevaZaPonudu" Click="buttonNacinZahtevaZaPonudu_Click">...</Button>
+
+                        </Grid>
+
+                        <Grid Grid.Column="1" Grid.Row="5" Name="gridPreuzeoLicno">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            
+                            <CheckBox Grid.Column="0" Grid.Row="0" Margin="3,3,10,3" VerticalAlignment="Center" Name="checkBoxPreuzeoLicno" Click="checkBox_Click">
+                                <CheckBox.IsChecked>
+                                    <Binding  Path="Ponuda.PreuzeoLicnoU" Mode="TwoWay"  UpdateSourceTrigger = "Explicit">
+                                        <Binding.Converter>
+                                            <local:DateTimeToBoolConverter></local:DateTimeToBoolConverter>
+                                        </Binding.Converter>
+                                    </Binding>
+                                </CheckBox.IsChecked>
+                            </CheckBox>
+                            
+                            <TextBlock Grid.Column="1" Grid.Row="0" Margin="3,3,3,3" VerticalAlignment="Center">Vreme:</TextBlock>
+
+
+                            <TextBox Grid.Column="2" Grid.Row="0" Margin="3,3,3,3" Name="textBoxPreuzeoLicnoU" IsReadOnly="True">
+                                <TextBox.Text>
+                                    <Binding Path="Ponuda.PreuzeoLicnoU" Mode="TwoWay" UpdateSourceTrigger="Explicit"  >
+                                        <Binding.ConverterParameter>g</Binding.ConverterParameter>
+                                        <Binding.Converter>
+                                            <local:DateTimeToStringConverter></local:DateTimeToStringConverter>
+                                        </Binding.Converter>
+                                        <Binding.ValidationRules>
+                                            <local:IsDateTimeRule></local:IsDateTimeRule>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+                        </Grid>
+                        
+                        <Grid Grid.Column="1" Grid.Row="7" Name="gridObavestenTelefonom">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <CheckBox Grid.Column="0" Grid.Row="0" Margin="3,3,10,3" VerticalAlignment="Center" Name="checkBoxObavestenTelefonom" Click="checkBox_Click">
+                                <CheckBox.IsChecked>
+                                    <Binding  Path="Ponuda.ObavestenTelefonomU"  Mode="TwoWay"  UpdateSourceTrigger = "Explicit">
+                                        <Binding.Converter>
+                                            <local:DateTimeToBoolConverter></local:DateTimeToBoolConverter>
+                                        </Binding.Converter>
+                                    </Binding>
+                                </CheckBox.IsChecked>
+                            </CheckBox>
+
+                            <TextBlock Grid.Column="1" Grid.Row="0" Margin="3,3,3,3" VerticalAlignment="Center">Vreme:</TextBlock>
+                            
+                            <TextBox Grid.Column="2" Grid.Row="0" Margin="3,3,3,3" Name="textBoxObavestenTelefonomU" IsReadOnly="True">
+                                <TextBox.Text>
+                                    <Binding Path="Ponuda.ObavestenTelefonomU" Mode="TwoWay" UpdateSourceTrigger="Explicit"  >
+                                        <Binding.ConverterParameter>g</Binding.ConverterParameter>
+                                        <Binding.Converter>
+                                            <local:DateTimeToStringConverter></local:DateTimeToStringConverter>
+                                        </Binding.Converter>
+                                        <Binding.ValidationRules>
+                                            <local:IsDateTimeRule></local:IsDateTimeRule>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+                        </Grid>
+
+                        <!--<TextBox Grid.Column="1" Grid.Row="11" Margin="3,3,3,3" Name="textBoxPoslatoSMSObavestenjeU" >
+                            <TextBox.Text>
+                                <Binding Path="Ponuda.PoslatoSMSObavestenjeU" Mode="TwoWay" UpdateSourceTrigger="Explicit"  >
+                                    <Binding.ConverterParameter>g</Binding.ConverterParameter>
+                                    <Binding.Converter>
+                                        <local:DateTimeToStringConverter></local:DateTimeToStringConverter>
+                                    </Binding.Converter>
+                                    <Binding.ValidationRules>
+                                        <local:IsDateTimeRule></local:IsDateTimeRule>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>-->
+
+                        <Grid Grid.Column="1" Grid.Row="9" Name="gridPoslatoSMSObavestenje">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <CheckBox Grid.Column="0" Grid.Row="0" Margin="3,3,10,3" VerticalAlignment="Center" Name="checkBoxPoslatoSMSObavestenje" Click="checkBox_Click" IsEnabled="False">
+                                <CheckBox.IsChecked>
+                                    <Binding  Path="Ponuda.PoslatoSMSObavestenjeU"  Mode="TwoWay"  UpdateSourceTrigger = "Explicit">
+                                        <Binding.Converter>
+                                            <local:DateTimeToBoolConverter></local:DateTimeToBoolConverter>
+                                        </Binding.Converter>
+                                    </Binding>
+                                </CheckBox.IsChecked>
+                            </CheckBox>
+
+                            <TextBlock Grid.Column="1" Grid.Row="0" Margin="3,3,3,3" VerticalAlignment="Center">Vreme:</TextBlock>
+
+                            <TextBox Grid.Column="2" Grid.Row="0" Margin="3,3,3,3" Name="textBoxPoslatoSMSObavestenjeU" IsEnabled="False">
+                                <TextBox.Text>
+                                    <Binding Path="Ponuda.PoslatoSMSObavestenjeU" Mode="TwoWay" UpdateSourceTrigger="Explicit"  >
+                                        <Binding.ConverterParameter>g</Binding.ConverterParameter>
+                                        <Binding.Converter>
+                                            <local:DateTimeToStringConverter></local:DateTimeToStringConverter>
+                                        </Binding.Converter>
+                                        <Binding.ValidationRules>
+                                            <local:IsDateTimeRule></local:IsDateTimeRule>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+                        </Grid>
+
+                        <Border Grid.Column="1" Grid.Row="11" Style="{StaticResource PozadinaDugmici}" >
+                            <StackPanel  Orientation="Horizontal">
+                                <Button Margin="3,0,3,0" MinWidth="60" Name="buttonUnesiZaglavlje" Click="buttonUnesiZaglavlje_Click"  >Unesi</Button>
+                                <Button Margin="3,0,3,0" MinWidth="60" Name="buttonIzmeniZaglavlje" Click="buttonIzmeniZaglavlje_Click" >Izmeni</Button>
+                                <Button Margin="3,0,3,0" MinWidth="60" Name="buttonPotvrdiZaglavlje" Click="buttonPotvrdiZaglavlje_Click">Potvrdi</Button>
+                                <Button Margin="3,0,3,0" MinWidth="60" Name="buttonOdustaniZaglavlje" Click="buttonOdustaniZaglavlje_Click">Odustani</Button>
+                                <Button Margin="3,0,3,0" MinWidth="60" Name="buttonObrisiZaglavlje" Click="buttonObrisiZaglavlje_Click">Obriši</Button>
+                                <Button Margin="3,0,3,0" MinWidth="60" Name="buttonOsveziZaglavlje" Click="buttonOsveziZaglavlje_Click">Osveži</Button>
+                                <!--<Button Margin="3,0,3,0" MinWidth="60" Name="buttonZatvori" Click="buttonZatvori_Click">Zatvori</Button>-->
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Border>
+            </TabItem>
+            
+            <TabItem Header="Stavke" Name="tabItemStavke" >
+                    <Grid Name="gridStavke" DataContext="{Binding ElementName=listBoxZagavljeLista, Path=SelectedItem}">
+                        <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="3*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                        <Border Grid.Row="0" Style="{StaticResource Pozadina}">
+                        <ListBox Margin="3,3,3,3" Name="listBoxStavkaUslugaLista" TextSearch.TextPath="Stavka_ID" SelectionChanged="listBoxStavkaUslugaLista_SelectionChanged"> <!--ItemsSource="{Binding ElementName=listBoxZaglavljeLista, Path=SelectedItem.Ponuda.Stavkas}">-->
+
+                            <!--ItemsSource="{Binding Path=Ponuda.Stavka}"-->
+
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <!--<TextBlock Text="{Binding Path=Stavka_ID}"></TextBlock>-->
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="100"></ColumnDefinition>
+                                            <ColumnDefinition MinWidth="300"></ColumnDefinition>
+                                            <ColumnDefinition MinWidth="200"></ColumnDefinition>
+                                            <ColumnDefinition ></ColumnDefinition>
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Grid.Column="0">
+                                                    <TextBlock.Text>
+                                                        <Binding Path="StavkaUsluga_ID" Mode="OneWay"></Binding>
+                                                    </TextBlock.Text>
+                                        </TextBlock>
+                                        <TextBlock Grid.Column="1">                                                    
+                                                    <TextBlock.Text>
+                                                        <Binding Path="Usluga.VrstaUsluge.Naziv" Mode="OneWay"></Binding>
+                                                    </TextBlock.Text>
+                                        </TextBlock>
+                                        <TextBlock Grid.Column="2">                                                    
+                                                    <TextBlock.Text>
+                                                        <Binding Path="Usluga.NosilacGrupe.Naziv" Mode="OneWay"></Binding>
+                                                    </TextBlock.Text>
+                                        </TextBlock>
+                                        <TextBlock Grid.Column="3">                                                    
+                                                    <TextBlock.Text>
+                                                        <Binding Path="Usluga.Nivo.Naziv" Mode="OneWay"></Binding>
+                                                    </TextBlock.Text>
+                                        </TextBlock>
+                                    </Grid>
+                                </DataTemplate>
+                                </ListBox.ItemTemplate>
+                                <ListBox.ItemContainerStyleSelector>
+                                    <local:AlternatingRowStyleSelector AlternateStyle="{StaticResource ObojiSvakiDrugiRed}" />
+                                </ListBox.ItemContainerStyleSelector>
+                            </ListBox>
+                        </Border>
+                        
+                    <GridSplitter Grid.Row="1" Height="3" VerticalAlignment="Center" HorizontalAlignment="Stretch" ></GridSplitter>
+
+                    <Border Grid.Row="2" Style="{StaticResource Pozadina}">
+                            
+                        <Grid  Name="gridStavkaDetaljno" DataContext="{Binding ElementName=listBoxStavkaUslugaLista, Path=SelectedItem}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Grid.Row="0" Margin="3,3,10,3" VerticalAlignment="Center">Ponuda Usluga ID:</TextBlock>
+
+                            <TextBlock Grid.Column="0" Grid.Row="1" Margin="3,3,10,3" VerticalAlignment="Center" >Usluga:</TextBlock>
+                            <TextBlock Grid.Column="0" Grid.Row="2" Margin="3,3,10,3" VerticalAlignment="Center" >Usluga Cena Bez Poreza:</TextBlock>
+                            <TextBlock Grid.Column="0" Grid.Row="3" Margin="3,3,10,3" VerticalAlignment="Center" Visibility="Collapsed">Usluga Poreska Stopa:</TextBlock>
+                            <TextBlock Grid.Column="0" Grid.Row="4" Margin="3,3,10,3" VerticalAlignment="Center" >Usluga Količina:</TextBlock>
+                            
+                            <!--<TextBlock Grid.Column="0" Grid.Row="5" Margin="3,3,10,3" VerticalAlignment="Center" FontWeight="Bold">Artikli:</TextBlock>-->
+                            
+                            <Grid Grid.Column="0" Grid.Row="5" Margin="3,3,3,3" Name="gridUslugaArtikal">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <!--<TextBlock Grid.Column="0" Grid.Row="0" Margin="3,13,10,3" VerticalAlignment="Center"  Visibility="Collapsed">Ponuda Artikal ID:</TextBlock>-->
+                                <TextBlock Grid.Column="0" Grid.Row="1" Margin="3,15,10,3" VerticalAlignment="Center" HorizontalAlignment="Left">Artikal:</TextBlock>
+                                <TextBlock Grid.Column="0" Grid.Row="2" Margin="3,8,10,3" VerticalAlignment="Center" HorizontalAlignment="Left">Dobavljac:</TextBlock>
+                                <TextBlock Grid.Column="0" Grid.Row="3" Margin="3,10,10,3" VerticalAlignment="Center" HorizontalAlignment="Left">Artikal Cena Bez Poreza:</TextBlock>
+                                <!--<TextBlock Grid.Column="0" Grid.Row="4" Margin="3,10,10,3" VerticalAlignment="Center" Visibility="Collapsed">Artikal Poreska Stopa:</TextBlock>-->
+                                <TextBlock Grid.Column="0" Grid.Row="5" Margin="3,10,10,3" VerticalAlignment="Center" HorizontalAlignment="Left">Artikal Količina:</TextBlock>
+
+                            </Grid>
+                            
+                            
+                            
+                            
+                            <TextBox Grid.Column="1" Grid.Row="0" Margin="3,3,3,3" Name="textBoxStavkaUslugaID" Text="{Binding Path=StavkaUsluga_ID, Mode=TwoWay, UpdateSourceTrigger = Explicit}"></TextBox>
+
+                            <Grid Grid.Column="1" Grid.Row="1" Name="gridUsluga">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition MinWidth="50" Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition MinWidth="150" Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition ></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <TextBox Grid.Column="0" Grid.Row="0" Margin="3,3,3,3" Name="textBoxUsluga" IsReadOnly="True">
+                                    <TextBox.Tag>
+                                        <Binding Path="Usluga" UpdateSourceTrigger="Explicit" Mode="TwoWay" >
+                                            <Binding.ValidationRules>
+                                                <local:ObavezanPodatakTagRule></local:ObavezanPodatakTagRule>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Tag>
+                                    <TextBox.Text>
+                                        <Binding ElementName="textBoxUsluga" Path="Tag.VrstaUsluge.Naziv"  Mode="OneWay"></Binding>
+                                    </TextBox.Text>
+                                </TextBox>
+
+                                <TextBox Grid.Column="1" Grid.Row="0" Margin="3,3,3,3" Name="textBoxUslugaNosilacGrupe" IsReadOnly="True">
+                                    <TextBox.Text>
+                                        <Binding ElementName="textBoxUsluga" Path="Tag.NosilacGrupe.Naziv"  Mode="OneWay"></Binding>
+                                    </TextBox.Text>
+                                </TextBox>
+
+                                <TextBox Grid.Column="2" Grid.Row="0" Margin="3,3,3,3" Name="textBoxUslugaNivo" IsReadOnly="True">
+                                    <TextBox.Text>
+                                        <Binding ElementName="textBoxUsluga" Path="Tag.Nivo.Naziv"  Mode="OneWay"></Binding>
+                                    </TextBox.Text>
+                                </TextBox>
+
+                                <Button Grid.Column="3" Grid.Row="0" Margin="3,3,3,3" Width="23" Name="buttonUsluga" Click="buttonUsluga_Click">...</Button>
+
+                            </Grid>
+
+                            <TextBox Grid.Column="1" Grid.Row="2"  Margin="3,3,3,3" Name="textBoxUslugaCenaBezPoreza" >
+                                <TextBox.Text>
+                                    <Binding Path="UslugaCenaBezPoreza" UpdateSourceTrigger="Explicit" Mode="TwoWay" >
+                                        <Binding.Converter>
+                                            <local:DecimalToStringConverter></local:DecimalToStringConverter>
+
+                                        </Binding.Converter>
+                                        <Binding.ValidationRules>
+                                            <local:ObavezanPodatakRule></local:ObavezanPodatakRule>
+                                            <local:IsDecimalRule></local:IsDecimalRule>
+                                            <!--<local:IsVeciOdNuleRule></local:IsVeciOdNuleRule>-->
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+
+                            <ComboBox Grid.Column="1" Grid.Row="3" Margin="3,3,3,3" Name="comboBoxUslugaPoreskaStopaLista" TextSearch.TextPath="VrednostProcenata" Visibility="Collapsed">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock >
+                                <TextBlock.Text>
+                                    <Binding Path="VrednostProcenata" Mode="OneWay" >
+                                        <Binding.ValidationRules>
+                                            <local:ObavezanPodatakRule></local:ObavezanPodatakRule>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBlock.Text>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+
+                                <ComboBox.ItemContainerStyleSelector>
+                                    <local:AlternatingRowStyleSelector AlternateStyle="{StaticResource ObojiSvakiDrugiRed}" />
+                                </ComboBox.ItemContainerStyleSelector>
+
+                                <ComboBox.SelectedItem>
+                                    <Binding  Path="UslugaPoreskaStopa" Mode="TwoWay" UpdateSourceTrigger="Explicit" >
+                                        <Binding.ValidationRules>
+                                            <local:ObavezanPodatakListaRule></local:ObavezanPodatakListaRule>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </ComboBox.SelectedItem>
+                            </ComboBox>
+                                
+                            <TextBox Grid.Column="1" Grid.Row="4" Margin="3,3,3,3" Name="textBoxUslugaKolicina" >
+                                <TextBox.Text>
+                                    <Binding Path="UslugaKolicina" UpdateSourceTrigger="Explicit" Mode="TwoWay" >
+                                        <Binding.ValidationRules>
+                                            <local:ObavezanPodatakRule></local:ObavezanPodatakRule>
+                                            <local:IsIntRule></local:IsIntRule>
+                                            <local:IsVeciOdNuleRule></local:IsVeciOdNuleRule>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+                                
+                                
+                            <Grid Grid.Column="1" Grid.Row="5" Name="gridStavkaDetaljnoArtikal" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition ></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                
+                                <ListBox Grid.Column="0" Grid.Row="0" Margin="3,0,0,0" Name="listBoxStavkaArtikalLista" BorderThickness="0" >
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                        <Border  Style="{StaticResource Pozadina}" Margin="0" >
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                </Grid.RowDefinitions>
+
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <TextBox Grid.Column="1" Grid.Row="0" Margin="3,3,3,3" Name="textBoxStavkaArtikalID" Text="{Binding Path=StavkaArtikal_ID}"  GotFocus="textBoxUslugaArtikal_GotFocus"   Tag="{Binding Path=StavkaArtikal_ID}" IsReadOnly="True" Visibility="Collapsed"></TextBox>
+
+                                                <Grid Grid.Column="1" Grid.Row="1" Name="gridArtikal">
+
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition MinWidth="50" Width="Auto"></ColumnDefinition>
+                                                        <ColumnDefinition MinWidth="100" Width="Auto"></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition></RowDefinition>
+                                                    </Grid.RowDefinitions>
+
+
+                                                        <TextBox Grid.Column="0" Grid.Row="0" Margin="3,3,3,3" Name="textBoxVezaArtikalDobavljac" Text="{Binding Path=VezaArtikalDobavljac.Artikal.BrojProizvodjaca}" IsReadOnly="True" GotFocus="textBoxUslugaArtikal_GotFocus"   Tag="{Binding Path=StavkaArtikal_ID}">
+                                                        <!--<TextBox.Tag>
+                                                            <Binding Path="VezaArtikalDobavljac" UpdateSourceTrigger="Explicit" Mode="TwoWay" >
+                                                                <Binding.ValidationRules>
+                                                                    <local:ObavezanPodatakTagRule></local:ObavezanPodatakTagRule>
+                                                                </Binding.ValidationRules>
+                                                            </Binding>
+                                                        </TextBox.Tag>
+                                                        <TextBox.Text>
+                                                            <Binding ElementName="textBoxVezaArtikalDobavljac" Path="Tag.Artikal.BrojProizvodjaca"  Mode="OneWay" ></Binding>
+                                                        </TextBox.Text>-->
+                                                    </TextBox>
+
+                                                    <TextBox Grid.Column="1" Grid.Row="0" Margin="3,3,3,3" Name="textBoxArtikalDobavljac" Text="{Binding Path=VezaArtikalDobavljac.Artikal.Proizvodjac.Naziv}" IsReadOnly="True" GotFocus="textBoxUslugaArtikal_GotFocus"   Tag="{Binding Path=StavkaArtikal_ID}">
+                                                        <!--<TextBox.Text>
+                                                            <Binding ElementName="textBoxVezaArtikalDobavljac" Path="Tag.Artikal.Proizvodjac.Naziv"  Mode="OneWay"></Binding>
+                                                        </TextBox.Text>-->
+                                                    </TextBox>
+                                                </Grid>
+
+                                                    <TextBox Grid.Column="1" Grid.Row="2" Margin="3,3,3,3" Name="textBoxStavkaDobavljac" IsReadOnly="True" GotFocus="textBoxUslugaArtikal_GotFocus"   Tag="{Binding Path=StavkaArtikal_ID}">
+                                                        <TextBox.Text>
+                                                            <MultiBinding >
+                                                                <MultiBinding.Converter>
+                                                                    <local:PravnoLiceAndFizickoLiceToPartnerConverter></local:PravnoLiceAndFizickoLiceToPartnerConverter>
+                                                                </MultiBinding.Converter>
+                                                                <Binding Path="VezaArtikalDobavljac.PoslovniPartner.SkracenNaziv" Mode="OneWay"></Binding>
+                                                                <Binding Path="VezaArtikalDobavljac.KorisnikPrograma.Naziv" Mode="OneWay"></Binding>
+                                                            </MultiBinding>
+                                                        </TextBox.Text>
+                                                    </TextBox>
+
+                                                    <TextBox Grid.Column="1" Grid.Row="3"  Margin="3,3,3,3" Name="textBoxArtikalCenaBezPoreza" GotFocus="textBoxUslugaArtikal_GotFocus"   Tag="{Binding Path=StavkaArtikal_ID}">
+                                                    <TextBox.Text>
+                                                        <Binding Path="ArtikalCenaBezPoreza" UpdateSourceTrigger="PropertyChanged"  Mode="TwoWay" >
+                                                            <Binding.Converter>
+                                                                <local:DecimalToStringConverter></local:DecimalToStringConverter>
+                                                            </Binding.Converter>
+                                                            <Binding.ValidationRules>
+                                                                <local:ObavezanPodatakRule></local:ObavezanPodatakRule>
+                                                                <local:IsDecimalRule></local:IsDecimalRule>
+                                                                <!--<local:IsVeciOdNuleRule></local:IsVeciOdNuleRule>-->
+                                                            </Binding.ValidationRules>
+                                                        </Binding>
+                                                    </TextBox.Text>
+                                                       
+                                                    </TextBox>
+
+                                                    <TextBox Grid.Column="1" Grid.Row="4"  Margin="3,3,3,3" Name="textBoxArtikalPoreskaStopa_ID" IsReadOnly="True" Visibility="Collapsed" GotFocus="textBoxUslugaArtikal_GotFocus"   Tag="{Binding Path=StavkaArtikal_ID}">
+                                                    <TextBox.Text>
+                                                        <Binding Path="ArtikalPoreskaStopa_ID" Mode="TwoWay" >
+                                                            <Binding.Converter>
+                                                                <local:DecimalToStringConverter></local:DecimalToStringConverter>
+
+                                                            </Binding.Converter>
+                                                            <Binding.ValidationRules>
+                                                                <local:ObavezanPodatakRule></local:ObavezanPodatakRule>
+                                                                <local:IsIntRule></local:IsIntRule>
+                                                                <!--<local:IsVeciOdNuleRule></local:IsVeciOdNuleRule>-->
+                                                            </Binding.ValidationRules>
+                                                        </Binding>
+                                                    </TextBox.Text>
+                                                </TextBox>
+
+                                                    <TextBox Grid.Column="1" Grid.Row="5" Margin="3,3,3,3" Name="textBoxArtikalKolicina" GotFocus="textBoxUslugaArtikal_GotFocus"   Tag="{Binding Path=StavkaArtikal_ID}">
+                                                        <TextBox.Text>
+                                                            <Binding Path="ArtikalKolicina" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" >
+                                                                <Binding.ValidationRules>
+                                                                    <local:ObavezanPodatakRule></local:ObavezanPodatakRule>
+                                                                    <local:IsIntRule></local:IsIntRule>
+                                                                    <local:IsVeciOdNuleRule></local:IsVeciOdNuleRule>
+                                                                </Binding.ValidationRules>
+                                                            </Binding>
+                                                        </TextBox.Text>
+                                                    </TextBox>
+                                            
+                                                </Grid>
+                                            
+                                          </Border>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                    
+                                    ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel></WrapPanel>
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                            </ListBox>
+                                
+                            <Button Grid.Column="1" Grid.Row="0" Margin="3,3,3,3" Width="23" Name="buttonDodajArtikal" VerticalAlignment="Top" Click="buttonDodajArtikal_Click">...</Button>
+                            <Button Grid.Column="2" Grid.Row="0" Margin="3,3,3,3" Width="23" Name="buttonObrisiArtikal" VerticalAlignment="Top" Click="buttonObrisiArtikal_Click">X</Button>
+
+                            </Grid>
+
+
+                            <Border Grid.Column="1" Grid.Row="6" Style="{StaticResource PozadinaDugmici}" >
+                                <StackPanel  Orientation="Horizontal">
+                                    <Button Margin="3,0,3,0" MinWidth="60" Name="buttonUnesiStavka" Click="buttonUnesiStavka_Click"  >Unesi</Button>
+                                    <Button Margin="3,0,3,0" MinWidth="60" Name="buttonIzmeniStavka" Click="buttonIzmeniStavka_Click" >Izmeni</Button>
+                                    <Button Margin="3,0,3,0" MinWidth="60" Name="buttonPotvrdiStavka" Click="buttonPotvrdiStavka_Click">Potvrdi</Button>
+                                    <Button Margin="3,0,3,0" MinWidth="60" Name="buttonOdustaniStavka" Click="buttonOdustaniStavka_Click">Odustani</Button>
+                                    <Button Margin="3,0,3,0" MinWidth="60" Name="buttonObrisiStavka" Click="buttonObrisiStavka_Click">Obriši</Button>
+                                    <Button Margin="3,0,3,0" MinWidth="60" Name="buttonOsveziStavka" Click="buttonOsveziStavka_Click">Osveži</Button>
+                                    <!--<Button Margin="3,0,3,0" MinWidth="60" Name="buttonZatvori" Click="buttonZatvori_Click">Zatvori</Button>-->
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                        
+                    </Border>
+
+                    </Grid>
+            </TabItem>
+
+            <TabItem Header="Štampa" Name="tabItemStampa">
+                <Border Grid.Column="0" Style="{StaticResource Pozadina}">
+                    <WindowsFormsHost>
+                      
+                        <rpt:ReportViewer x:Name="reportViewerPonuda"></rpt:ReportViewer>
+                       
+                    </WindowsFormsHost>
+                </Border>
+            </TabItem>
+
+        </TabControl>
+    </Border>
+
+</Page>
+<!--</PageFunction>-->

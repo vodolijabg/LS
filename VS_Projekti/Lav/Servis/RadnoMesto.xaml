@@ -1,0 +1,125 @@
+﻿<Page x:Class="Servis.RadnoMesto"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="RadnoMesto" Loaded="Page_Loaded" KeepAlive="True">
+    <Page.Resources>
+        <Style x:Key="listViewItem_MouseDoubleClick_Handler" TargetType="{x:Type ListViewItem}">
+            <EventSetter Event="MouseDoubleClick" Handler="listViewItem_MouseDoubleClick" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+            <!--<Setter Property="Background">
+                <Setter.Value>
+                    <Binding RelativeSource="{RelativeSource Self}" >             
+                        <Binding.Converter>
+                            <local:BackgroundConverter></local:BackgroundConverter>
+                        </Binding.Converter>
+                    </Binding>
+                </Setter.Value>
+            </Setter>-->
+        </Style>
+    </Page.Resources>
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0" Height="28">
+            <StackPanel.Background>
+                <LinearGradientBrush StartPoint="0, 0" EndPoint="0,1">
+                    <!--<GradientStop Color="#FFBD69" Offset="0" />
+                    <GradientStop Color="#FFAC42" Offset="0.40625" />
+                    <GradientStop Color="#FB8C3C" Offset="0.40625" />
+                    <GradientStop Color="#FED364" Offset="1" />-->
+
+                    <GradientStop Color="#E3EFFF" Offset="0" />
+                    <GradientStop Color="#C4DDFF" Offset="0.40625" />
+                    <GradientStop Color="#ADD1FF" Offset="0.40625" />
+                    <GradientStop Color="#C0DBFF" Offset="1" />
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Button Name="buttonDodaj" Click="buttonDodaj_Click">
+                <Image Source="Images/Add.ico" ToolTip="Dodaj"></Image>
+            </Button>
+            <Button  Name="buttonIzmeni" Click="buttonIzmeni_Click">
+                <Image Source="Images/Edit.ico" ToolTip="Izmeni"></Image>
+            </Button>
+            <Button  Name="buttonObrisi" Click="buttonObrisi_Click">
+                <Image Source="Images/Delete.ico" ToolTip="Obrisi"></Image>
+            </Button>
+            <Button Name="buttonOsvezi" Click="buttonOsvezi_Click">
+                <Image Source="Images/Refresh.ico" ToolTip="Osvezi" ></Image>
+            </Button>
+            <TextBlock VerticalAlignment ="Center" Margin="10,0,5,0" >Traži za</TextBlock>
+            <TextBox Width="100" Margin="0,2,0,2" Name="textBoxTraziZa"></TextBox>
+            <TextBlock VerticalAlignment ="Center" Margin="3,0,3,0" >u</TextBlock>
+            <ComboBox Margin="0,2,5,2" MinWidth="150" Name="comboBoxRadnoMestoKolone">
+                <ComboBoxItem>ID</ComboBoxItem>
+                <ComboBoxItem>Šifra</ComboBoxItem>
+                <ComboBoxItem>Naziv</ComboBoxItem>
+            </ComboBox>
+            <Button  IsDefault="True" Name="buttonNadji" Click="buttonNadji_Click">
+                <Image Source="Images/Search.ico" ToolTip="Nadji"></Image>
+            </Button>
+        </StackPanel>
+        
+        <ListView Grid.Row="1" Margin="0,3,3,3" Name="listViewRadnoMesto" ItemContainerStyle="{StaticResource listViewItem_MouseDoubleClick_Handler}"  SelectionMode="Single">
+            <!--<ListView.ItemContainerStyleSelector>
+                <local:AlternatingRowStyleSelector AlternateStyle="{StaticResource ObojiSvakiDrugiRed}" />
+            </ListView.ItemContainerStyleSelector>-->
+            <ListView.View>
+                <GridView AllowsColumnReorder="True">
+                    <GridView.Columns>
+                        <GridViewColumn  Width="50" >
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="ID" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock >
+                                        <TextBlock.Text>
+                                            <Binding Path="RadnoMestoID" ></Binding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="50">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Šifra" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock >
+                                        <TextBlock.Text>
+                                            <Binding Path="Sifra" ></Binding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="100">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Naziv" HorizontalContentAlignment="Left"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock >
+                                        <TextBlock.Text>
+                                            <Binding Path="Naziv" ></Binding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Page>

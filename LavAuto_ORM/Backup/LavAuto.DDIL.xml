@@ -1,0 +1,2046 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dil:root xmlns:dil="http://schemas.orm.net/DIL/DIL" xmlns:dcl="http://schemas.orm.net/DIL/DCIL" xmlns:ddt="http://schemas.orm.net/DIL/DILDT" xmlns:dep="http://schemas.orm.net/DIL/DILEP" xmlns:dms="http://schemas.orm.net/DIL/DILMS" xmlns:dml="http://schemas.orm.net/DIL/DMIL" xmlns:ddl="http://schemas.orm.net/DIL/DDIL">
+	<dms:startTransactionStatement isolationLevel="SERIALIZABLE" accessMode="READ WRITE" />
+	<ddl:schemaDefinition schemaName="dbo" defaultCharacterSet="UTF8" />
+	<dms:setSchemaStatement>
+		<ddt:characterStringLiteral value="DBO" />
+	</dms:setSchemaStatement>
+	<ddl:domainDefinition name="PIB" schema="dbo">
+		<ddt:exactNumeric type="INTEGER" />
+		<ddl:domainConstraintDefinition name="PIB_Unsigned_Chk">
+			<ddl:checkConstraintDefinition>
+				<dep:comparisonPredicate operator="greaterThanOrEquals">
+					<dep:valueKeyword />
+					<ddt:exactNumericLiteral value="0" />
+				</dep:comparisonPredicate>
+			</ddl:checkConstraintDefinition>
+		</ddl:domainConstraintDefinition>
+	</ddl:domainDefinition>
+	<ddl:domainDefinition name="JMBG" schema="dbo">
+		<ddt:exactNumeric type="BIGINT" />
+		<ddl:domainConstraintDefinition name="JMBG_Unsigned_Chk">
+			<ddl:checkConstraintDefinition>
+				<dep:comparisonPredicate operator="greaterThanOrEquals">
+					<dep:valueKeyword />
+					<ddt:exactNumericLiteral value="0" />
+				</dep:comparisonPredicate>
+			</ddl:checkConstraintDefinition>
+		</ddl:domainConstraintDefinition>
+	</ddl:domainDefinition>
+	<ddl:domainDefinition name="Kolicina" schema="dbo">
+		<ddt:exactNumeric type="INTEGER" />
+		<ddl:domainConstraintDefinition name="Kolicina_Unsigned_Chk">
+			<ddl:checkConstraintDefinition>
+				<dep:comparisonPredicate operator="greaterThanOrEquals">
+					<dep:valueKeyword />
+					<ddt:exactNumericLiteral value="0" />
+				</dep:comparisonPredicate>
+			</ddl:checkConstraintDefinition>
+		</ddl:domainConstraintDefinition>
+	</ddl:domainDefinition>
+	<ddl:domainDefinition name="Kilometraza" schema="dbo">
+		<ddt:exactNumeric type="INTEGER" />
+		<ddl:domainConstraintDefinition name="Kilometraza_Unsigned_Chk">
+			<ddl:checkConstraintDefinition>
+				<dep:comparisonPredicate operator="greaterThanOrEquals">
+					<dep:valueKeyword />
+					<ddt:exactNumericLiteral value="0" />
+				</dep:comparisonPredicate>
+			</ddl:checkConstraintDefinition>
+		</ddl:domainConstraintDefinition>
+	</ddl:domainDefinition>
+	<ddl:domainDefinition name="Godiste" schema="dbo">
+		<ddt:exactNumeric type="INTEGER" />
+		<ddl:domainConstraintDefinition name="Godiste_Unsigned_Chk">
+			<ddl:checkConstraintDefinition>
+				<dep:comparisonPredicate operator="greaterThanOrEquals">
+					<dep:valueKeyword />
+					<ddt:exactNumericLiteral value="0" />
+				</dep:comparisonPredicate>
+			</ddl:checkConstraintDefinition>
+		</ddl:domainConstraintDefinition>
+	</ddl:domainDefinition>
+	<ddl:domainDefinition name="VrednostMinuta" schema="dbo">
+		<ddt:exactNumeric type="INTEGER" />
+		<ddl:domainConstraintDefinition name="VrednostMinuta_Unsigned_Chk">
+			<ddl:checkConstraintDefinition>
+				<dep:comparisonPredicate operator="greaterThanOrEquals">
+					<dep:valueKeyword />
+					<ddt:exactNumericLiteral value="0" />
+				</dep:comparisonPredicate>
+			</ddl:checkConstraintDefinition>
+		</ddl:domainConstraintDefinition>
+	</ddl:domainDefinition>
+	<ddl:tableDefinition name="Radnik" schema="dbo">
+		<ddl:columnDefinition name="RadnikID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Sifra">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Nadimak">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Ime">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Prezime">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Telefon">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="DatumRodjenja">
+			<ddt:date type="DATE" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Adresa">
+			<ddt:characterString type="CHARACTER VARYING" length="100" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="JMBG">
+			<ddt:domain name="JMBG" schema="dbo" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="ZaposlenOd">
+			<ddt:date type="DATE" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Raspored">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="ImeOca">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="MestoID">
+			<ddt:exactNumeric type="INTEGER" />
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="Radnik_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="RadnikID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="Radnik_UC1">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Sifra" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="Radnik_UC2">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Nadimak" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="Artikal" schema="dbo">
+		<ddl:columnDefinition name="ArtikalID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="PoreskaStopaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Sifra">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Napomena">
+			<ddt:characterString type="CHARACTER VARYING" length="500" />
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="Artikal_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="ArtikalID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="Artikal_UC">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Sifra" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="Usluga" schema="dbo">
+		<ddl:columnDefinition name="UslugaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Sifra">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="VrstaUslugeID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="NosilacGrupeID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="NivoID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="PozicijaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="NormaMinuta">
+			<ddt:domain name="VrednostMinuta" schema="dbo" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="BrojBodova">
+			<ddt:exactNumeric type="DECIMAL" precision="18" scale="2" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="BodID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="PoreskaStopaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="Usluga_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="UslugaID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="Usluga_UC1">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Sifra" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="Usluga_UC2">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="VrstaUslugeID" />
+				<dep:simpleColumnReference name="NivoID" />
+				<dep:simpleColumnReference name="NosilacGrupeID" />
+				<dep:simpleColumnReference name="PozicijaID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="TipAutomobila" schema="dbo">
+		<ddl:columnDefinition name="TipAutomobilaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="TipAutomobila_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="TipAutomobilaID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="RadnoMesto" schema="dbo">
+		<ddl:columnDefinition name="RadnoMestoID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Naziv">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Sifra">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="RadnoMesto_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="RadnoMestoID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="RadnoMesto_UC1">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Naziv" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="RadnoMesto_UC2">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Sifra" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="RadniNalog" schema="dbo">
+		<ddl:columnDefinition name="RadniNalogID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Vreme">
+			<ddt:time type="TIMESTAMP" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="RadnikID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="ServisnaKnjizicaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="KorisnikProgramaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="PredvidjenoVremeMinuta">
+			<ddt:domain name="VrednostMinuta" schema="dbo" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Kilometraza">
+			<ddt:domain name="Kilometraza" schema="dbo" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="RegistarskiBroj">
+			<ddt:characterString type="CHARACTER VARYING" length="15" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="DatumRegistracije">
+			<ddt:date type="DATE" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Napomena">
+			<ddt:characterString type="CHARACTER VARYING" length="500" />
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="RadniNalog_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="RadniNalogID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="ServisnaKnjizica" schema="dbo">
+		<ddl:columnDefinition name="ServisnaKnjizicaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Sifra">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="&quot;ABS&quot;">
+			<ddt:boolean type="BOOLEAN" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="PS">
+			<ddt:boolean type="BOOLEAN" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="AC">
+			<ddt:boolean type="BOOLEAN" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="TipAutomobilaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Napomena">
+			<ddt:characterString type="CHARACTER VARYING" length="500" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="RegistarskiBroj">
+			<ddt:characterString type="CHARACTER VARYING" length="15" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="DatumRegistracije">
+			<ddt:date type="DATE" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="BrojSasije">
+			<ddt:characterString type="CHARACTER VARYING" length="30" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="BrojMotora">
+			<ddt:characterString type="CHARACTER VARYING" length="30" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Godiste">
+			<ddt:domain name="Godiste" schema="dbo" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Kilometraza">
+			<ddt:domain name="Kilometraza" schema="dbo" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="DimenzijaGuma">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="FizickoLiceID">
+			<ddt:exactNumeric type="INTEGER" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="PoslovniPartnerID">
+			<ddt:exactNumeric type="INTEGER" />
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="ServisnaKnjizica_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="ServisnaKnjizicaID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="ServisnaKnjizica_UC">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Sifra" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="NosilacGrupe" schema="dbo">
+		<ddl:columnDefinition name="NosilacGrupeID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Naziv">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Sifra">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="NosilacGrupe_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="NosilacGrupeID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="NosilacGrupe_UC1">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Naziv" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="NosilacGrupe_UC2">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Sifra" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="Bod" schema="dbo">
+		<ddl:columnDefinition name="BodID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Sifra">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Naziv">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Vrednost">
+			<ddt:exactNumeric type="DECIMAL" precision="18" scale="2" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="Bod_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="BodID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="Bod_UC1">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Sifra" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="Bod_UC2">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Naziv" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="RadnoVreme" schema="dbo">
+		<ddl:columnDefinition name="RadnoVremeID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Sifra">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="PocinjeOd">
+			<ddt:time type="TIME" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="TrajeDo">
+			<ddt:time type="TIME" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="RadnoVreme_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="RadnoVremeID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="RadnoVreme_UC">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Sifra" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="StavkaUsluga" schema="dbo">
+		<ddl:columnDefinition name="StavkaUslugaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="UslugaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="UslugaKolicina">
+			<ddt:domain name="Kolicina" schema="dbo" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="UslugaCenaBezPoreza">
+			<ddt:exactNumeric type="DECIMAL" precision="18" scale="2" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="UslugaPoreskaStopa_ID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="RadniNalogID">
+			<ddt:exactNumeric type="INTEGER" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="PonudaID">
+			<ddt:exactNumeric type="INTEGER" />
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="StavkaUsluga_UC1">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="PonudaID" />
+				<dep:simpleColumnReference name="UslugaID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="StavkaUsluga_UC2">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="RadniNalogID" />
+				<dep:simpleColumnReference name="UslugaID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="StavkaUsluga_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="StavkaUslugaID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="KorisnikPrograma" schema="dbo">
+		<ddl:columnDefinition name="KorisnikProgramaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Sifra">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Naziv">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Adresa">
+			<ddt:characterString type="CHARACTER VARYING" length="100" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="PIB">
+			<ddt:domain name="PIB" schema="dbo" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Telefon">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="ZiroRacun">
+			<ddt:characterString type="CHARACTER VARYING" length="100" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Faks">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="MaticniBroj">
+			<ddt:characterString type="CHARACTER VARYING" length="8" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="EMail">
+			<ddt:characterString type="CHARACTER VARYING" length="100" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="MestoID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="KorisnikPrograma_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="KorisnikProgramaID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="KorisnikPrograma_UC">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Sifra" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="Mesto" schema="dbo">
+		<ddl:columnDefinition name="MestoID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Naziv">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Sifra">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="PozivniBroj">
+			<ddt:characterString type="CHARACTER VARYING" length="5" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="PostanskiBroj">
+			<ddt:characterString type="CHARACTER VARYING" length="5" />
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="Mesto_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="MestoID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="Mesto_UC1">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Naziv" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="Mesto_UC2">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Sifra" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="RadniNalogStatus" schema="dbo">
+		<ddl:columnDefinition name="RadniNalogStatusID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Naziv">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Sifra">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="RadniNalogStatus_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="RadniNalogStatusID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="RadniNalogStatus_UC1">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Naziv" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="RadniNalogStatus_UC2">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Sifra" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="FizickoLice" schema="dbo">
+		<ddl:columnDefinition name="FizickoLiceID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Telefon">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Sifra">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Ime">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="RegistrovanKupac">
+			<ddt:boolean type="BOOLEAN" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Prezime">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="EMail">
+			<ddt:characterString type="CHARACTER VARYING" length="100" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Adresa">
+			<ddt:characterString type="CHARACTER VARYING" length="100" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="MestoID">
+			<ddt:exactNumeric type="INTEGER" />
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="FizickoLice_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="FizickoLiceID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="FizickoLice_UC1">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Telefon" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="FizickoLice_UC2">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Sifra" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="PoslovniPartner" schema="dbo">
+		<ddl:columnDefinition name="PoslovniPartnerID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Sifra">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="SkracenNaziv">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="PIB">
+			<ddt:domain name="PIB" schema="dbo" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Adresa">
+			<ddt:characterString type="CHARACTER VARYING" length="100" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="EMail1">
+			<ddt:characterString type="CHARACTER VARYING" length="100" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="KontaktOsoba2">
+			<ddt:characterString type="CHARACTER VARYING" length="100" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Telefon1">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="ZiroRacun">
+			<ddt:characterString type="CHARACTER VARYING" length="100" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="PunNaziv">
+			<ddt:characterString type="CHARACTER VARYING" length="200" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="MaticniBroj">
+			<ddt:characterString type="CHARACTER VARYING" length="8" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="KontaktOsoba1">
+			<ddt:characterString type="CHARACTER VARYING" length="100" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Telefon2">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Faks">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="EMail2">
+			<ddt:characterString type="CHARACTER VARYING" length="100" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="MestoID">
+			<ddt:exactNumeric type="INTEGER" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="NacinOrganizacijeFirmeID">
+			<ddt:exactNumeric type="INTEGER" />
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="PoslovniPartner_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="PoslovniPartnerID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="PoslovniPartner_UC1">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Sifra" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="PoslovniPartner_UC2">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="SkracenNaziv" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="RadniNalogStavkaUsluga" schema="dbo">
+		<ddl:columnDefinition name="RadniNalogStavkaUslugaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="PredvidjenoVremeMinuta">
+			<ddt:domain name="VrednostMinuta" schema="dbo" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="RadniNalogStatusID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Napomena">
+			<ddt:characterString type="CHARACTER VARYING" length="500" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="UtrosenoVremeMinuta">
+			<ddt:domain name="VrednostMinuta" schema="dbo" />
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="RadniNalogStavkaUsluga_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="RadniNalogStavkaUslugaID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="PoreskaStopa" schema="dbo">
+		<ddl:columnDefinition name="PoreskaStopaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="VrednostProcenata">
+			<ddt:domain name="Kolicina" schema="dbo" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Sifra">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="PoreskaStopa_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="PoreskaStopaID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="PoreskaStopa_UC1">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="VrednostProcenata" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="PoreskaStopa_UC2">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Sifra" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="NacinZahtevaZaPonudu" schema="dbo">
+		<ddl:columnDefinition name="NacinZahtevaZaPonuduID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Sifra">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Naziv">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="NacinZahtevaZaPonudu_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="NacinZahtevaZaPonuduID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="NacinZahtevaZaPonudu_UC1">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Sifra" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="NacinZahtevaZaPonudu_UC2">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Naziv" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="VezaArtikalDobavljac" schema="dbo">
+		<ddl:columnDefinition name="VezaArtikalDobavljacID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="ArtikalID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Cena">
+			<ddt:exactNumeric type="DECIMAL" precision="18" scale="2" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="DatumAzuriranja">
+			<ddt:date type="DATE" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="PoslovniPartnerID">
+			<ddt:exactNumeric type="INTEGER" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="KorisnikProgramaID">
+			<ddt:exactNumeric type="INTEGER" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="KolicinaNaStanju">
+			<ddt:exactNumeric type="DECIMAL" precision="18" scale="2" />
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="VezaArtikalDobavljac_UC1">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="ArtikalID" />
+				<dep:simpleColumnReference name="PoslovniPartnerID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="VezaArtikalDobavljac_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="VezaArtikalDobavljacID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="VezaArtikalDobavljac_UC2">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="KorisnikProgramaID" />
+				<dep:simpleColumnReference name="ArtikalID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="Ponuda" schema="dbo">
+		<ddl:columnDefinition name="PonudaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="PosaljiSMSObavestenje">
+			<ddt:boolean type="BOOLEAN" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="ObavestiTelefonom">
+			<ddt:boolean type="BOOLEAN" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="PreuzimaLicno">
+			<ddt:boolean type="BOOLEAN" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Vreme">
+			<ddt:time type="TIMESTAMP" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="NacinZahtevaZaPonuduID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="RadnikID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="ServisnaKnjizicaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="KorisnikProgramaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="PoslatoSMSObavestenjeU">
+			<ddt:date type="DATE" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="ObavestenTelefonomU">
+			<ddt:date type="DATE" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="PreuzeoLicnoU">
+			<ddt:date type="DATE" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Napomena">
+			<ddt:characterString type="CHARACTER VARYING" length="500" />
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="Ponuda_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="PonudaID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="VrstaUsluge" schema="dbo">
+		<ddl:columnDefinition name="VrstaUslugeID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Naziv">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Sifra">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="VrstaUsluge_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="VrstaUslugeID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="VrstaUsluge_UC1">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Naziv" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="VrstaUsluge_UC2">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Sifra" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="Nivo" schema="dbo">
+		<ddl:columnDefinition name="NivoID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Naziv">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Sifra">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="Nivo_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="NivoID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="Nivo_UC1">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Naziv" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="Nivo_UC2">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Sifra" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="StavkaArtikal" schema="dbo">
+		<ddl:columnDefinition name="StavkaArtikalID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="ArtikalBrojProizvodjaca">
+			<ddt:characterString type="CHARACTER VARYING" length="100" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="ArtikalProizvodjacID">
+			<ddt:exactNumeric type="SMALLINT" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="ArtikalProizvodjacNaziv">
+			<ddt:characterString type="CHARACTER VARYING" length="100" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="StavkaUslugaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="ArtikalCenaBezPoreza">
+			<ddt:exactNumeric type="DECIMAL" precision="18" scale="2" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="ArtikalKolicina">
+			<ddt:domain name="Kolicina" schema="dbo" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="ArtikalNaziv">
+			<ddt:characterString type="CHARACTER LARGE OBJECT" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="ArtikalPoreskaStopa_ID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="NosilacGrupeID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="PoslovniPartnerID">
+			<ddt:exactNumeric type="INTEGER" />
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="KorisnikProgramaID">
+			<ddt:exactNumeric type="INTEGER" />
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="StavkaArtikal_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="StavkaArtikalID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="StavkaArtikal_UC">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="StavkaUslugaID" />
+				<dep:simpleColumnReference name="ArtikalBrojProizvodjaca" />
+				<dep:simpleColumnReference name="ArtikalProizvodjacNaziv" />
+				<dep:simpleColumnReference name="ArtikalProizvodjacID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="StavkaUslugaRadniRaspored" schema="dbo">
+		<ddl:columnDefinition name="StavkaUslugaRadniRasporedID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Datum">
+			<ddt:date type="DATE" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="RadnoVremeID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="RadnikID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="RadnoMestoID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="StavkaUslugaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="StavkaUslugaRadniRaspored_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="StavkaUslugaRadniRasporedID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="StavkaUslugaRadniRaspored_UC">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="StavkaUslugaID" />
+				<dep:simpleColumnReference name="RadnoMestoID" />
+				<dep:simpleColumnReference name="Datum" />
+				<dep:simpleColumnReference name="RadnikID" />
+				<dep:simpleColumnReference name="RadnoVremeID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="NacinOrganizacijeFirme" schema="dbo">
+		<ddl:columnDefinition name="NacinOrganizacijeFirmeID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Sifra">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Naziv">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="NacinOrganizacijeFirme_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="NacinOrganizacijeFirmeID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="NacinOrganizacijeFirme_UC1">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Sifra" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="NacinOrganizacijeFirme_UC2">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Naziv" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="VezaRadnikKorisnickiNalog" schema="dbo">
+		<ddl:columnDefinition name="VezaRadnikKorisnickiNalogID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="KorisnickiNalog">
+			<ddt:characterString type="CHARACTER VARYING" length="100" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Lozinka">
+			<ddt:characterString type="CHARACTER VARYING" length="100" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="RadnikID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="VezaRadnikKorisnickiNalog_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="VezaRadnikKorisnickiNalogID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="VezaRadnikKorisnickiNalog_UC">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="KorisnickiNalog" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:tableDefinition name="Pozicija" schema="dbo">
+		<ddl:columnDefinition name="PozicijaID">
+			<ddt:exactNumeric type="INTEGER" />
+			<ddl:identityColumnSpecification type="ALWAYS">
+				<ddl:sequenceGeneratorStartWithOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorStartWithOption>
+				<ddl:sequenceGeneratorIncrementByOption>
+					<ddt:exactNumericLiteral value="1" />
+				</ddl:sequenceGeneratorIncrementByOption>
+			</ddl:identityColumnSpecification>
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Naziv">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:columnDefinition name="Sifra">
+			<ddt:characterString type="CHARACTER VARYING" length="50" />
+			<ddl:columnConstraintDefinition>
+				<ddl:notNullKeyword />
+			</ddl:columnConstraintDefinition>
+		</ddl:columnDefinition>
+		<ddl:tableConstraintDefinition name="Pozicija_PK">
+			<ddl:uniqueConstraintDefinition type="PRIMARY KEY">
+				<dep:simpleColumnReference name="PozicijaID" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="Pozicija_UC1">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Naziv" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+		<ddl:tableConstraintDefinition name="Pozicija_UC2">
+			<ddl:uniqueConstraintDefinition type="UNIQUE">
+				<dep:simpleColumnReference name="Sifra" />
+			</ddl:uniqueConstraintDefinition>
+		</ddl:tableConstraintDefinition>
+	</ddl:tableDefinition>
+	<ddl:alterTableStatement name="Radnik" schema="dbo">
+		<ddl:addTableConstraintDefinition name="Radnik_FK">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="MestoID" />
+				<ddl:referencesSpecification name="Mesto" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="MestoID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="Artikal" schema="dbo">
+		<ddl:addTableConstraintDefinition name="Artikal_FK">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="PoreskaStopaID" />
+				<ddl:referencesSpecification name="PoreskaStopa" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="PoreskaStopaID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="Usluga" schema="dbo">
+		<ddl:addTableConstraintDefinition name="Usluga_FK1">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="BodID" />
+				<ddl:referencesSpecification name="Bod" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="BodID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="Usluga" schema="dbo">
+		<ddl:addTableConstraintDefinition name="Usluga_FK2">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="VrstaUslugeID" />
+				<ddl:referencesSpecification name="VrstaUsluge" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="VrstaUslugeID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="Usluga" schema="dbo">
+		<ddl:addTableConstraintDefinition name="Usluga_FK3">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="PoreskaStopaID" />
+				<ddl:referencesSpecification name="PoreskaStopa" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="PoreskaStopaID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="Usluga" schema="dbo">
+		<ddl:addTableConstraintDefinition name="Usluga_FK4">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="NosilacGrupeID" />
+				<ddl:referencesSpecification name="NosilacGrupe" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="NosilacGrupeID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="Usluga" schema="dbo">
+		<ddl:addTableConstraintDefinition name="Usluga_FK5">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="NivoID" />
+				<ddl:referencesSpecification name="Nivo" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="NivoID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="Usluga" schema="dbo">
+		<ddl:addTableConstraintDefinition name="Usluga_FK6">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="PozicijaID" />
+				<ddl:referencesSpecification name="Pozicija" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="PozicijaID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="RadniNalog" schema="dbo">
+		<ddl:addTableConstraintDefinition name="RadniNalog_FK1">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="RadnikID" />
+				<ddl:referencesSpecification name="Radnik" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="RadnikID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="RadniNalog" schema="dbo">
+		<ddl:addTableConstraintDefinition name="RadniNalog_FK2">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="ServisnaKnjizicaID" />
+				<ddl:referencesSpecification name="ServisnaKnjizica" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="ServisnaKnjizicaID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="RadniNalog" schema="dbo">
+		<ddl:addTableConstraintDefinition name="RadniNalog_FK3">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="KorisnikProgramaID" />
+				<ddl:referencesSpecification name="KorisnikPrograma" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="KorisnikProgramaID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="ServisnaKnjizica" schema="dbo">
+		<ddl:addTableConstraintDefinition name="ServisnaKnjizica_FK1">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="TipAutomobilaID" />
+				<ddl:referencesSpecification name="TipAutomobila" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="TipAutomobilaID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="ServisnaKnjizica" schema="dbo">
+		<ddl:addTableConstraintDefinition name="ServisnaKnjizica_FK2">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="FizickoLiceID" />
+				<ddl:referencesSpecification name="FizickoLice" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="FizickoLiceID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="ServisnaKnjizica" schema="dbo">
+		<ddl:addTableConstraintDefinition name="ServisnaKnjizica_FK3">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="PoslovniPartnerID" />
+				<ddl:referencesSpecification name="PoslovniPartner" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="PoslovniPartnerID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="StavkaUsluga" schema="dbo">
+		<ddl:addTableConstraintDefinition name="StavkaUsluga_FK1">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="UslugaID" />
+				<ddl:referencesSpecification name="Usluga" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="UslugaID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="StavkaUsluga" schema="dbo">
+		<ddl:addTableConstraintDefinition name="StavkaUsluga_FK2">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="UslugaPoreskaStopa_ID" />
+				<ddl:referencesSpecification name="PoreskaStopa" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="PoreskaStopaID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="StavkaUsluga" schema="dbo">
+		<ddl:addTableConstraintDefinition name="StavkaUsluga_FK3">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="RadniNalogID" />
+				<ddl:referencesSpecification name="RadniNalog" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="RadniNalogID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="StavkaUsluga" schema="dbo">
+		<ddl:addTableConstraintDefinition name="StavkaUsluga_FK4">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="PonudaID" />
+				<ddl:referencesSpecification name="Ponuda" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="PonudaID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="KorisnikPrograma" schema="dbo">
+		<ddl:addTableConstraintDefinition name="KorisnikPrograma_FK">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="MestoID" />
+				<ddl:referencesSpecification name="Mesto" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="MestoID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="FizickoLice" schema="dbo">
+		<ddl:addTableConstraintDefinition name="FizickoLice_FK">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="MestoID" />
+				<ddl:referencesSpecification name="Mesto" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="MestoID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="PoslovniPartner" schema="dbo">
+		<ddl:addTableConstraintDefinition name="PoslovniPartner_FK1">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="MestoID" />
+				<ddl:referencesSpecification name="Mesto" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="MestoID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="PoslovniPartner" schema="dbo">
+		<ddl:addTableConstraintDefinition name="PoslovniPartner_FK2">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="NacinOrganizacijeFirmeID" />
+				<ddl:referencesSpecification name="NacinOrganizacijeFirme" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="NacinOrganizacijeFirmeID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="RadniNalogStavkaUsluga" schema="dbo">
+		<ddl:addTableConstraintDefinition name="RadniNalogStavkaUsluga_FK1">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="RadniNalogStatusID" />
+				<ddl:referencesSpecification name="RadniNalogStatus" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="RadniNalogStatusID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="RadniNalogStavkaUsluga" schema="dbo">
+		<ddl:addTableConstraintDefinition name="RadniNalogStavkaUsluga_FK2">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="RadniNalogStavkaUslugaID" />
+				<ddl:referencesSpecification name="StavkaUsluga" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="StavkaUslugaID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="VezaArtikalDobavljac" schema="dbo">
+		<ddl:addTableConstraintDefinition name="VezaArtikalDobavljac_FK1">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="PoslovniPartnerID" />
+				<ddl:referencesSpecification name="PoslovniPartner" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="PoslovniPartnerID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="VezaArtikalDobavljac" schema="dbo">
+		<ddl:addTableConstraintDefinition name="VezaArtikalDobavljac_FK2">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="ArtikalID" />
+				<ddl:referencesSpecification name="Artikal" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="ArtikalID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="VezaArtikalDobavljac" schema="dbo">
+		<ddl:addTableConstraintDefinition name="VezaArtikalDobavljac_FK3">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="KorisnikProgramaID" />
+				<ddl:referencesSpecification name="KorisnikPrograma" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="KorisnikProgramaID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="Ponuda" schema="dbo">
+		<ddl:addTableConstraintDefinition name="Ponuda_FK1">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="NacinZahtevaZaPonuduID" />
+				<ddl:referencesSpecification name="NacinZahtevaZaPonudu" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="NacinZahtevaZaPonuduID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="Ponuda" schema="dbo">
+		<ddl:addTableConstraintDefinition name="Ponuda_FK2">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="RadnikID" />
+				<ddl:referencesSpecification name="Radnik" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="RadnikID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="Ponuda" schema="dbo">
+		<ddl:addTableConstraintDefinition name="Ponuda_FK3">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="ServisnaKnjizicaID" />
+				<ddl:referencesSpecification name="ServisnaKnjizica" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="ServisnaKnjizicaID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="Ponuda" schema="dbo">
+		<ddl:addTableConstraintDefinition name="Ponuda_FK4">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="KorisnikProgramaID" />
+				<ddl:referencesSpecification name="KorisnikPrograma" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="KorisnikProgramaID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="StavkaArtikal" schema="dbo">
+		<ddl:addTableConstraintDefinition name="StavkaArtikal_FK1">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="ArtikalPoreskaStopa_ID" />
+				<ddl:referencesSpecification name="PoreskaStopa" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="PoreskaStopaID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="StavkaArtikal" schema="dbo">
+		<ddl:addTableConstraintDefinition name="StavkaArtikal_FK2">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="StavkaUslugaID" />
+				<ddl:referencesSpecification name="StavkaUsluga" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="StavkaUslugaID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="StavkaArtikal" schema="dbo">
+		<ddl:addTableConstraintDefinition name="StavkaArtikal_FK3">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="PoslovniPartnerID" />
+				<ddl:referencesSpecification name="PoslovniPartner" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="PoslovniPartnerID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="StavkaArtikal" schema="dbo">
+		<ddl:addTableConstraintDefinition name="StavkaArtikal_FK4">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="KorisnikProgramaID" />
+				<ddl:referencesSpecification name="KorisnikPrograma" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="KorisnikProgramaID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="StavkaArtikal" schema="dbo">
+		<ddl:addTableConstraintDefinition name="StavkaArtikal_FK5">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="NosilacGrupeID" />
+				<ddl:referencesSpecification name="NosilacGrupe" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="NosilacGrupeID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="StavkaUslugaRadniRaspored" schema="dbo">
+		<ddl:addTableConstraintDefinition name="StavkaUslugaRadniRaspored_FK1">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="RadnoVremeID" />
+				<ddl:referencesSpecification name="RadnoVreme" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="RadnoVremeID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="StavkaUslugaRadniRaspored" schema="dbo">
+		<ddl:addTableConstraintDefinition name="StavkaUslugaRadniRaspored_FK2">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="RadnikID" />
+				<ddl:referencesSpecification name="Radnik" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="RadnikID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="StavkaUslugaRadniRaspored" schema="dbo">
+		<ddl:addTableConstraintDefinition name="StavkaUslugaRadniRaspored_FK3">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="RadnoMestoID" />
+				<ddl:referencesSpecification name="RadnoMesto" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="RadnoMestoID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="StavkaUslugaRadniRaspored" schema="dbo">
+		<ddl:addTableConstraintDefinition name="StavkaUslugaRadniRaspored_FK4">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="StavkaUslugaID" />
+				<ddl:referencesSpecification name="StavkaUsluga" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="StavkaUslugaID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<ddl:alterTableStatement name="VezaRadnikKorisnickiNalog" schema="dbo">
+		<ddl:addTableConstraintDefinition name="VezaRadnikKorisnickiNalog_FK">
+			<ddl:referentialConstraintDefinition>
+				<dep:simpleColumnReference name="RadnikID" />
+				<ddl:referencesSpecification name="Radnik" onDelete="RESTRICT" onUpdate="RESTRICT" schema="dbo">
+					<dep:simpleColumnReference name="RadnikID" />
+				</ddl:referencesSpecification>
+			</ddl:referentialConstraintDefinition>
+		</ddl:addTableConstraintDefinition>
+	</ddl:alterTableStatement>
+	<dms:commitStatement />
+</dil:root>

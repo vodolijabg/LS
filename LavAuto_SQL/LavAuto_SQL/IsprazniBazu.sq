@@ -1,0 +1,101 @@
+delete from StavkaArtikal
+go
+DBCC CHECKIDENT ('StavkaArtikal', RESEED, 0)
+go
+delete from StavkaUsluga
+go
+DBCC CHECKIDENT ('StavkaUsluga', RESEED, 0)
+go
+delete from Ponuda
+go
+DBCC CHECKIDENT ('Ponuda', RESEED, 0)
+go
+delete from RadniNalog
+go
+DBCC CHECKIDENT ('RadniNalog', RESEED, 0)
+go
+delete from VezaArtikalDobavljac
+go
+DBCC CHECKIDENT ('VezaArtikalDobavljac', RESEED, 0)
+go
+delete from ServisnaKnjizica
+go
+DBCC CHECKIDENT ('ServisnaKnjizica', RESEED, 0)
+go
+delete from PoslovniPartner
+go
+DBCC CHECKIDENT ('PoslovniPartner', RESEED, 0)
+go
+delete from FizickoLice
+go
+DBCC CHECKIDENT ('FizickoLice', RESEED, 0)
+go
+delete from Bod
+go
+DBCC CHECKIDENT ('Bod', RESEED, 0)
+go
+delete from Usluga
+go
+DBCC CHECKIDENT ('Usluga', RESEED, 0)
+go
+--delete from VezaRadnikKorisnickiNalog where VezaRadnikKorisnickiNalogID >1
+--go
+--DBCC CHECKIDENT ('VezaRadnikKorisnickiNalog', RESEED,1)
+--go
+--delete from Radnik where RadnikID >1
+--go
+--DBCC CHECKIDENT ('Radnik', RESEED, 1)
+----go
+----delete from KorisnikPrograma
+----go
+delete from Mesto where MestoID >1
+go
+DBCC CHECKIDENT ('Mesto', RESEED, 1)
+go
+----delete from Artikal 
+----where not (IzvorPodatakaID  = 1)
+----go
+delete from NacinOrganizacijeFirme
+go
+DBCC CHECKIDENT ('NacinOrganizacijeFirme', RESEED, 0)
+go
+delete from NacinZahtevaZaPonudu
+go
+DBCC CHECKIDENT ('NacinZahtevaZaPonudu', RESEED, 0)
+go
+delete from Nivo
+go
+DBCC CHECKIDENT ('Nivo', RESEED, 0)
+go
+delete from NosilacGrupe
+go
+DBCC CHECKIDENT ('NosilacGrupe', RESEED, 0)
+go
+delete from RadniNalogStatus
+go
+DBCC CHECKIDENT ('RadniNalogStatus', RESEED, 0)
+go
+----delete from StavkaUslugaRadniRaspored
+----go
+----DBCC CHECKIDENT ('StavkaUslugaRadniRaspored', RESEED, 0)
+----go
+----delete from RadniNalogStavkaUsluga
+----go
+----delete from RadniNalog
+----go
+----DBCC CHECKIDENT ('RadniNalog', RESEED, 0)
+--go
+delete from RadnoMesto
+go
+DBCC CHECKIDENT ('RadnoMesto', RESEED, 0)
+go
+----delete from RadnoVreme
+----go
+----DBCC CHECKIDENT ('RadnoVreme', RESEED, 0)
+----go
+delete from VrstaUsluge
+go
+DBCC CHECKIDENT ('VrstaUsluge', RESEED, 0)
+
+
+

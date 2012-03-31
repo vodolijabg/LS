@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9b5e209d-dd56-418e-8224-90d91b9c640b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/LavWS/ExportRadniNalogWebServis.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ExportRadniNalogWebServis.wsdl" MetadataType="Wsdl" ID="ac7fbed3-aa54-436f-bdfd-f0c34937d3d3" SourceId="1" SourceUrl="http://localhost/LavWS/ExportRadniNalogWebServis.svc?wsdl" />
+    <MetadataFile FileName="ExportRadniNalogWebServis.xsd" MetadataType="Schema" ID="e65826c2-4720-4b5e-9c0f-53592edc5feb" SourceId="1" SourceUrl="http://localhost/LavWS/ExportRadniNalogWebServis.svc?xsd=xsd0" />
+    <MetadataFile FileName="ExportRadniNalogWebServis1.xsd" MetadataType="Schema" ID="a52fe363-1307-4cb2-b439-8815608f291d" SourceId="1" SourceUrl="http://localhost/LavWS/ExportRadniNalogWebServis.svc?xsd=xsd1" />
+    <MetadataFile FileName="ExportRadniNalogWebServis2.xsd" MetadataType="Schema" ID="5b6d5f69-74ed-4f1c-8457-535562ecc989" SourceId="1" SourceUrl="http://localhost/LavWS/ExportRadniNalogWebServis.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

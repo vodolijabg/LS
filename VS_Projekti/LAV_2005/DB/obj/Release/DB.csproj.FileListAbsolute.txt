@@ -1,0 +1,5 @@
+D:\LavAuto\VS_Projekti\LAV_2005\DB\bin\Release\DB.dll
+D:\LavAuto\VS_Projekti\LAV_2005\DB\bin\Release\DB.pdb
+D:\LavAuto\VS_Projekti\LAV_2005\DB\obj\Release\ResolveAssemblyReference.cache
+D:\LavAuto\VS_Projekti\LAV_2005\DB\obj\Release\DB.dll
+D:\LavAuto\VS_Projekti\LAV_2005\DB\obj\Release\DB.pdb

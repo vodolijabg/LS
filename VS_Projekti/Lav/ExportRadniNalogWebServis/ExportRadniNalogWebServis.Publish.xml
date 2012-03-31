@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="D:\LavAuto\VS_Projekti\Lav\ExportRadniNalogWebServis\Publish" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="http://localhost/LavWS/" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="ExportRadniNalogWebServis.svc" publishTime="12/16/2011 22:52:17" />
+    <file relUrl="bin/ExportRadniNalogWebServis.dll" publishTime="12/26/2011 10:43:08" />
+    <file relUrl="bin/log4net.dll" publishTime="10/31/2011 11:27:18" />
+    <file relUrl="bin/ExportRadniNalogWebServis.pdb" publishTime="12/26/2011 10:43:08" />
+    <file relUrl="Web.config" publishTime="12/26/2011 16:13:06" />
+  </publishProfile>
+</publishData>
